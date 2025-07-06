@@ -1,96 +1,133 @@
 # THV Digital - Security Services Website
 
-A modern, responsive website for THV Digital security services, built with React, Vite, and Tailwind CSS.
-
-## 🛡️ About
-
-THV Digital provides comprehensive security services including surveillance, monitoring, and vigilance solutions for organizations. This website showcases our professional security offerings with a modern, trustworthy design.
+A modern, responsive website for THV Digital, a professional security services company. Built with React, Vite, and Tailwind CSS.
 
 ## 🚀 Features
 
 - **Modern Design**: Clean, professional design with black, white, and orange color scheme
-- **Responsive**: Fully responsive design that works on all devices
-- **Fast Performance**: Built with Vite for optimal performance
-- **SEO Optimized**: Proper meta tags and semantic HTML
-- **Accessible**: WCAG compliant design and navigation
-- **Interactive**: Smooth animations and transitions
+- **Fully Responsive**: Optimized for all devices and screen sizes
+- **Fast Performance**: Built with Vite for lightning-fast development and builds
+- **SEO Optimized**: Proper meta tags and semantic HTML structure
+- **Accessibility**: WCAG compliant with proper ARIA labels and keyboard navigation
+- **Professional Content**: Security services focused content for organizations
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 18 with TypeScript
+- **Frontend**: React 18
 - **Build Tool**: Vite
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
 - **Routing**: React Router DOM
-- **Animations**: Framer Motion
+- **Language**: JavaScript (ES6+)
 
 ## 📁 Project Structure
 
 ```
-thv-digital/
+thv/
+├── public/
+│   ├── images/           # All images organized properly
+│   │   ├── thv.jpeg      # Company logo
+│   │   ├── monitoring-type.jpeg
+│   │   └── plans.jpeg
+│   └── index.html
 ├── src/
 │   ├── components/
-│   │   ├── layout/
-│   │   │   ├── Header.tsx
-│   │   │   └── Footer.tsx
-│   │   └── utils/
-│   │       └── ScrollToTop.tsx
-│   ├── pages/
-│   │   ├── Home.tsx
-│   │   ├── About.tsx
-│   │   ├── Services.tsx
-│   │   └── Contact.tsx
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
-├── public/
-├── package.json
-├── tailwind.config.js
-├── vite.config.ts
-└── README.md
+│   │   ├── layout/       # Layout components
+│   │   │   ├── Header.jsx
+│   │   │   └── Footer.jsx
+│   │   └── utils/        # Utility components
+│   │       └── ScrollToTop.jsx
+│   ├── pages/           # Page components
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Services.jsx
+│   │   ├── Plans.jsx
+│   │   └── Contact.jsx
+│   ├── App.jsx          # Main app component
+│   ├── main.jsx         # Entry point
+│   └── index.css        # Global styles
+├── tailwind.config.js   # Tailwind configuration
+├── vite.config.js       # Vite configuration
+└── package.json
 ```
 
 ## 🎨 Design System
 
 ### Colors
-- **Primary**: Black (#000000) and White (#FFFFFF)
-- **Secondary**: Orange (#FF6B35)
-- **Gray Scale**: 50-900 range for text and backgrounds
+- **Primary Orange**: `#ff362c` (Secondary Orange)
+- **Dark Orange**: `#e62e24` (Secondary Orange Dark)
+- **Black**: `#000000`
+- **White**: `#ffffff`
+- **Gray Scale**: Various shades for text and backgrounds
 
 ### Typography
-- **Headings**: Poppins font family
-- **Body**: Inter font family
+- **Headings**: Bold, large text for hierarchy
+- **Body**: Clean, readable font for content
+- **Buttons**: Semi-bold for call-to-actions
 
-### Components
-- Reusable button styles (primary/secondary)
-- Card components with hover effects
-- Consistent spacing and layout utilities
+## 📱 Pages
+
+### 1. Home Page (`/`)
+- Hero section with compelling value proposition
+- Feature highlights with icons
+- Statistics showcase
+- Services overview
+- Call-to-action sections
+
+### 2. About Page (`/about`)
+- Company mission and vision
+- Core values presentation
+- Company timeline/journey
+- Team information
+- Professional achievements
+
+### 3. Services Page (`/services`)
+- Detailed service offerings
+- Service benefits
+- Process explanation
+- Technology highlights
+- Contact information
+
+### 4. Plans Page (`/plans`)
+- Three monitoring plans (Basic, Professional, Enterprise)
+- Feature comparison table
+- Add-on services
+- Pricing information
+- Plan selection guidance
+
+### 5. Contact Page (`/contact`)
+- Contact form with validation
+- Company contact information
+- Office locations
+- Business hours
+- Quick contact options
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
+- Node.js (version 16 or higher)
+- npm or yarn package manager
 
 ### Installation
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd thv-digital
-```
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd thv
+   ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-3. Start the development server:
-```bash
-npm run dev
-```
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-4. Open your browser and navigate to `http://localhost:3000`
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
 
 ### Build for Production
 
@@ -98,97 +135,81 @@ npm run dev
 npm run build
 ```
 
+The built files will be in the `dist/` directory.
+
 ### Preview Production Build
 
 ```bash
 npm run preview
 ```
 
-## 📱 Pages
+## 📋 Available Scripts
 
-### Home
-- Hero section with call-to-action
-- Services overview
-- Statistics and achievements
-- Contact information
-
-### About
-- Company mission and vision
-- Core values
-- Leadership team
-- Company achievements
-
-### Services
-- Detailed service descriptions
-- Service process
-- Additional offerings
-- Call-to-action sections
-
-### Contact
-- Contact form
-- Contact information
-- Office location
-- FAQ section
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
 ## 🎯 Key Features
 
-### Security Services
-- **Surveillance Systems**: HD/4K cameras, night vision, motion detection
-- **Monitoring Solutions**: 24/7 monitoring center, real-time alerts
-- **Vigilance Services**: Licensed security personnel, mobile patrols
+### Responsive Design
+- Mobile-first approach
+- Breakpoints for tablet and desktop
+- Flexible grid layouts
+- Optimized images and content
 
-### Additional Services
-- Security consulting
-- Risk assessment
-- 24/7 technical support
+### Performance Optimizations
+- Vite for fast builds
+- Optimized images in public/images/
+- Lazy loading for components
+- Efficient CSS with Tailwind
 
-## 🔧 Customization
+### User Experience
+- Smooth animations and transitions
+- Interactive hover effects
+- Clear navigation structure
+- Accessible design patterns
 
-### Colors
-Update the color scheme in `tailwind.config.js`:
-```javascript
-colors: {
-  primary: {
-    black: '#000000',
-    white: '#FFFFFF',
-  },
-  secondary: {
-    orange: '#FF6B35',
-    'orange-light': '#FF8A65',
-    'orange-dark': '#E55A2B',
-  }
-}
-```
-
-### Content
-- Update company information in components
-- Modify service descriptions in `src/pages/Services.tsx`
-- Change contact details in `src/components/layout/Footer.tsx`
+### Security Services Focus
+- Professional security content
+- Service-specific information
+- Contact forms for leads
+- Clear call-to-actions
 
 ## 📞 Contact Information
 
-- **Phone**: +91 8140407272
-- **Email**: info@thvdigital.com
-- **Address**: 123 Security Street, Business District, NY 10001
+**THV Digital**
+- **Phone**: +91 95584 99515, +91 81404 07272
+- **Email**: info@thv.digital
+- **Address**: 
+  - 103, Vashisth Nakshatra, Gana Rd, Karamsad, Anand, Gujarat 388325
+  - C/401, Radha Park, Ayodhya Chowk, 150 Feet Road, Rajkot, Gujarat 360006
+
+## 🔧 Customization
+
+### Adding New Pages
+1. Create a new component in `src/pages/`
+2. Add the route in `src/App.jsx`
+3. Update navigation in `src/components/layout/Header.jsx`
+
+### Modifying Styles
+- Edit `tailwind.config.js` for theme changes
+- Modify `src/index.css` for global styles
+- Use Tailwind classes for component-specific styling
+
+### Updating Content
+- Edit the respective page components
+- Update contact information in Header and Footer
+- Modify images in `public/images/` directory
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is proprietary software for THV Digital.
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📞 Support
-
-For support or questions about the website, please contact:
-- Email: info@thvdigital.com
-- Phone: +91 8140407272
+This is a private project for THV Digital. For any issues or suggestions, please contact the development team.
 
 ---
 
-Built with ❤️ for THV Digital Security Services 
+**Built with ❤️ for THV Digital Security Services** 

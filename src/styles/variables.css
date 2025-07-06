@@ -1,0 +1,67 @@
+:root {
+  /* Primary Colors */
+  --color-primary-black: #000000;
+  --color-primary-white: #FFFFFF;
+  
+  /* Secondary Colors */
+  --color-secondary-orange: #ff362c;
+  --color-secondary-orange-light: #ff5a4f;
+  --color-secondary-orange-dark: #e62e24;
+  
+  /* Gray Scale */
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
+  
+  /* Typography */
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-heading: 'Poppins', system-ui, sans-serif;
+  
+  /* Spacing */
+  --section-padding: 4rem 1rem;
+  --container-max-width: 80rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+}
+
+/* Utility classes using CSS variables */
+.bg-primary-black { background-color: var(--color-primary-black); }
+.bg-primary-white { background-color: var(--color-primary-white); }
+.text-primary-black { color: var(--color-primary-black); }
+.text-primary-white { color: var(--color-primary-white); }
+
+.bg-secondary-orange { background-color: var(--color-secondary-orange); }
+.bg-secondary-orange-light { background-color: var(--color-secondary-orange-light); }
+.bg-secondary-orange-dark { background-color: var(--color-secondary-orange-dark); }
+.text-secondary-orange { color: var(--color-secondary-orange); }
+.text-secondary-orange-light { color: var(--color-secondary-orange-light); }
+.text-secondary-orange-dark { color: var(--color-secondary-orange-dark); }
+
+/* Hover states */
+.hover\:bg-secondary-orange:hover { background-color: var(--color-secondary-orange); }
+.hover\:bg-secondary-orange-dark:hover { background-color: var(--color-secondary-orange-dark); }
+.hover\:text-secondary-orange:hover { color: var(--color-secondary-orange); }
+.hover\:text-secondary-orange-dark:hover { color: var(--color-secondary-orange-dark); } 
