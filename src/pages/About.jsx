@@ -52,14 +52,14 @@ const About = () => {
   ]
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 dark:bg-secondary-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+      <section className="bg-gradient-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             About
-            <span className="text-secondary-orange block">THV Digital</span>
+            <span className="text-primary-400 block">THV Digital</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Leading provider of professional security services, delivering comprehensive 
@@ -73,48 +73,48 @@ const About = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Our Mission</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">Our Mission</h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 To provide cutting-edge security solutions that protect our clients' assets, 
                 personnel, and operations through innovative technology and expert personnel. 
                 We are committed to delivering reliable, professional, and comprehensive 
                 security services that exceed expectations.
               </p>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
                 With over a decade of experience in the security industry, we understand 
                 the unique challenges organizations face and provide tailored solutions 
                 that address their specific security needs.
               </p>
               <Link 
                 to="/services" 
-                className="inline-flex items-center bg-secondary-orange text-white font-semibold py-3 px-6 rounded-lg hover:bg-secondary-orange-dark transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center bg-primary-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-600 dark:hover:bg-primary-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Our Services
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900">Our Vision</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+            <div className="card p-8">
+              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Our Vision</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 To be the most trusted and innovative security service provider, 
                 setting industry standards for excellence, reliability, and customer satisfaction.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-secondary-orange flex-shrink-0" />
-                  <span className="text-gray-700">Industry-leading technology</span>
+                  <CheckCircle className="h-5 w-5 text-primary-500 dark:text-primary-400 flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-300">Industry-leading technology</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-secondary-orange flex-shrink-0" />
-                  <span className="text-gray-700">Expert security personnel</span>
+                  <CheckCircle className="h-5 w-5 text-primary-500 dark:text-primary-400 flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-300">Expert security personnel</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-secondary-orange flex-shrink-0" />
-                  <span className="text-gray-700">24/7 monitoring and support</span>
+                  <CheckCircle className="h-5 w-5 text-primary-500 dark:text-primary-400 flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-300">24/7 monitoring and support</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-secondary-orange flex-shrink-0" />
-                  <span className="text-gray-700">Customized security solutions</span>
+                  <CheckCircle className="h-5 w-5 text-primary-500 dark:text-primary-400 flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-300">Customized security solutions</span>
                 </div>
               </div>
             </div>
@@ -123,11 +123,11 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Core Values</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Our Core Values</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
               The principles that guide everything we do
             </p>
           </div>
@@ -135,11 +135,11 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div key={index} className="text-center group">
-                <div className="bg-secondary-orange/10 p-6 rounded-2xl w-fit mx-auto mb-6 group-hover:bg-secondary-orange/20 transition-colors">
-                  <value.icon className="h-12 w-12 text-secondary-orange" />
+                <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-2xl w-fit mx-auto mb-6 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
+                  <value.icon className="h-12 w-12 text-primary-500 dark:text-primary-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-gray-900">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{value.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -147,29 +147,29 @@ const About = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-secondary-900">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Journey</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Our Journey</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
               Key milestones in our growth and development
             </p>
           </div>
           
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-secondary-orange h-full hidden lg:block"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary-500 dark:bg-primary-400 h-full hidden lg:block"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   <div className={`flex-1 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
-                    <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                      <div className="text-2xl font-bold text-secondary-orange mb-2">{milestone.year}</div>
-                      <h3 className="text-xl font-semibold mb-2 text-gray-900">{milestone.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                    <div className="card p-6">
+                      <div className="text-2xl font-bold text-primary-500 dark:text-primary-400 mb-2">{milestone.year}</div>
+                      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{milestone.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{milestone.description}</p>
                     </div>
                   </div>
-                  <div className="hidden lg:block w-4 h-4 bg-secondary-orange rounded-full border-4 border-white shadow-lg"></div>
-                  <div className="lg:hidden w-4 h-4 bg-secondary-orange rounded-full border-4 border-white shadow-lg mx-auto my-4"></div>
+                  <div className="hidden lg:block w-4 h-4 bg-primary-500 dark:bg-primary-400 rounded-full border-4 border-white dark:border-secondary-800 shadow-lg"></div>
+                  <div className="lg:hidden w-4 h-4 bg-primary-500 dark:bg-primary-400 rounded-full border-4 border-white dark:border-secondary-800 shadow-lg mx-auto my-4"></div>
                   <div className="flex-1"></div>
                 </div>
               ))}
@@ -179,24 +179,24 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Team</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Our Team</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
               Dedicated professionals committed to your security
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-2xl text-center hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-secondary-orange/30 group">
-                <div className="bg-secondary-orange/10 p-6 rounded-full w-fit mx-auto mb-6 group-hover:bg-secondary-orange/20 transition-colors">
-                  <Users className="h-12 w-12 text-secondary-orange" />
+              <div key={index} className="card p-8 text-center hover:shadow-lg transition-all duration-300 group">
+                <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-full w-fit mx-auto mb-6 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
+                  <Users className="h-12 w-12 text-primary-500 dark:text-primary-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{member.name}</h3>
-                <p className="text-secondary-orange font-medium mb-4">{member.role}</p>
-                <p className="text-gray-600 leading-relaxed">{member.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{member.name}</h3>
+                <p className="text-primary-500 dark:text-primary-400 font-medium mb-4">{member.role}</p>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{member.description}</p>
               </div>
             ))}
           </div>

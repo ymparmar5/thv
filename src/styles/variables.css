@@ -64,4 +64,17 @@
 .hover\:bg-secondary-orange:hover { background-color: var(--color-secondary-orange); }
 .hover\:bg-secondary-orange-dark:hover { background-color: var(--color-secondary-orange-dark); }
 .hover\:text-secondary-orange:hover { color: var(--color-secondary-orange); }
-.hover\:text-secondary-orange-dark:hover { color: var(--color-secondary-orange-dark); } 
+.hover\:text-secondary-orange-dark:hover { color: var(--color-secondary-orange-dark); }
+
+/* Dark mode overrides for secondary orange */
+.dark .bg-secondary-orange { background-color: #ff5a4f; }
+.dark .bg-secondary-orange-light { background-color: #ff7a6f; }
+.dark .bg-secondary-orange-dark { background-color: #ff362c; }
+.dark .text-secondary-orange { color: #ff5a4f; }
+.dark .text-secondary-orange-light { color: #ff7a6f; }
+.dark .text-secondary-orange-dark { color: #ff362c; }
+
+.dark .hover\:bg-secondary-orange:hover { background-color: #ff5a4f; }
+.dark .hover\:bg-secondary-orange-dark:hover { background-color: #ff362c; }
+.dark .hover\:text-secondary-orange:hover { color: #ff5a4f; }
+.dark .hover\:text-secondary-orange-dark:hover { color: #ff362c; } 
