@@ -4,9 +4,9 @@
   --color-primary-white: #FFFFFF;
   
   /* Secondary Colors */
-  --color-secondary-orange: #FF362C;
-  --color-secondary-orange-light: #FF362C;
-  --color-secondary-orange-dark: #FF362C;
+  --color-secondary-red: #FF6B35;
+  --color-secondary-red-light: #FF6B35;
+  --color-secondary-red-dark: #FF6B35;
   
   /* Gray Scale */
   --color-gray-50: #F9FAFB;
@@ -53,28 +53,28 @@
 .text-primary-black { color: var(--color-primary-black); }
 .text-primary-white { color: var(--color-primary-white); }
 
-.bg-secondary-orange { background-color: var(--color-secondary-orange); }
-.bg-secondary-orange-light { background-color: var(--color-secondary-orange-light); }
-.bg-secondary-orange-dark { background-color: var(--color-secondary-orange-dark); }
-.text-secondary-orange { color: var(--color-secondary-orange); }
-.text-secondary-orange-light { color: var(--color-secondary-orange-light); }
-.text-secondary-orange-dark { color: var(--color-secondary-orange-dark); }
+.bg-secondary-red { background-color: var(--color-secondary-red); }
+.bg-secondary-red-light { background-color: var(--color-secondary-red-light); }
+.bg-secondary-red-dark { background-color: var(--color-secondary-red-dark); }
+.text-secondary-red { color: var(--color-secondary-red); }
+.text-secondary-red-light { color: var(--color-secondary-red-light); }
+.text-secondary-red-dark { color: var(--color-secondary-red-dark); }
 
 /* Hover states */
-.hover\:bg-secondary-orange:hover { background-color: var(--color-secondary-orange); }
-.hover\:bg-secondary-orange-dark:hover { background-color: var(--color-secondary-orange-dark); }
-.hover\:text-secondary-orange:hover { color: var(--color-secondary-orange); }
-.hover\:text-secondary-orange-dark:hover { color: var(--color-secondary-orange-dark); }
+.hover\:bg-secondary-red:hover { background-color: var(--color-secondary-red); }
+.hover\:bg-secondary-red-dark:hover { background-color: var(--color-secondary-red-dark); }
+.hover\:text-secondary-red:hover { color: var(--color-secondary-red); }
+.hover\:text-secondary-red-dark:hover { color: var(--color-secondary-red-dark); }
 
-/* Dark mode overrides for secondary orange */
-.dark .bg-secondary-orange { background-color: #ff5a4f; }
-.dark .bg-secondary-orange-light { background-color: #ff7a6f; }
-.dark .bg-secondary-orange-dark { background-color: #ff362c; }
-.dark .text-secondary-orange { color: #ff5a4f; }
-.dark .text-secondary-orange-light { color: #ff7a6f; }
-.dark .text-secondary-orange-dark { color: #ff362c; }
+/* Dark mode overrides for secondary red */
+.dark .bg-secondary-red { background-color: #FF6B35; }
+.dark .bg-secondary-red-light { background-color: #FF6B35; }
+.dark .bg-secondary-red-dark { background-color: #FF6B35; }
+.dark .text-secondary-red { color: #FF6B35; }
+.dark .text-secondary-red-light { color: #FF6B35; }
+.dark .text-secondary-red-dark { color: #FF6B35; }
 
-.dark .hover\:bg-secondary-orange:hover { background-color: #ff5a4f; }
-.dark .hover\:bg-secondary-orange-dark:hover { background-color: #ff362c; }
-.dark .hover\:text-secondary-orange:hover { color: #ff5a4f; }
-.dark .hover\:text-secondary-orange-dark:hover { color: #ff362c; } 
+.dark .hover\:bg-secondary-red:hover { background-color: #FF6B35; }
+.dark .hover\:bg-secondary-red-dark:hover { background-color: #FF6B35; }
+.dark .hover\:text-secondary-red:hover { color: #FF6B35; }
+.dark .hover\:text-secondary-red-dark:hover { color: #FF6B35; } 
