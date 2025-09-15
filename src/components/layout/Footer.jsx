@@ -44,7 +44,7 @@ const Footer = () => {
                     onError={() => setLogoError(true)}
                   />
                 ) : (
-                  <div className="h-12 w-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl shadow-medium flex items-center justify-center">
+                  <div className="h-12 w-12 bg-gradient-to-br from-primary-900 to-primary-900 rounded-xl shadow-medium flex items-center justify-center">
                     <span className="text-white font-bold text-lg">THV</span>
                   </div>
                 )}
@@ -63,7 +63,7 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-gray-400 hover:text-primary-400 transition-colors p-2 bg-secondary-800 rounded-lg hover:bg-secondary-700"
+                  className="text-gray-400 hover:text-primary-900 transition-colors p-2 bg-secondary-800 rounded-lg hover:bg-secondary-700"
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />
@@ -80,9 +80,9 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200 flex items-center group text-sm"
+                    className="text-gray-300 hover:text-primary-900 transition-colors duration-200 flex items-center group text-sm"
                   >
-                    <div className="w-1 h-1 bg-primary-500 rounded-full mr-3 group-hover:w-2 transition-all duration-200"></div>
+                    <div className="w-1 h-1 bg-primary-900 rounded-full mr-3 group-hover:w-2 transition-all duration-200"></div>
                     {link.name}
                   </Link>
                 </li>
@@ -98,9 +98,9 @@ const Footer = () => {
                 <li key={service.name}>
                   <Link
                     to={service.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200 flex items-center group text-sm"
+                    className="text-gray-300 hover:text-primary-900 transition-colors duration-200 flex items-center group text-sm"
                   >
-                    <div className="w-1 h-1 bg-primary-500 rounded-full mr-3 group-hover:w-2 transition-all duration-200"></div>
+                    <div className="w-1 h-1 bg-primary-900 rounded-full mr-3 group-hover:w-2 transition-all duration-200"></div>
                     {service.name}
                   </Link>
                 </li>
@@ -113,8 +113,8 @@ const Footer = () => {
             <h3 className="text-lg font-display font-semibold mb-6 text-white">Contact Info</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <div className="p-2 bg-primary-500/20 rounded-lg">
-                  <Phone className="h-5 w-5 text-primary-400" />
+                <div className="p-2 bg-primary-900/20 rounded-lg">
+                  <Phone className="h-5 w-5 text-primary-900" />
                 </div>
                 <div>
                   <div className="text-gray-300 font-medium text-sm">+91 95584 99515</div>
@@ -122,14 +122,14 @@ const Footer = () => {
                 </div>
               </div>
               <div className="flex items-center space-x-3">
-                <div className="p-2 bg-primary-500/20 rounded-lg">
-                  <Mail className="h-5 w-5 text-primary-400" />
+                <div className="p-2 bg-primary-900/20 rounded-lg">
+                  <Mail className="h-5 w-5 text-primary-900" />
                 </div>
                 <span className="text-gray-300 text-sm">info@thv.digital</span>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="p-2 bg-primary-500/20 rounded-lg mt-1">
-                  <MapPin className="h-5 w-5 text-primary-400" />
+                <div className="p-2 bg-primary-900/20 rounded-lg mt-1">
+                  <MapPin className="h-5 w-5 text-primary-900" />
                 </div>
                 <div className="text-gray-300 text-xs">
                   <div>103, Vashisth Nakshatra,</div>
@@ -151,10 +151,10 @@ const Footer = () => {
               © {currentYear} thv.digital. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+              <Link to="/privacy" className="text-gray-400 hover:text-primary-900 text-sm transition-colors">
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-primary-400 text-sm transition-colors">
+              <Link to="/terms" className="text-gray-400 hover:text-primary-900 text-sm transition-colors">
                 Terms of Service
               </Link>
             </div>

@@ -77,7 +77,7 @@ const Plans = () => (
     {/* Hero Section */}
     <section className="relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 dark:from-primary-800 dark:via-primary-900 dark:to-primary-950">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-700 to-primary-800 dark:from-primary-800 dark:via-primary-900 dark:to-primary-950">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)`,
@@ -88,19 +88,19 @@ const Plans = () => (
       
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute top-40 right-20 w-32 h-32 bg-primary-400/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
+      <div className="absolute top-40 right-20 w-32 h-32 bg-primary-900/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
       <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-white/10 rounded-full blur-xl animate-pulse delay-500"></div>
       
       <div className="relative z-10 container-max section-padding text-center">
         <div className="max-w-4xl mx-auto">
           <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/20">
-            <Shield className="h-5 w-5 mr-2 text-primary-300" />
+            <Shield className="h-5 w-5 mr-2 text-primary-900" />
             <span className="text-white/90 font-medium">Professional Security Solutions</span>
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 leading-tight">
             <span className="text-white">Security</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-100 block">Plans</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-900 to-primary-900 block">Plans</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-10">
@@ -110,15 +110,15 @@ const Plans = () => (
           
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Check className="h-4 w-4 mr-3 text-primary-300" />
+              <Check className="h-4 w-4 mr-3 text-primary-900" />
               <span className="text-white/90 font-medium">24/7 Professional Monitoring</span>
             </div>
             <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Check className="h-4 w-4 mr-3 text-primary-300" />
+              <Check className="h-4 w-4 mr-3 text-primary-900" />
               <span className="text-white/90 font-medium">Instant Alerts</span>
             </div>
             <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Check className="h-4 w-4 mr-3 text-primary-300" />
+              <Check className="h-4 w-4 mr-3 text-primary-900" />
               <span className="text-white/90 font-medium">Mobile App Access</span>
             </div>
           </div>
@@ -130,7 +130,7 @@ const Plans = () => (
     <section className="section-padding relative">
       <div className="container-max">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center bg-gradient-to-r from-primary-900 to-primary-900 text-white px-6 py-2 rounded-full text-sm font-semibold mb-6">
             <Star className="h-4 w-4 mr-2" />
             Choose Your Perfect Plan
           </div>
@@ -154,7 +154,7 @@ const Plans = () => (
             >
                               {plan.highlight && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-primary-500 text-white px-6 py-2 rounded-full font-bold text-sm shadow-2xl flex items-center">
+                    <div className="bg-primary-900 text-white px-6 py-2 rounded-full font-bold text-sm shadow-2xl flex items-center">
                       <Star className="h-4 w-4 mr-2" />
                       Most Popular
                     </div>
@@ -163,8 +163,8 @@ const Plans = () => (
               
               <div className={`relative bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-2xl border transition-all duration-500 hover:shadow-3xl hover:-translate-y-2 ${
                 plan.highlight
-                  ? 'border-2 border-primary-500 dark:border-primary-400'
-                  : 'border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-400'
+                  ? 'border-2 border-primary-900 dark:border-primary-900'
+                  : 'border border-gray-200 dark:border-gray-700 hover:border-primary-900 dark:hover:border-primary-900'
               }`}>
                 
                 {/* Theme Background */}
@@ -172,11 +172,11 @@ const Plans = () => (
                 
                 <div className="relative z-10">
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-500 rounded-2xl mb-6 shadow-lg">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-900 rounded-2xl mb-6 shadow-lg">
                       <plan.icon className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{plan.name}</h3>
-                    <div className="text-4xl font-bold text-primary-500 mb-2">{plan.monthlyUSD}</div>
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-900 dark:group-hover:text-primary-900 transition-colors">{plan.name}</h3>
+                    <div className="text-4xl font-bold text-primary-900 mb-2">{plan.monthlyUSD}</div>
                     <div className="text-sm text-gray-500 dark:text-gray-400">{plan.monthlyINR}</div>
                   </div>
 
@@ -210,8 +210,8 @@ const Plans = () => (
                   <button
                     className={`w-full py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 active:scale-95 ${
                       plan.highlight
-                        ? 'bg-primary-500 text-white shadow-lg hover:shadow-xl hover:bg-primary-600 transform hover:scale-105'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary-500 hover:text-white shadow-md hover:shadow-lg transform hover:scale-105'
+                        ? 'bg-primary-900 text-white shadow-lg hover:shadow-xl hover:bg-primary-900 transform hover:scale-105'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary-900 hover:text-white shadow-md hover:shadow-lg transform hover:scale-105'
                     }`}
                   >
                     Select {plan.name}
@@ -234,7 +234,7 @@ const Plans = () => (
               >
                 {plan.highlight && (
                   <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-primary-500 text-white px-5 py-2 rounded-full font-bold text-nowrap shadow-2xl flex items-center text-sm">
+                    <div className="bg-primary-900 text-white px-5 py-2 rounded-full font-bold text-nowrap shadow-2xl flex items-center text-sm">
                       <Star className="h-3 w-5 mr-1" />
                       Most Popular
                     </div>
@@ -243,8 +243,8 @@ const Plans = () => (
                 
                 <div className={`relative bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-2xl border transition-all duration-500 hover:shadow-3xl hover:-translate-y-3 h-full flex flex-col ${
                   plan.highlight
-                    ? 'border-2 border-primary-500 dark:border-primary-400'
-                    : 'border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-400'
+                    ? 'border-2 border-primary-900 dark:border-primary-900'
+                    : 'border border-gray-200 dark:border-gray-700 hover:border-primary-900 dark:hover:border-primary-900'
                 }`}>
                   
                   {/* Theme Background */}
@@ -252,11 +252,11 @@ const Plans = () => (
                   
                   <div className="relative z-10 flex flex-col h-full">
                     <div className="text-center mb-6">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-500 rounded-2xl mb-4 shadow-lg">
+                      <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-900 rounded-2xl mb-4 shadow-lg">
                         <plan.icon className="h-8 w-8 text-white" />
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{plan.name}</h3>
-                      <div className="text-3xl font-bold text-primary-500 mb-2">{plan.monthlyUSD}</div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-900 dark:group-hover:text-primary-900 transition-colors">{plan.name}</h3>
+                      <div className="text-3xl font-bold text-primary-900 mb-2">{plan.monthlyUSD}</div>
                       <div className="text-xs text-gray-500 dark:text-gray-400 mb-4">{plan.monthlyINR}</div>
                       
                       <div className="space-y-3 text-xs">
@@ -290,8 +290,8 @@ const Plans = () => (
                     <button
                       className={`w-full py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300 active:scale-95 mt-auto ${
                         plan.highlight
-                          ? 'bg-primary-500 text-white shadow-lg hover:shadow-xl hover:bg-primary-600 transform hover:scale-105'
-                          : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary-500 hover:text-white shadow-md hover:shadow-lg transform hover:scale-105'
+                          ? 'bg-primary-900 text-white shadow-lg hover:shadow-xl hover:bg-primary-900 transform hover:scale-105'
+                          : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary-900 hover:text-white shadow-md hover:shadow-lg transform hover:scale-105'
                       }`}
                     >
                       Select {plan.name}
@@ -316,7 +316,7 @@ const Plans = () => (
       
       <div className="container-max relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center bg-gradient-to-r from-primary-900 to-primary-900 text-white px-6 py-2 rounded-full text-sm font-semibold mb-6">
             <Zap className="h-4 w-4 mr-2" />
             Additional Services
           </div>
@@ -331,7 +331,7 @@ const Plans = () => (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {addOnServices.map((service, idx) => (
             <div key={service.name} className="group cursor-pointer">
-              <div className="relative bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-2xl border border-gray-200 dark:border-gray-700 hover:shadow-3xl hover:-translate-y-3 transition-all duration-500 hover:border-primary-300 dark:hover:border-primary-400">
+              <div className="relative bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-2xl border border-gray-200 dark:border-gray-700 hover:shadow-3xl hover:-translate-y-3 transition-all duration-500 hover:border-primary-900 dark:hover:border-primary-900">
                 
                 {/* Theme Background */}
                 <div className="absolute inset-0 bg-primary-50 dark:bg-primary-900/10 rounded-3xl"></div>
@@ -340,9 +340,9 @@ const Plans = () => (
                   <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${service.gradient} rounded-3xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <service.icon className="h-10 w-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">{service.name}</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white group-hover:text-primary-900 dark:group-hover:text-primary-900 transition-colors">{service.name}</h3>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold bg-gradient-to-r from-primary-500 to-primary-600 bg-clip-text text-transparent">{service.price}</span>
+                    <span className="text-4xl font-bold bg-gradient-to-r from-primary-900 to-primary-900 bg-clip-text text-transparent">{service.price}</span>
                     <span className="text-lg text-gray-500 dark:text-gray-400">{service.period}</span>
                   </div>
                   <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed mb-8">
@@ -361,7 +361,7 @@ const Plans = () => (
 
     {/* CTA Section */}
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 dark:from-primary-800 dark:via-primary-900 dark:to-primary-950">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-700 to-primary-800 dark:from-primary-800 dark:via-primary-900 dark:to-primary-950">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)`,
@@ -372,7 +372,7 @@ const Plans = () => (
       
       {/* Floating Elements */}
       <div className="absolute top-10 right-10 w-24 h-24 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute bottom-10 left-10 w-32 h-32 bg-primary-400/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
+      <div className="absolute bottom-10 left-10 w-32 h-32 bg-primary-900/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
       
       <div className="container-max py-20 px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-white">
@@ -384,14 +384,14 @@ const Plans = () => (
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a 
             href="tel:+919558499515" 
-            className="bg-white text-primary-600 hover:bg-gray-100 font-bold py-5 px-10 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl inline-flex items-center justify-center min-w-[220px] text-lg"
+            className="bg-white text-primary-900 hover:bg-gray-100 font-bold py-5 px-10 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl inline-flex items-center justify-center min-w-[220px] text-lg"
           >
             <Phone className="h-6 w-6 mr-3" />
             Call Now
           </a>
           <Link 
             to="/contact" 
-            className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl inline-flex items-center justify-center min-w-[220px] text-lg"
+            className="bg-gradient-to-r from-primary-900 to-primary-900 hover:from-primary-900 hover:to-primary-700 text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-3xl inline-flex items-center justify-center min-w-[220px] text-lg"
           >
             Get Free Quote
           </Link>

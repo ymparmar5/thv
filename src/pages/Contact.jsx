@@ -225,8 +225,8 @@ const Contact = () => {
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className="bg-primary-500/20 p-3 rounded-lg flex-shrink-0 flex items-center justify-center">
-                      <info.icon className="h-6 w-6 text-primary-500" />
+                    <div className="bg-primary-900/20 p-3 rounded-lg flex-shrink-0 flex items-center justify-center">
+                      <info.icon className="h-6 w-6 text-primary-900" />
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{info.title}</h3>
@@ -235,7 +235,7 @@ const Contact = () => {
                           {info.action ? (
                             <a
                               href={info.action}
-                              className="text-gray-600 dark:text-primary-400 hover:text-primary-500 dark:hover:text-primary-300 transition-colors block"
+                              className="text-gray-600 dark:text-primary-900 hover:text-primary-900 dark:hover:text-primary-900 transition-colors block"
                             >
                               {detail}
                             </a>
@@ -249,7 +249,7 @@ const Contact = () => {
                 ))}
               </div>
               {/* Quick Contact */}
-              <div className="bg-primary-500/10 p-6 rounded-xl border-2 border-primary-500">
+              <div className="bg-primary-900/10 p-6 rounded-xl border-2 border-primary-900">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Need Immediate Assistance?</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   For urgent security concerns or immediate support, call us directly.

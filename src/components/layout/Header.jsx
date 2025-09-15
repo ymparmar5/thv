@@ -28,23 +28,18 @@ const Header = () => {
             <div className="relative">
               {!logoError ? (
                 <img 
-                  src="/images/thv.jpeg" 
+                  src="/images/THV.png" 
                   alt="THV Digital" 
-                  className="h-12 w-12 rounded-xl shadow-medium group-hover:shadow-large transition-all duration-300"
+                  className="h-12  rounded-xl shadow-medium group-hover:shadow-large transition-all duration-300"
                   onError={() => setLogoError(true)}
                 />
               ) : (
-                <div className="h-12 w-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl shadow-medium group-hover:shadow-large transition-all duration-300 flex items-center justify-center">
+                <div className="h-12 w-12 bg-gradient-to-br from-primary-900 to-primary-900 rounded-xl shadow-medium group-hover:shadow-large transition-all duration-300 flex items-center justify-center">
                   <span className="text-white font-bold text-lg">THV</span>
                 </div>
               )}
             </div>
-            <div className="hidden sm:block">
-              <span className="text-xl font-display font-semibold text-gray-900 dark:text-white group-hover:text-primary-500 transition-colors duration-300">
-                thv.digital
-              </span>
-              <div className="text-xs text-gray-500 dark:text-gray-400 -mt-1 font-medium">Security Services</div>
-            </div>
+            
           </Link>
 
           {/* Desktop Navigation */}
@@ -55,13 +50,13 @@ const Header = () => {
                 to={item.href}
                 className={`relative font-medium text-sm transition-all duration-300 ${
                   isActive(item.href)
-                    ? 'text-primary-500 dark:text-primary-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400'
+                    ? 'text-primary-900 dark:text-primary-900'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-900 dark:hover:text-primary-900'
                 }`}
               >
                 {item.name}
                 {isActive(item.href) && (
-                  <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary-500 dark:bg-primary-400 rounded-full"></div>
+                  <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary-900 dark:bg-primary-900 rounded-full"></div>
                 )}
               </Link>
             ))}
@@ -72,7 +67,7 @@ const Header = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-secondary-700 transition-all duration-200"
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary-900 dark:hover:text-primary-900 hover:bg-gray-100 dark:hover:bg-secondary-700 transition-all duration-200"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -81,9 +76,9 @@ const Header = () => {
             {/* Contact Button */}
             <a
               href="tel:+919558499515"
-              className="flex items-center space-x-2 text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors group"
+              className="flex items-center space-x-2 text-primary-900 dark:text-primary-900 hover:text-primary-900 dark:hover:text-primary-900 transition-colors group"
             >
-              <div className="p-2 bg-primary-50 dark:bg-primary-900/20 rounded-lg group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
+              <div className="p-2 bg-primary-50 dark:bg-primary-900/20 rounded-lg group-hover:bg-primary-900 dark:group-hover:bg-primary-900/30 transition-colors">
                 <Phone className="h-4 w-4" />
               </div>
               <span className="font-medium text-sm">+91 95584 99515</span>
@@ -102,7 +97,7 @@ const Header = () => {
             {/* Theme Toggle Mobile */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-secondary-700 transition-all duration-200"
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary-900 dark:hover:text-primary-900 hover:bg-gray-100 dark:hover:bg-secondary-700 transition-all duration-200"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -110,7 +105,7 @@ const Header = () => {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-secondary-700 transition-all duration-200"
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary-900 dark:hover:text-primary-900 hover:bg-gray-100 dark:hover:bg-secondary-700 transition-all duration-200"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -129,8 +124,8 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-3 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
                     isActive(item.href)
-                      ? 'text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 border-l-4 border-primary-500 dark:border-primary-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-secondary-700'
+                      ? 'text-primary-900 dark:text-primary-900 bg-primary-50 dark:bg-primary-900/20 border-l-4 border-primary-900 dark:border-primary-900'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-900 dark:hover:text-primary-900 hover:bg-gray-50 dark:hover:bg-secondary-700'
                   }`}
                 >
                   {item.name}
@@ -139,7 +134,7 @@ const Header = () => {
               <div className="pt-4 border-t border-gray-100 dark:border-secondary-700">
                 <a
                   href="tel:+919558499515"
-                  className="flex items-center space-x-2 px-3 py-3 text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300"
+                  className="flex items-center space-x-2 px-3 py-3 text-primary-900 dark:text-primary-900 hover:text-primary-900 dark:hover:text-primary-900"
                 >
                   <Phone className="h-4 w-4" />
                   <span className="font-medium">+91 95584 99515</span>

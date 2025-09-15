@@ -59,7 +59,7 @@ const About = () => {
         <div className="relative z-10 max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             About
-            <span className="text-primary-400 block">THV Digital</span>
+            <span className="text-primary-900 block">THV Digital</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Leading provider of professional security services, delivering comprehensive 
@@ -87,7 +87,7 @@ const About = () => {
               </p>
               <Link 
                 to="/services" 
-                className="inline-flex items-center bg-primary-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-600 dark:hover:bg-primary-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center bg-primary-900 text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-900 dark:hover:bg-primary-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Our Services
                 <ArrowRight className="h-5 w-5 ml-2" />
@@ -101,19 +101,19 @@ const About = () => {
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-primary-500 dark:text-primary-400 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-primary-900 dark:text-primary-900 flex-shrink-0" />
                   <span className="text-gray-700 dark:text-gray-300">Industry-leading technology</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-primary-500 dark:text-primary-400 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-primary-900 dark:text-primary-900 flex-shrink-0" />
                   <span className="text-gray-700 dark:text-gray-300">Expert security personnel</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-primary-500 dark:text-primary-400 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-primary-900 dark:text-primary-900 flex-shrink-0" />
                   <span className="text-gray-700 dark:text-gray-300">24/7 monitoring and support</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-primary-500 dark:text-primary-400 flex-shrink-0" />
+                  <CheckCircle className="h-5 w-5 text-primary-900 dark:text-primary-900 flex-shrink-0" />
                   <span className="text-gray-700 dark:text-gray-300">Customized security solutions</span>
                 </div>
               </div>
@@ -135,8 +135,8 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div key={index} className="text-center group">
-                <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-2xl w-fit mx-auto mb-6 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
-                  <value.icon className="h-12 w-12 text-primary-500 dark:text-primary-400" />
+                <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-2xl w-fit mx-auto mb-6 group-hover:bg-primary-900 dark:group-hover:bg-primary-900/30 transition-colors">
+                  <value.icon className="h-12 w-12 text-primary-900 dark:text-primary-900" />
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{value.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{value.description}</p>
@@ -157,19 +157,19 @@ const About = () => {
           </div>
           
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary-500 dark:bg-primary-400 h-full hidden lg:block"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-primary-900 dark:bg-primary-900 h-full hidden lg:block"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   <div className={`flex-1 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
                     <div className="card p-6">
-                      <div className="text-2xl font-bold text-primary-500 dark:text-primary-400 mb-2">{milestone.year}</div>
+                      <div className="text-2xl font-bold text-primary-900 dark:text-primary-900 mb-2">{milestone.year}</div>
                       <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{milestone.title}</h3>
                       <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{milestone.description}</p>
                     </div>
                   </div>
-                  <div className="hidden lg:block w-4 h-4 bg-primary-500 dark:bg-primary-400 rounded-full border-4 border-white dark:border-secondary-800 shadow-lg"></div>
-                  <div className="lg:hidden w-4 h-4 bg-primary-500 dark:bg-primary-400 rounded-full border-4 border-white dark:border-secondary-800 shadow-lg mx-auto my-4"></div>
+                  <div className="hidden lg:block w-4 h-4 bg-primary-900 dark:bg-primary-900 rounded-full border-4 border-white dark:border-secondary-800 shadow-lg"></div>
+                  <div className="lg:hidden w-4 h-4 bg-primary-900 dark:bg-primary-900 rounded-full border-4 border-white dark:border-secondary-800 shadow-lg mx-auto my-4"></div>
                   <div className="flex-1"></div>
                 </div>
               ))}
@@ -191,11 +191,11 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <div key={index} className="card p-8 text-center hover:shadow-lg transition-all duration-300 group">
-                <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-full w-fit mx-auto mb-6 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
-                  <Users className="h-12 w-12 text-primary-500 dark:text-primary-400" />
+                <div className="bg-primary-50 dark:bg-primary-900/20 p-6 rounded-full w-fit mx-auto mb-6 group-hover:bg-primary-900 dark:group-hover:bg-primary-900/30 transition-colors">
+                  <Users className="h-12 w-12 text-primary-900 dark:text-primary-900" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{member.name}</h3>
-                <p className="text-primary-500 dark:text-primary-400 font-medium mb-4">{member.role}</p>
+                <p className="text-primary-900 dark:text-primary-900 font-medium mb-4">{member.role}</p>
                 <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{member.description}</p>
               </div>
             ))}
