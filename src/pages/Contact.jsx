@@ -249,7 +249,7 @@ const Contact = () => {
                 ))}
               </div>
               {/* Quick Contact */}
-              <div className="bg-primary-900/10 p-6 rounded-xl border-2 border-primary-900">
+              <div className="bg-primary-900/10 p-6 rounded-xl border border-primary-900 border-primary-900">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Need Immediate Assistance?</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   For urgent security concerns or immediate support, call us directly.

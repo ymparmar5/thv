@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Shield, Eye, Camera, Users, ArrowRight, Phone, Mail, MapPin } from 'lucide-react'
 import Hero from '../components/Hero'
+import Intro from '../components/Intro'
+import TestimonialSection from '../components/TestimonialSection'
 
 const Home = () => {
   const features = [
@@ -55,6 +57,7 @@ const Home = () => {
     <div className="bg-gray-50 dark:bg-secondary-900">
       {/* Hero Section */}
       <Hero />
+      <Intro />
       <section className="bg-gradient-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 container-max section-padding">
@@ -202,48 +205,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="section-padding bg-gray-50 dark:bg-secondary-900">
-        <div className="container-max">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-gray-900 dark:text-white">What Our Clients Say</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Real feedback from organizations who trust THV Digital for their security needs.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Amit Patel',
-                company: 'Patel Industries',
-                avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-                text: 'THV Digital provided us with a seamless security solution. Their team is professional, responsive, and truly cares about our safety.'
-              },
-              {
-                name: 'Priya Shah',
-                company: 'Shah Hospitals',
-                avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-                text: 'The monitoring and vigilance services are top-notch. We feel secure knowing THV is always watching over our premises.'
-              },
-              {
-                name: 'Rahul Mehta',
-                company: 'Mehta Logistics',
-                avatar: 'https://randomuser.me/api/portraits/men/65.jpg',
-                text: 'Excellent customer support and advanced technology. Highly recommended for any business that values security.'
-              }
-            ].map((testimonial, idx) => (
-              <div key={idx} className="card flex flex-col items-center text-center">
-                <img src={testimonial.avatar} alt={testimonial.name} className="w-20 h-20 rounded-full border-4 border-primary-900 shadow-medium mb-4 object-cover" />
-                <p className="text-gray-700 dark:text-gray-200 mb-4">“{testimonial.text}”</p>
-                <div className="mt-auto">
-                  <div className="font-semibold text-primary-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">{testimonial.company}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialSection />
+
+   
 
       {/* FAQ Section */}
       <section className="section-padding bg-white dark:bg-secondary-800">

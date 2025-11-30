@@ -221,7 +221,7 @@ const About = () => {
             </Link>
             <Link 
               to="/services" 
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-secondary-orange font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+              className="bg-transparent border border-primary-900 border-white text-white hover:bg-white hover:text-secondary-orange font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105"
             >
               View Services
             </Link>

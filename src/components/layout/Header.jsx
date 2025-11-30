@@ -78,7 +78,7 @@ const Header = () => {
               href="tel:+919558499515"
               className="flex items-center space-x-2 text-primary-900 dark:text-primary-900 hover:text-primary-900 dark:hover:text-primary-900 transition-colors group"
             >
-              <div className="p-2 bg-primary-50 dark:bg-primary-900/20 rounded-lg group-hover:bg-primary-900 dark:group-hover:bg-primary-900/30 transition-colors">
+              <div className="p-2 bg-primary-50 dark:bg-primary-900/20 rounded-lg  transition-colors">
                 <Phone className="h-4 w-4" />
               </div>
               <span className="font-medium text-sm">+91 95584 99515</span>

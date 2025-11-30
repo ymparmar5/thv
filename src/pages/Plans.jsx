@@ -163,7 +163,7 @@ const Plans = () => (
               
               <div className={`relative bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-2xl border transition-all duration-500 hover:shadow-3xl hover:-translate-y-2 ${
                 plan.highlight
-                  ? 'border-2 border-primary-900 dark:border-primary-900'
+                  ? 'border border-primary-900 border-primary-900 dark:border-primary-900'
                   : 'border border-gray-200 dark:border-gray-700 hover:border-primary-900 dark:hover:border-primary-900'
               }`}>
                 
@@ -243,7 +243,7 @@ const Plans = () => (
                 
                 <div className={`relative bg-white dark:bg-gray-900 rounded-3xl p-6 shadow-2xl border transition-all duration-500 hover:shadow-3xl hover:-translate-y-3 h-full flex flex-col ${
                   plan.highlight
-                    ? 'border-2 border-primary-900 dark:border-primary-900'
+                    ? 'border border-primary-900 border-primary-900 dark:border-primary-900'
                     : 'border border-gray-200 dark:border-gray-700 hover:border-primary-900 dark:hover:border-primary-900'
                 }`}>
                   
