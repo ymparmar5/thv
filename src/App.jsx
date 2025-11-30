@@ -10,8 +10,22 @@ import Terms from './pages/Terms.jsx'
 import Privacy from './pages/Privacy.jsx'
 import ScrollToTop from './components/utils/ScrollToTop.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
+import { useEffect, useState } from 'react'
+import Loader from './components/utils/Loader.jsx'
 
 function App() {
+
+   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2500); // 2.5s
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <ThemeProvider>
       <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-secondary-900 transition-colors duration-300">
