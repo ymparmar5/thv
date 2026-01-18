@@ -73,11 +73,11 @@ const addOnServices = [
 ]
 
 const Plans = () => (
-  <div className="bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-secondary-900 dark:via-secondary-800 dark:to-secondary-900 min-h-screen">
+  <div className=" min-h-screen">
     {/* Hero Section */}
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden" style={{backgroundImage: 'url(/public/smart-home.jpg)'}}   >
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-700 to-primary-800 dark:from-primary-800 dark:via-primary-900 dark:to-primary-950">
+      <div >
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)`,
@@ -87,9 +87,7 @@ const Plans = () => (
       </div>
       
       {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-      <div className="absolute top-40 right-20 w-32 h-32 bg-primary-900/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
-      <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-white/10 rounded-full blur-xl animate-pulse delay-500"></div>
+   
       
       <div className="relative z-10 container-max section-padding text-center">
         <div className="max-w-4xl mx-auto">
@@ -103,7 +101,7 @@ const Plans = () => (
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-900 to-primary-900 block">Plans</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-10">
+          <p className="text-xl md:text-2xl  max-w-3xl  mx-auto leading-relaxed mb-10">
             Choose the perfect monitoring plan for your organization. 
             Professional security solutions tailored to your needs and budget.
           </p>

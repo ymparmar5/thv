@@ -138,7 +138,7 @@ const whyChooseUs = [
 const Services = () => (
   <div className="bg-gray-50 dark:bg-secondary-900">
     {/* Hero Section */}
-    <section className="bg-gradient-primary text-white relative overflow-hidden">
+    <section style={{backgroundImage: 'url(/public/17.jpg)'}}  className=" text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="relative z-10 container-max section-padding text-center">
         <div className="max-w-4xl mx-auto">

@@ -54,12 +54,12 @@ const About = () => {
   return (
     <div className="bg-gray-50 dark:bg-secondary-900">
       {/* Hero Section */}
-      <section className="bg-gradient-primary text-white relative overflow-hidden">
+      <section style={{backgroundImage: 'url(/public/team.jpg)'}} className=" text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto py-40 px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             About
-            <span className="text-primary-900 block">THV Digital</span>
+            <span className="text-black-900 block">THV Digital</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Leading provider of professional security services, delivering comprehensive 

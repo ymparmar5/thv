@@ -85,7 +85,7 @@ const Contact = () => {
   return (
     <div className="bg-gray-50 dark:bg-secondary-900">
       {/* Hero Section */}
-      <section className="bg-gradient-primary text-white relative overflow-hidden">
+      <section className="bg- text-white relative py-10 overflow-hidden" style={{backgroundImage: 'url(/public/18.jpg)'}} >
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 container-max section-padding text-center">
           <h1 className="mb-4">Contact Us</h1>
@@ -96,7 +96,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="section-padding">
+      <section className="section-padding" >
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}

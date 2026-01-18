@@ -122,7 +122,7 @@ const Intro = () => {
                 y: -5,
                 transition: { duration: 0.3 }
               }}
-              className="absolute -bottom-6 -left-6 bg-[var(--color-bg-card)] border border-[var(--color-border-primary)] rounded-xl p-4 shadow-lg backdrop-blur-sm"
+              className="absolute -bottom-10 -right-1 bg-[var(--color-bg-card)] border border-[var(--color-border-primary)] rounded-xl p-3 shadow-lg backdrop-blur-sm"
             >
               <div className="flex items-center space-x-3">
                 <motion.div
