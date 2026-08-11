@@ -38,19 +38,19 @@ const Footer = () => {
               <div className="relative">
                 {!logoError ? (
                   <img 
-                    src="/images/thv.svg" 
-                    alt="THV Digital" 
+                    src="/images/logo.jpeg" 
+                    alt="Eye360" 
                     className="h-12 w-12 rounded-xl shadow-medium"
                     onError={() => setLogoError(true)}
                   />
                 ) : (
                   <div className="h-12 w-12 bg-gradient-to-br from-primary-900 to-primary-900 rounded-xl shadow-medium flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">THV</span>
+                    <span className="text-white font-bold text-lg">Eye360</span>
                   </div>
                 )}
               </div>
               <div>
-                <span className="text-xl font-display font-semibold">thv.digital</span>
+                <span className="text-xl font-display font-semibold">eye360.digital</span>
                 <div className="text-sm text-gray-400 font-medium">Security Services</div>
               </div>
             </div>
@@ -125,7 +125,7 @@ const Footer = () => {
                 <div className="p-2 bg-primary-900/20 rounded-lg">
                   <Mail className="h-5 w-5 text-primary-900" />
                 </div>
-                <span className="text-gray-300 text-sm">info@thv.digital</span>
+                <span className="text-gray-300 text-sm">info@eye360.digital</span>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="p-2 bg-primary-900/20 rounded-lg mt-1">
@@ -148,7 +148,7 @@ const Footer = () => {
         <div className="border-t border-secondary-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} thv.digital. All rights reserved.
+              © {currentYear} eye360.digital. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/privacy" className="text-gray-400 hover:text-primary-900 text-sm transition-colors">

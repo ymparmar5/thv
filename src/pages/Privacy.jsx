@@ -6,7 +6,7 @@ const Privacy = () => (
       <div className="card max-w-3xl mx-auto">
         <h1 className="mb-6">Privacy Policy</h1>
         <p className="mb-4 text-gray-700 dark:text-gray-200">
-          Your privacy is important to us. This policy explains how THV Digital collects, uses, and protects your information.
+          Your privacy is important to us. This policy explains how Eye360 collects, uses, and protects your information.
         </p>
         <h2 className="mt-8 mb-2 text-lg font-semibold text-primary-900">1. Information We Collect</h2>
         <p className="mb-4 text-gray-700 dark:text-gray-200">
@@ -30,7 +30,7 @@ const Privacy = () => (
         </p>
         <h2 className="mt-8 mb-2 text-lg font-semibold text-primary-900">6. Contact</h2>
         <p className="mb-4 text-gray-700 dark:text-gray-200">
-          If you have any questions about this policy, please contact us at <a href="mailto:info@thv.digital" className="text-primary-900 underline">info@thv.digital</a>.
+          If you have any questions about this policy, please contact us at <a href="mailto:info@eye360.digital" className="text-primary-900 underline">info@eye360.digital</a>.
         </p>
       </div>
     </div>

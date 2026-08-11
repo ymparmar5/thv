@@ -27,9 +27,9 @@ const Intro = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-4xl lg:text-6xl font-bold leading-tight text-[var(--color-text-primary)]"
               >
-                THV –{" "}
+                Eye360 –{" "}
                 <span className="bg-primary-900 bg-clip-text text-transparent">
-                  Tech Horizone Ventures
+                  Security Solutions
                 </span>
               </motion.h1>
 
@@ -39,7 +39,7 @@ const Intro = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-lg"
               >
-                THV provides Security Monitoring & Surveillance which are essential to the functioning of a vibrant and healthy economy. We have emerged as a trusted leader across these business segments in world wide.
+                Eye360 provides Security Monitoring & Surveillance which are essential to the functioning of a vibrant and healthy economy. We have emerged as a trusted leader across these business segments in world wide.
               </motion.p>
             </div>
 

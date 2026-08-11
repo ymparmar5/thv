@@ -28,14 +28,14 @@ const Header = () => {
             <div className="relative">
               {!logoError ? (
                 <img 
-                  src="/images/THV.png" 
-                  alt="THV Digital" 
+                  src="/images/logo.jpeg" 
+                  alt="Eye360" 
                   className="h-12  rounded-xl shadow-medium group-hover:shadow-large transition-all duration-300"
                   onError={() => setLogoError(true)}
                 />
               ) : (
                 <div className="h-12 w-12 bg-gradient-to-br from-primary-900 to-primary-900 rounded-xl shadow-medium group-hover:shadow-large transition-all duration-300 flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">THV</span>
+                  <span className="text-white font-bold text-lg">Eye360</span>
                 </div>
               )}
             </div>

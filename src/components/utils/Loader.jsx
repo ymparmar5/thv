@@ -66,7 +66,7 @@ export default function Loader() {
                                     <div className="m-1 text-2xl font-bold tracking-tighter text-secondary-50 bg-white rounded-full  leading-none mb-0.5">
                                         <img
                                             className=" object-contain scale-105 "
-                                            src="./images/THV-loader.png" >
+                                            src="./images/logo.jpeg" >
 
                                         </img>
                                     </div>

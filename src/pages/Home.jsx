@@ -82,7 +82,7 @@ const Home = () => {
             </div>
             <div className="animate-slide-up">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-large">
-                <h3 className="text-2xl font-display font-semibold mb-8">Why Choose THV Digital?</h3>
+                <h3 className="text-2xl font-display font-semibold mb-8">Why Choose Eye360?</h3>
                 <div className="space-y-6">
                   {features.map((feature, index) => (
                     <div key={index} className="flex items-start space-x-4">
@@ -192,7 +192,7 @@ const Home = () => {
                 <Mail className="h-8 w-8 text-primary-900" />
               </div>
               <h3 className="text-xl font-display font-semibold mb-2">Email</h3>
-              <p className="text-gray-300">info@thv.digital</p>
+              <p className="text-gray-300">info@eye360.digital</p>
             </div>
             <div className="text-center">
               <div className="bg-primary-900/20 p-4 rounded-2xl w-fit mx-auto mb-4">

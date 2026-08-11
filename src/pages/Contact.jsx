@@ -50,8 +50,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@thv.digital'],
-      action: 'mailto:info@thv.digital'
+      details: ['info@eye360.digital'],
+      action: 'mailto:info@eye360.digital'
     },
     {
       icon: MapPin,

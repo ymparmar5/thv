@@ -131,7 +131,7 @@ const TestimonialSection = () => {
             What Our Clients Say
           </h2>
           <p className="text-center mt-5 opacity-75">
-              Real feedback from organizations who trust THV Digital for their security needs.
+              Real feedback from organizations who trust Eye360 for their security needs.
           </p>
         </motion.div>
 

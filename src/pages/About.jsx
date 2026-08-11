@@ -59,7 +59,7 @@ const About = () => {
         <div className="relative z-10 max-w-7xl mx-auto py-40 px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             About
-            <span className="text-black-900 block">THV Digital</span>
+            <span className="text-black-900 block">Eye360</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Leading provider of professional security services, delivering comprehensive 
