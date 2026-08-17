@@ -84,7 +84,7 @@ const Contact = () => {
   return (
     <div className="bg-gray-50 dark:bg-secondary-900">
       {/* Hero Section */}
-      <section className="bg- text-white relative py-10 overflow-hidden" style={{ backgroundImage: 'url(/public/18.jpg)' }} >
+      <section className="bg-secondary-900 text-white relative py-20 lg:py-32 overflow-hidden" style={{ backgroundImage: 'url(/public/18.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} >
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 container-max section-padding text-center">
           <h1 className="mb-4">Contact Us</h1>
@@ -267,19 +267,19 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-secondary-800">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Locations</h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Our Locations</h2>
+            <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
               Serving organizations across Gujarat with professional security services
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Karamsad Office</h3>
-              <p className="text-gray-600 mb-4">
+            <div className="bg-gray-50 dark:bg-secondary-900 p-6 rounded-xl">
+              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Karamsad Office</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
                 103, Vashisth Nakshatra,<br />
                 Gana Rd, Karamsad, Anand,<br />
                 Gujarat 388325
@@ -291,9 +291,9 @@ const Contact = () => {
                 +91 95584 99515
               </a>
             </div>
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">Rajkot Office</h3>
-              <p className="text-gray-600 mb-4">
+            <div className="bg-gray-50 dark:bg-secondary-900 p-6 rounded-xl">
+              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Rajkot Office</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
                 C/401, Radha Park, Ayodhya Chowk,<br />
                 150 Feet Road, Rajkot,<br />
                 Gujarat 360006

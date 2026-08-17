@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Intro = () => {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-[var(--color-bg-gradient-start)] via-primary-900 to-[var(--color-blue-lighter)]">
+    <section className="py-20 lg:py-32 bg-gradient-primary text-white relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -15,7 +15,7 @@ const Intro = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center px-4 py-2 bg-text-primary-900 text-[var(--color-text-primary)] rounded-full text-sm font-medium border border-text-primary-900 backdrop-blur-sm"
+              className="inline-flex items-center px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium border border-white/20 backdrop-blur-sm"
             >
               AI + Human Verification
             </motion.div>
@@ -25,7 +25,7 @@ const Intro = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl lg:text-6xl font-bold leading-tight text-[var(--color-text-primary)]"
+                className="text-4xl lg:text-6xl font-display font-bold leading-tight text-white"
               >
                 Eye360 –{" "}
                 <span className="bg-primary-900 bg-clip-text text-transparent">
@@ -37,7 +37,7 @@ const Intro = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-lg"
+                className="text-lg text-gray-200 leading-relaxed max-w-lg"
               >
                 Our AI + Human Verification solution helps store owners reduce losses, improve operations, and protect profits before problems become costly. 
               </motion.p>
@@ -57,7 +57,7 @@ const Intro = () => {
                 <Button
                   variant="hero"
                   size="lg"
-                  className="px-8 py-6 text-base text-primary-700 hover:text-primary-900 text-[var(--color-text-white)] shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="px-8 py-6 text-base bg-white text-primary-900 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Schedule a Demo Today
                   <motion.div
@@ -78,7 +78,7 @@ const Intro = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="px-8 py-6 text-base border-[var(--color-border-primary)] text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)] hover:border-[var(--color-border-focus)] hover:text-[var(--color-text-blue)] transition-all duration-300"
+                  className="px-8 py-6 text-base border-white text-white hover:bg-white hover:text-primary-900 transition-all duration-300"
                 >
                   <Play className="mr-2 h-5 w-5" />
                   Learn More
@@ -122,7 +122,7 @@ const Intro = () => {
                 y: -5,
                 transition: { duration: 0.3 }
               }}
-              className="absolute -bottom-10 -right-1 bg-[var(--color-bg-card)] border border-[var(--color-border-primary)] rounded-xl p-3 shadow-lg backdrop-blur-sm"
+              className="absolute -bottom-10 -right-1 bg-white dark:bg-secondary-800 border border-gray-100 dark:border-secondary-700 rounded-xl p-3 shadow-lg backdrop-blur-sm"
             >
               <div className="flex items-center space-x-3">
                 <motion.div
@@ -143,7 +143,7 @@ const Intro = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 1.1 }}
-                    className="font-semibold text-[var(--color-text-primary)]"
+                    className="font-semibold text-gray-900 dark:text-white"
                   >
                     Stores Protected
                   </motion.p>
@@ -151,7 +151,7 @@ const Intro = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 1.2 }}
-                    className="text-sm text-[var(--color-text-secondary)]"
+                    className="text-sm text-gray-500 dark:text-gray-400"
                   >
                     with AI + Human verification
                   </motion.p>

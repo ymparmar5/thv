@@ -219,22 +219,22 @@ const Services = () => {
       <section className="bg-gradient-accent py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
         <div className="container-max relative z-10 text-center px-4">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-black">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-white">
             Protect your profits, improve operations, and increase visibility.
           </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto text-black/80 font-medium">
+          <p className="text-xl mb-10 max-w-2xl mx-auto text-white/80 font-medium">
             Schedule a Demo Today and see how Eye360 can transform your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               to="/contact" 
-              className="btn-outline border-black text-black hover:bg-black hover:text-white"
+              className="btn-outline border-white text-white hover:bg-white hover:text-black"
             >
               Schedule a Demo Today
             </Link>
             <a 
               href="tel:+919558499515" 
-              className="bg-black text-white hover:bg-gray-900 font-semibold py-3.5 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-large flex items-center justify-center"
+              className="bg-white text-black hover:bg-gray-100 font-semibold py-3.5 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-large flex items-center justify-center"
             >
               <Phone className="h-5 w-5 mr-2" />
               Call Us Now

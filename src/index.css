@@ -33,7 +33,7 @@
   }
 
   .dark body {
-    background-color: #091a36;
+    background-color: #0D1D3A;
     color: #e2e8f0;
   }
 }
@@ -120,7 +120,7 @@
   }
 
   .dark ::-webkit-scrollbar-track {
-    background: #0F2B57;
+    background: #0D1D3A;
   }
 
   .dark ::-webkit-scrollbar-thumb {

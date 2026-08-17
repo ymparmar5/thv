@@ -163,10 +163,10 @@ const Home = () => {
       {/* CTA Section */}
       <section className="bg-gradient-accent py-20 px-4 sm:px-6 lg:px-8">
         <div className="container-max text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-black">
+          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-white">
             Protect your profits, improve operations, and increase visibility.
           </h2>
-          <p className="text-xl text-black mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed">
             See how Eye360 can reduce losses and give you complete visibility into your store operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

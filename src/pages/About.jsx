@@ -53,9 +53,9 @@ const About = () => {
   return (
     <div className="bg-gray-50 dark:bg-secondary-900">
       {/* Hero Section */}
-      <section style={{backgroundImage: 'url(/public/team.jpg)'}} className=" text-white relative overflow-hidden">
+      <section className="bg-secondary-900 text-white relative overflow-hidden" style={{ backgroundImage: 'url(/public/team.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 max-w-7xl mx-auto py-40 px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto py-20 lg:py-32 px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             About
             <span className="text-primary-400 block mt-2">Eye360</span>
