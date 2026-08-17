@@ -17,7 +17,7 @@ const Intro = () => {
               transition={{ duration: 0.6 }}
               className="inline-flex items-center px-4 py-2 bg-text-primary-900 text-[var(--color-text-primary)] rounded-full text-sm font-medium border border-text-primary-900 backdrop-blur-sm"
             >
-              Security is must ..
+              AI + Human Verification
             </motion.div>
 
             <div className="space-y-6">
@@ -29,7 +29,7 @@ const Intro = () => {
               >
                 Eye360 –{" "}
                 <span className="bg-primary-900 bg-clip-text text-transparent">
-                  Security Solutions
+                  Loss Prevention
                 </span>
               </motion.h1>
 
@@ -39,7 +39,7 @@ const Intro = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-lg"
               >
-                Eye360 provides Security Monitoring & Surveillance which are essential to the functioning of a vibrant and healthy economy. We have emerged as a trusted leader across these business segments in world wide.
+                Our AI + Human Verification solution helps store owners reduce losses, improve operations, and protect profits before problems become costly. 
               </motion.p>
             </div>
 
@@ -59,7 +59,7 @@ const Intro = () => {
                   size="lg"
                   className="px-8 py-6 text-base text-primary-700 hover:text-primary-900 text-[var(--color-text-white)] shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Get Started Now
+                  Schedule a Demo Today
                   <motion.div
                     initial={{ x: 0 }}
                     whileHover={{ x: 5 }}
@@ -103,7 +103,7 @@ const Intro = () => {
             >
               <img
                 src={heroImage}
-                alt="Payroll software dashboard showcasing salary, compliance, and workforce insights"
+                alt="AI Verification and monitoring dashboard"
                 className="w-full h-auto object-cover"
               />
             </motion.div>
@@ -136,7 +136,7 @@ const Intro = () => {
                   }}
                   className="w-12 h-12 text-primary-900 rounded-full flex items-center justify-center"
                 >
-                  <span className="text-primary-900 font-bold text-lg">100+</span>
+                  <span className="text-primary-900 font-bold text-lg">500+</span>
                 </motion.div>
                 <div>
                   <motion.p
@@ -145,7 +145,7 @@ const Intro = () => {
                     transition={{ duration: 0.5, delay: 1.1 }}
                     className="font-semibold text-[var(--color-text-primary)]"
                   >
-                    Businesses Protected
+                    Stores Protected
                   </motion.p>
                   <motion.p
                     initial={{ opacity: 0, x: 20 }}
@@ -153,8 +153,7 @@ const Intro = () => {
                     transition={{ duration: 0.5, delay: 1.2 }}
                     className="text-sm text-[var(--color-text-secondary)]"
                   >
-                    with secured monitoring and surveillance
-
+                    with AI + Human verification
                   </motion.p>
                 </div>
               </div>

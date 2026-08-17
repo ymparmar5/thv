@@ -3,10 +3,11 @@
   --color-primary-black: #000000;
   --color-primary-white: #FFFFFF;
   
-  /* Secondary Colors */
-  --color-secondary-red: #FF6B35;
-  --color-secondary-red-light: #FF6B35;
-  --color-secondary-red-dark: #FF6B35;
+  /* Brand Colors */
+  --color-brand-primary: #228DAB;
+  --color-brand-secondary: #0F2B57;
+  --color-brand-primary-light: #3da5c2;
+  --color-brand-primary-dark: #1d7a95;
   
   /* Gray Scale */
   --color-gray-50: #F9FAFB;
@@ -19,6 +20,18 @@
   --color-gray-700: #374151;
   --color-gray-800: #1F2937;
   --color-gray-900: #111827;
+  
+  /* Gradient & Theme Colors */
+  --color-bg-gradient-start: #0F2B57;
+  --color-blue-lighter: #228DAB;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #c5e4ed;
+  --color-text-white: #FFFFFF;
+  --color-text-blue: #228DAB;
+  --color-border-primary: rgba(34, 141, 171, 0.3);
+  --color-border-focus: #228DAB;
+  --color-bg-hover: rgba(34, 141, 171, 0.1);
+  --color-bg-card: rgba(15, 43, 87, 0.9);
   
   /* Typography */
   --font-family-sans: 'Inter', system-ui, sans-serif;
@@ -53,28 +66,30 @@
 .text-primary-black { color: var(--color-primary-black); }
 .text-primary-white { color: var(--color-primary-white); }
 
-.bg-secondary-red { background-color: var(--color-secondary-red); }
-.bg-secondary-red-light { background-color: var(--color-secondary-red-light); }
-.bg-secondary-red-dark { background-color: var(--color-secondary-red-dark); }
-.text-secondary-red { color: var(--color-secondary-red); }
-.text-secondary-red-light { color: var(--color-secondary-red-light); }
-.text-secondary-red-dark { color: var(--color-secondary-red-dark); }
+.bg-brand-primary { background-color: var(--color-brand-primary); }
+.bg-brand-secondary { background-color: var(--color-brand-secondary); }
+.bg-brand-primary-light { background-color: var(--color-brand-primary-light); }
+.bg-brand-primary-dark { background-color: var(--color-brand-primary-dark); }
+.text-brand-primary { color: var(--color-brand-primary); }
+.text-brand-secondary { color: var(--color-brand-secondary); }
+.text-brand-primary-light { color: var(--color-brand-primary-light); }
+.text-brand-primary-dark { color: var(--color-brand-primary-dark); }
 
 /* Hover states */
-.hover\:bg-secondary-red:hover { background-color: var(--color-secondary-red); }
-.hover\:bg-secondary-red-dark:hover { background-color: var(--color-secondary-red-dark); }
-.hover\:text-secondary-red:hover { color: var(--color-secondary-red); }
-.hover\:text-secondary-red-dark:hover { color: var(--color-secondary-red-dark); }
+.hover\:bg-brand-primary:hover { background-color: var(--color-brand-primary); }
+.hover\:bg-brand-primary-dark:hover { background-color: var(--color-brand-primary-dark); }
+.hover\:text-brand-primary:hover { color: var(--color-brand-primary); }
+.hover\:text-brand-primary-dark:hover { color: var(--color-brand-primary-dark); }
 
-/* Dark mode overrides for secondary red */
-.dark .bg-secondary-red { background-color: #FF6B35; }
-.dark .bg-secondary-red-light { background-color: #FF6B35; }
-.dark .bg-secondary-red-dark { background-color: #FF6B35; }
-.dark .text-secondary-red { color: #FF6B35; }
-.dark .text-secondary-red-light { color: #FF6B35; }
-.dark .text-secondary-red-dark { color: #FF6B35; }
+/* Dark mode overrides */
+.dark .bg-brand-primary { background-color: #228DAB; }
+.dark .bg-brand-primary-light { background-color: #3da5c2; }
+.dark .bg-brand-primary-dark { background-color: #1d7a95; }
+.dark .text-brand-primary { color: #228DAB; }
+.dark .text-brand-primary-light { color: #3da5c2; }
+.dark .text-brand-primary-dark { color: #1d7a95; }
 
-.dark .hover\:bg-secondary-red:hover { background-color: #FF6B35; }
-.dark .hover\:bg-secondary-red-dark:hover { background-color: #FF6B35; }
-.dark .hover\:text-secondary-red:hover { color: #FF6B35; }
-.dark .hover\:text-secondary-red-dark:hover { color: #FF6B35; } 
+.dark .hover\:bg-brand-primary:hover { background-color: #228DAB; }
+.dark .hover\:bg-brand-primary-dark:hover { background-color: #1d7a95; }
+.dark .hover\:text-brand-primary:hover { color: #228DAB; }
+.dark .hover\:text-brand-primary-dark:hover { color: #1d7a95; }

@@ -33,7 +33,7 @@
   }
 
   .dark body {
-    background-color: #06080A;
+    background-color: #091a36;
     color: #e2e8f0;
   }
 }
@@ -111,23 +111,23 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
+    background: #228DAB;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: #1d7a95;
   }
 
   .dark ::-webkit-scrollbar-track {
-    background: #1e293b;
+    background: #0F2B57;
   }
 
   .dark ::-webkit-scrollbar-thumb {
-    background: #475569;
+    background: #1c3568;
   }
 
   .dark ::-webkit-scrollbar-thumb:hover {
-    background: #64748b;
+    background: #228DAB;
   }
 } 

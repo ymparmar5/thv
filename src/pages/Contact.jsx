@@ -58,7 +58,6 @@ const Contact = () => {
       title: 'Address',
       details: [
         '103, Vashisth Nakshatra, Gana Rd, Karamsad, Anand, Gujarat 388325',
-        'C/401, Radha Park, Ayodhya Chowk, 150 Feet Road, Rajkot, Gujarat 360006'
       ],
       action: null
     },
@@ -85,7 +84,7 @@ const Contact = () => {
   return (
     <div className="bg-gray-50 dark:bg-secondary-900">
       {/* Hero Section */}
-      <section className="bg- text-white relative py-10 overflow-hidden" style={{backgroundImage: 'url(/public/18.jpg)'}} >
+      <section className="bg- text-white relative py-10 overflow-hidden" style={{ backgroundImage: 'url(/public/18.jpg)' }} >
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 container-max section-padding text-center">
           <h1 className="mb-4">Contact Us</h1>
@@ -276,7 +275,7 @@ const Contact = () => {
               Serving organizations across Gujarat with professional security services
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-gray-50 p-6 rounded-xl">
               <h3 className="text-xl font-semibold mb-4 text-gray-900">Karamsad Office</h3>
@@ -287,7 +286,7 @@ const Contact = () => {
               </p>
               <a
                 href="tel:+919558499515"
-                className="text-secondary-orange hover:text-secondary-orange-dark font-medium"
+                className="text-primary-900 hover:text-primary-800 font-medium"
               >
                 +91 95584 99515
               </a>
@@ -301,7 +300,7 @@ const Contact = () => {
               </p>
               <a
                 href="tel:+918140407272"
-                className="text-secondary-orange hover:text-secondary-orange-dark font-medium"
+                className="text-primary-900 hover:text-primary-800 font-medium"
               >
                 +91 81404 07272
               </a>

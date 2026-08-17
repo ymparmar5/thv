@@ -37,9 +37,9 @@ const Footer = () => {
             <div className="flex items-center space-x-4 mb-8">
               <div className="relative">
                 {!logoError ? (
-                  <img 
-                    src="/images/logo.jpeg" 
-                    alt="Eye360" 
+                  <img
+                    src="/images/logo.jpeg"
+                    alt="Eye360"
                     className="h-12 w-12 rounded-xl shadow-medium"
                     onError={() => setLogoError(true)}
                   />
@@ -55,7 +55,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-300 mb-8 leading-relaxed text-sm">
-              Professional security services providing surveillance, monitoring, and vigilance solutions 
+              Professional security services providing surveillance, monitoring, and vigilance solutions
               to organizations worldwide with cutting-edge technology and expert personnel.
             </p>
             <div className="flex space-x-4">
@@ -135,9 +135,7 @@ const Footer = () => {
                   <div>103, Vashisth Nakshatra,</div>
                   <div>Gana Rd, Karamsad, Anand,</div>
                   <div>Gujarat 388325</div>
-                  <div className="mt-2">C/401, Radha Park, Ayodhya Chowk,</div>
-                  <div>150 Feet Road, Rajkot,</div>
-                  <div>Gujarat 360006</div>
+
                 </div>
               </div>
             </div>

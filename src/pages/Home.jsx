@@ -1,54 +1,64 @@
 import { Link } from 'react-router-dom'
-import { Shield, Eye, Camera, Users, ArrowRight, Phone, Mail, MapPin } from 'lucide-react'
+import { Shield, Eye, Camera, Users, ArrowRight, Phone, Mail, MapPin, Bot, UserCheck, PhoneCall, AlertTriangle, TrendingDown, ClipboardCheck } from 'lucide-react'
 import Hero from '../components/Hero'
 import Intro from '../components/Intro'
 import TestimonialSection from '../components/TestimonialSection'
 
 const Home = () => {
-  const features = [
+  const whyAiNotEnough = [
     {
-      icon: Shield,
-      title: 'Professional Security',
-      description: 'Licensed and trained security personnel for your protection needs.'
+      icon: Bot,
+      title: 'AI detects unusual activity',
+      description: 'Smart algorithms flag unusual behavior and patterns in real-time across your cameras.'
     },
     {
-      icon: Eye,
-      title: '24/7 Surveillance',
-      description: 'Round-the-clock monitoring and surveillance systems.'
+      icon: UserCheck,
+      title: 'Human team verifies events',
+      description: 'Our trained monitoring team reviews each flag to eliminate false positives and confirm real incidents.'
     },
     {
-      icon: Camera,
-      title: 'Advanced Technology',
-      description: 'State-of-the-art camera systems and monitoring equipment.'
-    },
-    {
-      icon: Users,
-      title: 'Expert Team',
-      description: 'Experienced security professionals with specialized training.'
+      icon: PhoneCall,
+      title: 'Critical incidents are escalated',
+      description: 'Verified critical events are immediately escalated to you with full context and recommended action.'
     }
   ]
 
   const stats = [
-    { number: '500+', label: 'Clients Served' },
-    { number: '24/7', label: 'Support Available' },
-    { number: '10+', label: 'Years Experience' },
-    { number: '100%', label: 'Satisfaction Rate' }
+    { number: '35%', label: 'Loss Reduction' },
+    { number: '24/7', label: 'Live Monitoring' },
+    { number: '100%', label: 'Improved Accountability' },
+    { number: '500+', label: 'Stores Protected' }
   ]
 
-  const services = [
+  const whatWeMonitor = [
     {
-      title: 'Surveillance Systems',
-      description: 'Advanced camera monitoring and recording systems for comprehensive security coverage.',
-      icon: Camera
+      title: 'Theft & Fraud',
+      description: 'Monitor employee theft, shoplifting, refund scams, and POS system manipulation.',
+      icon: AlertTriangle
     },
     {
-      title: 'Monitoring Solutions',
-      description: 'Real-time monitoring and alert systems for immediate response to security threats.',
+      title: 'Operational Compliance',
+      description: 'Ensure opening & closing procedures and policy violations are tracked.',
+      icon: ClipboardCheck
+    },
+    {
+      title: 'Customer Experience',
+      description: 'Monitor customer service quality and lobby & checkout activity.',
+      icon: Users
+    },
+    {
+      title: 'Sales and Waste Reporting',
+      description: 'Weekly sales reports, waste analysis, date-wise tracking, and trend analysis.',
+      icon: TrendingDown
+    },
+    {
+      title: 'Operational Intelligence',
+      description: 'Virtual mystery shopping, customer service monitoring, and lost sales opportunities.',
       icon: Eye
     },
     {
-      title: 'Vigilance Services',
-      description: 'Professional security personnel providing on-site protection and monitoring.',
+      title: 'Reporting and Alerts',
+      description: 'Immediate owner calls, verified incident reports, and actionable recommendations.',
       icon: Shield
     }
   ]
@@ -64,16 +74,17 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-fade-in">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold mb-6 leading-tight">
-                Professional
-                <span className="text-primary-900 block">Security Services</span>
+                Why AI Alone
+                <span className="text-primary-900 block">Is Not Enough</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
-                Providing comprehensive surveillance, monitoring, and vigilance solutions 
-                to protect your organization with cutting-edge technology and expert personnel.
+                Most solutions rely purely on AI, generating endless false alarms. 
+                Our unique approach combines AI detection with trained human verification 
+                to give you actionable intelligence — not just raw alerts.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact" className="btn-outline text-center">
-                  Get Free Quote
+                  Schedule a Demo Today
                 </Link>
                 <Link to="/services" className="btn-secondary text-center">
                   Our Services
@@ -82,9 +93,9 @@ const Home = () => {
             </div>
             <div className="animate-slide-up">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-large">
-                <h3 className="text-2xl font-display font-semibold mb-8">Why Choose Eye360?</h3>
+                <h3 className="text-2xl font-display font-semibold mb-8">How We Are Different</h3>
                 <div className="space-y-6">
-                  {features.map((feature, index) => (
+                  {whyAiNotEnough.map((feature, index) => (
                     <div key={index} className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-primary-900/20 rounded-xl flex items-center justify-center">
                         <feature.icon className="h-6 w-6 text-primary-900" />
@@ -122,14 +133,14 @@ const Home = () => {
       <section className="section-padding bg-gray-50 dark:bg-secondary-900">
         <div className="container-max">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-gray-900 dark:text-white">Our Security Services</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-gray-900 dark:text-white">What We Monitor</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Comprehensive security solutions tailored to meet the unique needs of your organization
+              End-to-end monitoring that covers every aspect of your store operations — from the register to the front door.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {whatWeMonitor.map((service, index) => (
               <div key={index} className="card p-8 group transform hover:-translate-y-2">
                 <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-2xl w-fit mb-6 group-hover:bg-primary-900 dark:group-hover:bg-primary-900/30 transition-colors">
                   <service.icon className="h-8 w-8 text-primary-900 dark:text-primary-900" />
@@ -153,10 +164,10 @@ const Home = () => {
       <section className="bg-gradient-accent py-20 px-4 sm:px-6 lg:px-8">
         <div className="container-max text-center">
           <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-black">
-            Ready to Secure Your Organization?
+            Protect your profits, improve operations, and increase visibility.
           </h2>
           <p className="text-xl text-black mb-8 max-w-2xl mx-auto leading-relaxed">
-            Get in touch with our security experts today for a customized solution that fits your needs.
+            See how Eye360 can reduce losses and give you complete visibility into your store operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
@@ -170,7 +181,7 @@ const Home = () => {
               to="/contact" 
               className="btn-outline"
             >
-              Get Quote
+              Schedule a Demo Today
             </Link>
           </div>
         </div>
@@ -207,34 +218,32 @@ const Home = () => {
 
       <TestimonialSection />
 
-   
-
       {/* FAQ Section */}
       <section className="section-padding bg-white dark:bg-secondary-800">
         <div className="container-max">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-gray-900 dark:text-white">Frequently Asked Questions</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Answers to common questions about our security services.
+              Everything you need to know about our AI + Human monitoring solution.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                q: 'What areas do you serve?',
-                a: 'We provide security services across Gujarat, including Anand, Karamsad, Rajkot, and surrounding regions.'
+                q: 'How does AI + Human Verification work?',
+                a: 'Our AI system continuously monitors all camera feeds and flags unusual activity. A trained human operator then reviews each flag in real-time, verifying whether it\'s a genuine incident. Only verified events are escalated to you.'
               },
               {
-                q: 'Are your monitoring services available 24/7?',
-                a: 'Yes, our monitoring and support teams are available 24/7 to ensure your safety and peace of mind.'
+                q: 'What types of stores do you serve?',
+                a: 'We work with convenience stores, gas stations, quick-service restaurants, retail chains, grocery stores, and any business with a physical location that needs loss prevention and operational monitoring.'
               },
               {
-                q: 'Can I customize my security plan?',
-                a: 'Absolutely! We offer customizable plans and add-on services to fit your unique requirements.'
+                q: 'How quickly will I be notified of an incident?',
+                a: 'Critical verified incidents trigger an immediate phone call to the store owner. Non-urgent events are compiled into detailed weekly reports with recommendations.'
               },
               {
-                q: 'How quickly can you respond to an incident?',
-                a: 'Our team is trained for rapid response and will act immediately upon receiving an alert or notification.'
+                q: 'Do I need to install new cameras?',
+                a: 'In most cases, we can integrate with your existing camera system. If your current setup needs upgrading, we\'ll provide recommendations and assist with installation.'
               }
             ].map((faq, idx) => (
               <details key={idx} className="card-secondary group cursor-pointer">
@@ -254,4 +263,4 @@ const Home = () => {
   )
 }
 
-export default Home 
+export default Home
