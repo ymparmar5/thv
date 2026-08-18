@@ -3,6 +3,9 @@ import { Shield, Eye, Camera, Users, ArrowRight, Phone, Mail, MapPin, Bot, UserC
 import Hero from '../components/Hero'
 import Intro from '../components/Intro'
 import TestimonialSection from '../components/TestimonialSection'
+import HowItWorks from '../components/HowItWorks'
+import Industries from '../components/Industries'
+import Integrations from '../components/Integrations'
 
 const Home = () => {
   const whyAiNotEnough = [
@@ -68,6 +71,7 @@ const Home = () => {
       {/* Hero Section */}
       <Hero />
       <Intro />
+      <HowItWorks />
       <section className="bg-white dark:bg-secondary-900 text-gray-900 dark:text-white relative overflow-hidden py-20">
         <div className="relative z-10 container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -91,7 +95,7 @@ const Home = () => {
               </div>
             </div>
             <div className="animate-slide-up">
-              <div className="bg-gray-50 dark:bg-secondary-800 rounded-3xl p-8 border border-gray-200 dark:border-secondary-700 shadow-large">
+              <div className="bg-gray-50 dark:bg-secondary-800 rounded-3xl p-8 border border-gray-900 dark:border-gray-200 shadow-lg shadow-gray-900/10 dark:shadow-white/10 hover:shadow-xl transition-all duration-300">
                 <h3 className="text-2xl font-display font-semibold mb-8">How We Are Different</h3>
                 <div className="space-y-6">
                   {whyAiNotEnough.map((feature, index) => (
@@ -128,10 +132,15 @@ const Home = () => {
         </div>
       </section>
 
+      <Industries />
+
       {/* Services Overview */}
       <section className="section-padding bg-gray-50 dark:bg-secondary-900">
         <div className="container-max">
           <div className="text-center mb-16">
+            <div className="flex justify-center mb-4">
+              <div className="border py-1 px-4 rounded-lg text-sm font-semibold tracking-wider uppercase">Our Services</div>
+            </div>
             <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-gray-900 dark:text-white">What We Monitor</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
               End-to-end monitoring that covers every aspect of your store operations — from the register to the front door.
@@ -158,6 +167,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <Integrations />
 
       {/* CTA Section */}
       <section className="bg-white dark:bg-secondary-800 py-20 px-4 sm:px-6 lg:px-8">

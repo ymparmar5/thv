@@ -15,7 +15,7 @@ const Intro = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-900 dark:text-primary-100 rounded-full text-sm font-medium border border-primary-200 dark:border-primary-900/50 backdrop-blur-sm"
+              className="inline-block border py-1 px-4 rounded-lg text-sm font-semibold tracking-wider uppercase mb-6"
             >
               AI + Human Verification
             </motion.div>
@@ -122,7 +122,7 @@ const Intro = () => {
                 y: -5,
                 transition: { duration: 0.3 }
               }}
-              className="absolute -bottom-10 -right-1 bg-white dark:bg-secondary-800 border border-gray-100 dark:border-secondary-700 rounded-xl p-3 shadow-lg backdrop-blur-sm"
+              className="absolute -bottom-10 -right-1 bg-white dark:bg-secondary-800 border border-gray-900 dark:border-gray-200 rounded-xl p-3 shadow-lg shadow-gray-900/10 dark:shadow-white/10 backdrop-blur-sm"
             >
               <div className="flex items-center space-x-3">
                 <motion.div
