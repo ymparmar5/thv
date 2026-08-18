@@ -14,6 +14,7 @@ import AdminDashboard from './pages/admin/AdminDashboard.jsx'
 import AdminClients from './pages/admin/AdminClients.jsx'
 import AdminUpdates from './pages/admin/AdminUpdates.jsx'
 import AdminFootage from './pages/admin/AdminFootage.jsx'
+import AdminRoles from './pages/admin/AdminRoles.jsx'
 import CustomerDashboard from './pages/customer/CustomerDashboard.jsx'
 import CustomerUpdates from './pages/customer/CustomerUpdates.jsx'
 import CustomerFootage from './pages/customer/CustomerFootage.jsx'
@@ -46,6 +47,7 @@ function App() {
           <Route path="clients" element={<AdminClients />} />
           <Route path="updates" element={<AdminUpdates />} />
           <Route path="footage" element={<AdminFootage />} />
+          <Route path="roles" element={<AdminRoles />} />
           <Route path="settings" element={<AdminDashboard />} />
         </Route>
 

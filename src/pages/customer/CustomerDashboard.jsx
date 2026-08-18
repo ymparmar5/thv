@@ -1,9 +1,28 @@
 import { 
   Camera, AlertTriangle, CheckCircle, Clock, Shield, 
-  FileText, Video, ArrowRight, Activity, Eye
+  FileText, Video, ArrowRight, Activity, Eye, ArrowUpRight, TrendingDown
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { 
+  LineChart, Line, PieChart, Pie, Cell, 
+  XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
+} from 'recharts'
 import { currentCustomer, securityUpdates, footageClips } from '../../data/mockData'
+
+const alertTrends = [
+  { name: 'Week 1', alerts: 12 },
+  { name: 'Week 2', alerts: 8 },
+  { name: 'Week 3', alerts: 15 },
+  { name: 'Week 4', alerts: 7 },
+]
+
+const lossPreventionData = [
+  { name: 'Refund Fraud', value: 45 },
+  { name: 'Sweethearting', value: 30 },
+  { name: 'Policy Violation', value: 15 },
+  { name: 'Theft', value: 10 },
+]
+const COLORS = ['#ef4444', '#f59e0b', '#3b82f6', '#10b981'] // Red, Amber, Blue, Green
 
 const CustomerDashboard = () => {
   const customerUpdates = securityUpdates.filter(
@@ -12,148 +31,190 @@ const CustomerDashboard = () => {
 
   const customerFootage = footageClips.filter(
     c => c.clientId === currentCustomer.id
-  ).slice(0, 3)
+  ).slice(0, 5)
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-secondary-900 to-primary-900 rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden">
+      <div className="bg-gradient-to-r from-secondary-900 to-primary-900 rounded-2xl p-8 text-white relative overflow-hidden shadow-lg shadow-primary-900/20">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
-        <div className="relative z-10">
-          <div className="flex items-center space-x-2 mb-2">
-            <Shield className="w-5 h-5 text-primary-300" />
-            <span className="text-sm text-primary-200 font-medium">Security Dashboard</span>
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between">
+          <div>
+            <div className="flex items-center space-x-2 mb-3">
+              <Shield className="w-5 h-5 text-primary-300" />
+              <span className="text-sm text-primary-200 font-bold tracking-wider uppercase">Security Dashboard</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-2 font-display">
+              Welcome back, {currentCustomer.name}
+            </h1>
+            <p className="text-base text-white/80 mb-6 max-w-xl">
+              Your intelligent security system is fully operational. Our human verification team is monitoring your {currentCustomer.activeCameras} active cameras to protect your profits.
+            </p>
+            <div className="inline-flex items-center px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-full text-sm shadow-sm backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]" />
+              <span className="text-green-100 font-bold">{currentCustomer.systemStatus}</span>
+            </div>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold mb-2">
-            Welcome back, {currentCustomer.name}
-          </h1>
-          <p className="text-sm text-white/70 mb-4">
-            Your security system is fully operational. All {currentCustomer.activeCameras} cameras are online.
-          </p>
-          <div className="inline-flex items-center px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-full text-sm">
-            <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
-            <span className="text-green-100 font-medium">{currentCustomer.systemStatus}</span>
+          <div className="mt-6 md:mt-0 bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/10 text-center min-w-[200px]">
+            <p className="text-white/70 text-sm font-semibold mb-1">Estimated Savings</p>
+            <p className="text-3xl font-bold text-white">$4,250</p>
+            <p className="text-xs text-green-300 mt-2 flex items-center justify-center font-medium">
+              <TrendingDown className="w-3 h-3 mr-1" /> -12% shrinkage this month
+            </p>
           </div>
         </div>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-2xl p-5 border border-gray-100">
-          <div className="bg-primary-50 p-3 rounded-xl w-fit mb-3">
-            <Camera className="w-5 h-5 text-primary-900" />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="card p-6">
+          <div className="bg-primary-50 dark:bg-primary-900/20 p-3 rounded-xl w-fit mb-4">
+            <Camera className="w-6 h-6 text-primary-900 dark:text-primary-400" />
           </div>
-          <p className="text-2xl font-bold text-gray-900">{currentCustomer.activeCameras}</p>
-          <p className="text-sm text-gray-500">Cameras Active</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">{currentCustomer.activeCameras}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Cameras Active</p>
         </div>
-        <div className="bg-white rounded-2xl p-5 border border-gray-100">
-          <div className="bg-amber-50 p-3 rounded-xl w-fit mb-3">
-            <AlertTriangle className="w-5 h-5 text-amber-500" />
+        <div className="card p-6">
+          <div className="bg-amber-50 dark:bg-amber-900/20 p-3 rounded-xl w-fit mb-4">
+            <AlertTriangle className="w-6 h-6 text-amber-500 dark:text-amber-400" />
           </div>
-          <p className="text-2xl font-bold text-gray-900">{currentCustomer.alertsThisMonth}</p>
-          <p className="text-sm text-gray-500">Alerts This Month</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">{currentCustomer.alertsThisMonth}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Verified Alerts This Month</p>
         </div>
-        <div className="bg-white rounded-2xl p-5 border border-gray-100">
-          <div className="bg-green-50 p-3 rounded-xl w-fit mb-3">
-            <Activity className="w-5 h-5 text-green-500" />
+        <div className="card p-6">
+          <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-xl w-fit mb-4">
+            <Activity className="w-6 h-6 text-green-500 dark:text-green-400" />
           </div>
-          <p className="text-2xl font-bold text-gray-900">99.9%</p>
-          <p className="text-sm text-gray-500">System Uptime</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">99.9%</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">System Uptime</p>
         </div>
-        <div className="bg-white rounded-2xl p-5 border border-gray-100">
-          <div className="bg-secondary-50 p-3 rounded-xl w-fit mb-3">
-            <Clock className="w-5 h-5 text-secondary-600" />
+        <div className="card p-6">
+          <div className="bg-secondary-50 dark:bg-secondary-900/20 p-3 rounded-xl w-fit mb-4">
+            <Clock className="w-6 h-6 text-secondary-600 dark:text-secondary-400" />
           </div>
-          <p className="text-2xl font-bold text-gray-900">{currentCustomer.lastChecked}</p>
-          <p className="text-sm text-gray-500">Last Checked</p>
+          <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">{currentCustomer.lastChecked}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Last Human Check</p>
         </div>
       </div>
 
-      {/* Content Grid */}
+      {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Recent Updates */}
-        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <FileText className="w-5 h-5 text-primary-900" />
-              <h2 className="text-lg font-semibold text-gray-900">Recent Updates</h2>
-            </div>
-            <Link 
-              to="/customer/updates" 
-              className="text-sm text-primary-900 hover:text-primary-700 font-medium flex items-center"
-            >
-              View All <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
+        {/* Alert Trends Line Chart */}
+        <div className="card p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+              <Activity className="w-5 h-5 mr-2 text-primary-900" />
+              Verified Alert Trends
+            </h2>
           </div>
-          <div className="divide-y divide-gray-50">
-            {customerUpdates.length > 0 ? customerUpdates.map((update) => (
-              <div key={update.id} className="px-6 py-4 hover:bg-gray-50 transition-colors">
-                <div className="flex items-start space-x-3">
-                  <div className={`p-2 rounded-lg flex-shrink-0 ${
-                    update.type === 'alert' ? 'bg-red-50 text-red-500' : 
-                    update.type === 'report' ? 'bg-blue-50 text-blue-500' : 
-                    'bg-green-50 text-green-500'
-                  }`}>
-                    {update.type === 'alert' ? <AlertTriangle className="w-4 h-4" /> :
-                     update.type === 'report' ? <FileText className="w-4 h-4" /> :
-                     <CheckCircle className="w-4 h-4" />}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 truncate">{update.title}</p>
-                    <p className="text-xs text-gray-500 mt-1 line-clamp-1">{update.description}</p>
-                    <p className="text-xs text-gray-400 mt-1">{update.date}</p>
-                  </div>
-                </div>
-              </div>
-            )) : (
-              <div className="px-6 py-8 text-center">
-                <p className="text-sm text-gray-500">No recent updates</p>
-              </div>
-            )}
+          <div className="h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={alertTrends} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#374151" opacity={0.1} />
+                <XAxis dataKey="name" stroke="#6b7280" fontSize={12} tickLine={false} axisLine={false} />
+                <YAxis stroke="#6b7280" fontSize={12} tickLine={false} axisLine={false} />
+                <Tooltip 
+                  contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#fff', borderRadius: '0.5rem' }}
+                  itemStyle={{ color: '#fff' }}
+                />
+                <Line type="monotone" dataKey="alerts" name="Alerts" stroke="#228DAB" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         </div>
 
-        {/* Recent Footage */}
-        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Video className="w-5 h-5 text-primary-900" />
-              <h2 className="text-lg font-semibold text-gray-900">Recent Footage</h2>
-            </div>
-            <Link 
-              to="/customer/footage" 
-              className="text-sm text-primary-900 hover:text-primary-700 font-medium flex items-center"
-            >
-              View All <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
+        {/* Loss Prevention Pie Chart */}
+        <div className="card p-6 flex flex-col">
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+              <Shield className="w-5 h-5 mr-2 text-primary-900" />
+              Loss Prevention Breakdown
+            </h2>
           </div>
-          <div className="divide-y divide-gray-50">
-            {customerFootage.length > 0 ? customerFootage.map((clip) => (
-              <div key={clip.id} className="px-6 py-4 hover:bg-gray-50 transition-colors">
-                <div className="flex items-center space-x-3">
-                  <div className="w-16 h-12 rounded-lg overflow-hidden flex-shrink-0 relative">
-                    <img src={clip.thumbnail} alt={clip.title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                      <Eye className="w-4 h-4 text-white" />
+          <div className="flex-1 min-h-[250px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={lossPreventionData}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={100}
+                  dataKey="value"
+                  stroke="none"
+                  label={({ name, percent }) => `${(percent * 100).toFixed(0)}%`}
+                  labelLine={false}
+                >
+                  {lossPreventionData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#fff', borderRadius: '0.5rem' }}
+                  itemStyle={{ color: '#fff' }}
+                />
+                <Legend verticalAlign="bottom" height={36} />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </div>
+
+      {/* Incident Data Table */}
+      <div className="card p-0 overflow-hidden">
+        <div className="px-6 py-5 border-b border-gray-100 dark:border-secondary-700 flex items-center justify-between bg-gray-50/50 dark:bg-secondary-800/50">
+          <div className="flex items-center space-x-3">
+            <Video className="w-5 h-5 text-primary-900" />
+            <h2 className="text-lg font-bold text-gray-900 dark:text-white">Recent Verified Incidents</h2>
+          </div>
+          <Link to="/customer/footage" className="text-sm text-primary-900 hover:text-primary-700 font-bold flex items-center">
+            View All Footage <ArrowUpRight className="w-4 h-4 ml-1" />
+          </Link>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-secondary-900/50 dark:text-gray-300">
+              <tr>
+                <th scope="col" className="px-6 py-4 font-bold tracking-wider">Date & Time</th>
+                <th scope="col" className="px-6 py-4 font-bold tracking-wider">Location</th>
+                <th scope="col" className="px-6 py-4 font-bold tracking-wider">Event Type</th>
+                <th scope="col" className="px-6 py-4 font-bold tracking-wider">Status</th>
+                <th scope="col" className="px-6 py-4 font-bold tracking-wider text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100 dark:divide-secondary-700">
+              {customerFootage.map((clip) => (
+                <tr key={clip.id} className="hover:bg-gray-50 dark:hover:bg-secondary-700/30 transition-colors bg-white dark:bg-secondary-800">
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="flex items-center">
+                      <Clock className="w-4 h-4 mr-2 text-gray-400" />
+                      <span className="font-medium text-gray-900 dark:text-white">{clip.date}</span>
                     </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-900 truncate">{clip.title}</p>
-                    <p className="text-xs text-gray-500 mt-1">{clip.cameraName}</p>
-                  </div>
-                  <div className="text-right flex-shrink-0">
-                    <p className="text-xs text-gray-500">{clip.date}</p>
-                    <p className="text-xs text-gray-400">{clip.duration}</p>
-                  </div>
-                </div>
-              </div>
-            )) : (
-              <div className="px-6 py-8 text-center">
-                <p className="text-sm text-gray-500">No recent footage</p>
-              </div>
-            )}
-          </div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className="text-gray-600 dark:text-gray-300 font-medium flex items-center">
+                      <Camera className="w-4 h-4 mr-2 text-gray-400" />
+                      {clip.camera}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                    {clip.title}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-900/30">
+                      <span className="w-2 h-2 rounded-full mr-2 bg-amber-500" />
+                      Action Required
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-right">
+                    <button className="text-primary-900 dark:text-primary-400 hover:text-primary-700 font-semibold text-sm transition-colors flex items-center justify-end w-full">
+                      <Video className="w-4 h-4 mr-1" /> Play Clip
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -95,7 +95,7 @@ const Home = () => {
               </div>
             </div>
             <div className="animate-slide-up">
-              <div className="bg-gray-50 dark:bg-secondary-800 rounded-3xl p-8 border border-gray-900 dark:border-gray-200 shadow-lg shadow-gray-900/10 dark:shadow-white/10 hover:shadow-xl transition-all duration-300">
+              <div className="bg-gray-50 dark:bg-secondary-800 rounded-3xl p-8 border border-primary-900 shadow-lg shadow-primary-900/10 hover:shadow-xl transition-all duration-300">
                 <h3 className="text-2xl font-display font-semibold mb-8">How We Are Different</h3>
                 <div className="space-y-6">
                   {whyAiNotEnough.map((feature, index) => (

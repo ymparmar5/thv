@@ -44,7 +44,7 @@ const Integrations = () => {
             {/* Background decorative elements */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary-900/10 to-transparent rounded-3xl transform rotate-3"></div>
             
-            <div className="relative bg-white dark:bg-secondary-900 border border-gray-900 dark:border-gray-200 shadow-lg shadow-gray-900/10 dark:shadow-white/10 rounded-3xl p-8">
+            <div className="relative bg-white dark:bg-secondary-900 border border-primary-900 shadow-lg shadow-primary-900/10 rounded-3xl p-8">
               
               {/* Diagram */}
               <div className="flex flex-col items-center justify-center space-y-6">

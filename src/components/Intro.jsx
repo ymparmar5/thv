@@ -122,7 +122,7 @@ const Intro = () => {
                 y: -5,
                 transition: { duration: 0.3 }
               }}
-              className="absolute -bottom-10 -right-1 bg-white dark:bg-secondary-800 border border-gray-900 dark:border-gray-200 rounded-xl p-3 shadow-lg shadow-gray-900/10 dark:shadow-white/10 backdrop-blur-sm"
+              className="absolute -bottom-10 -right-1 bg-white dark:bg-secondary-800 border border-primary-900 rounded-xl p-3 shadow-lg shadow-primary-900/10 backdrop-blur-sm"
             >
               <div className="flex items-center space-x-3">
                 <motion.div

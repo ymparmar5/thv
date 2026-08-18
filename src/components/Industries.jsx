@@ -43,7 +43,7 @@ const Industries = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {industries.map((industry, index) => (
-            <div key={index} className="group rounded-3xl overflow-hidden bg-white dark:bg-secondary-800 shadow-lg shadow-gray-900/10 dark:shadow-white/10 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-900 dark:border-gray-200 flex flex-col">
+            <div key={index} className="group rounded-3xl overflow-hidden bg-white dark:bg-secondary-800 shadow-lg shadow-primary-900/10 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-primary-900 flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-secondary-900/40 group-hover:bg-secondary-900/20 transition-colors duration-300 z-10"></div>
                 <img 
