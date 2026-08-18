@@ -1,6 +1,6 @@
 import { 
   Camera, AlertTriangle, CheckCircle, Clock, Shield, 
-  FileText, Video, ArrowRight, Activity, Eye, ArrowUpRight, TrendingDown
+  FileText, Video, ArrowRight, Activity, Eye, ArrowUpRight, TrendingDown, Bell, ClipboardList
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { 
@@ -8,6 +8,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
 } from 'recharts'
 import { currentCustomer, securityUpdates, footageClips } from '../../data/mockData'
+import { useIncidents } from '../../context/IncidentContext.jsx'
 
 const alertTrends = [
   { name: 'Week 1', alerts: 12 },
@@ -25,6 +26,7 @@ const lossPreventionData = [
 const COLORS = ['#ef4444', '#f59e0b', '#3b82f6', '#10b981'] // Red, Amber, Blue, Green
 
 const CustomerDashboard = () => {
+  const { getClientIncidents, getUnreadNotificationCount } = useIncidents()
   const customerUpdates = securityUpdates.filter(
     u => u.clientId === currentCustomer.id && u.status === 'published'
   ).slice(0, 3)
@@ -32,6 +34,11 @@ const CustomerDashboard = () => {
   const customerFootage = footageClips.filter(
     c => c.clientId === currentCustomer.id
   ).slice(0, 5)
+
+  const pendingIncidents = getClientIncidents(currentCustomer.id).filter(
+    i => i.status === 'sent_to_customer' || i.status === 'acknowledged'
+  )
+  const unreadCount = getUnreadNotificationCount(currentCustomer.id)
 
   return (
     <div className="space-y-8">
@@ -65,6 +72,29 @@ const CustomerDashboard = () => {
           </div>
         </div>
       </div>
+
+      {/* Incident Alert Banner */}
+      {pendingIncidents.length > 0 && (
+        <div className="bg-gradient-to-r from-amber-500/10 to-red-500/10 border border-amber-200 dark:border-amber-900/30 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
+              <Bell className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900 dark:text-white flex items-center">
+                {pendingIncidents.length} Incident{pendingIncidents.length > 1 ? 's' : ''} Requiring Your Attention
+                {unreadCount > 0 && (
+                  <span className="ml-2 bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center animate-pulse">{unreadCount}</span>
+                )}
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Review and acknowledge recent security incidents reported by our team</p>
+            </div>
+          </div>
+          <Link to="/customer/incidents" className="btn-primary text-sm py-2 px-4 flex-shrink-0">
+            <ClipboardList className="w-4 h-4 mr-1.5" /> View Incidents
+          </Link>
+        </div>
+      )}
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">

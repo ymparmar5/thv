@@ -17,7 +17,7 @@ const slides = [
     tagline: "Instant alerts and rapid response to keep you safe"
   },
   {
-    video: "/5.mov",
+    video: "/4.mp4",
     title: "Smart Protection Systems",
     tagline: "AI-powered security for complete peace of mind"
   },

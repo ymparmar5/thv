@@ -2,9 +2,10 @@ import { useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { 
   LayoutDashboard, Users, FileText, Video, Settings, LogOut, 
-  Menu, X, Bell, Shield, ChevronDown, Sun, Moon, UserCog, AlertOctagon
+  Menu, X, Bell, Shield, ChevronDown, Sun, Moon, UserCog, AlertOctagon, ClipboardList
 } from 'lucide-react'
 import { useTheme } from '../../context/ThemeContext.jsx'
+import { useIncidents } from '../../context/IncidentContext.jsx'
 
 const navItems = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
@@ -12,6 +13,7 @@ const navItems = [
   { name: 'Security Updates', href: '/admin/updates', icon: FileText },
   { name: 'Footage', href: '/admin/footage', icon: Video },
   { name: 'Report Incident', href: '/admin/report-incident', icon: AlertOctagon },
+  { name: 'Incidents', href: '/admin/incidents', icon: ClipboardList, badge: true },
   { name: 'Roles & Staff', href: '/admin/roles', icon: UserCog },
   { name: 'Settings', href: '/admin/settings', icon: Settings },
 ]
@@ -20,6 +22,8 @@ const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const location = useLocation()
   const { isDark, toggleTheme } = useTheme()
+  const { incidents } = useIncidents()
+  const pendingReviewCount = incidents.filter(i => i.status === 'internal_review').length
 
   const isActive = (path) => {
     if (path === '/admin') return location.pathname === '/admin'
@@ -74,7 +78,12 @@ const AdminLayout = () => {
                 }`}
               >
                 <item.icon className="w-5 h-5 flex-shrink-0" />
-                <span>{item.name}</span>
+                <span className="flex-1">{item.name}</span>
+                {item.badge && pendingReviewCount > 0 && (
+                  <span className="ml-auto bg-red-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                    {pendingReviewCount}
+                  </span>
+                )}
               </Link>
             ))}
           </nav>

@@ -135,6 +135,317 @@ export const clients = [
   },
 ]
 
+// ==========================================
+// STORES — Multiple stores per client
+// ==========================================
+export const stores = [
+  { id: 'STR-001', name: 'Main Building - Ground Floor', address: 'Sunrise Mall, Block A, Ground Floor, Anand', clientId: 'CLT-001' },
+  { id: 'STR-002', name: 'Main Building - First Floor', address: 'Sunrise Mall, Block A, First Floor, Anand', clientId: 'CLT-001' },
+  { id: 'STR-003', name: 'Parking & Loading Dock', address: 'Sunrise Mall, Basement Level, Anand', clientId: 'CLT-001' },
+  { id: 'STR-004', name: 'Main Hospital Wing', address: 'Green Valley, Wing A, Rajkot', clientId: 'CLT-002' },
+  { id: 'STR-005', name: 'Emergency & ICU Block', address: 'Green Valley, Wing B, Rajkot', clientId: 'CLT-002' },
+  { id: 'STR-006', name: 'Pharmacy & Admin', address: 'Green Valley, Wing C, Rajkot', clientId: 'CLT-002' },
+  { id: 'STR-007', name: 'Server Room & IT Wing', address: 'TechPark, Building 1, Vadodara', clientId: 'CLT-003' },
+  { id: 'STR-008', name: 'Main Office Floor', address: 'TechPark, Building 2, Vadodara', clientId: 'CLT-003' },
+  { id: 'STR-009', name: 'Main Campus', address: 'Heritage School, Main Gate, Karamsad', clientId: 'CLT-004' },
+  { id: 'STR-010', name: 'Sports Complex', address: 'Heritage School, Sports Block, Karamsad', clientId: 'CLT-004' },
+  { id: 'STR-011', name: 'Lobby & Reception', address: 'Royal Residency, Ground Floor, Anand', clientId: 'CLT-005' },
+  { id: 'STR-012', name: 'Warehouse Zone A', address: 'Metro Warehouse, Sector 7, Ahmedabad', clientId: 'CLT-006' },
+  { id: 'STR-013', name: 'Warehouse Zone B', address: 'Metro Warehouse, Sector 8, Ahmedabad', clientId: 'CLT-006' },
+  { id: 'STR-014', name: 'Retail Floor', address: 'City Center, Level 1, Surat', clientId: 'CLT-007' },
+  { id: 'STR-015', name: 'Food Court & Entertainment', address: 'City Center, Level 2, Surat', clientId: 'CLT-007' },
+  { id: 'STR-016', name: 'Production Floor', address: 'Patel Textiles, Factory Unit 1, Rajkot', clientId: 'CLT-008' },
+  { id: 'STR-017', name: 'Raw Material Storage', address: 'Patel Textiles, Godown, Rajkot', clientId: 'CLT-008' },
+]
+
+// ==========================================
+// CAMERAS — Each store has cameras
+// ==========================================
+export const cameras = [
+  { id: 'CAM-001', name: 'Main Entrance Camera', storeId: 'STR-001', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-002', name: 'Jewelry Section Cam', storeId: 'STR-001', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-003', name: 'East Gate Camera', storeId: 'STR-001', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-004', name: 'Cash Counter Camera', storeId: 'STR-001', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-005', name: 'Escalator Camera', storeId: 'STR-002', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-006', name: 'Electronics Store Cam', storeId: 'STR-002', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-007', name: 'Corridor Cam North', storeId: 'STR-002', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-008', name: 'Parking Entry Camera', storeId: 'STR-003', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-009', name: 'Parking Exit Camera', storeId: 'STR-003', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-010', name: 'Loading Dock Camera', storeId: 'STR-003', clientId: 'CLT-001', status: 'online' },
+  { id: 'CAM-011', name: 'Reception Camera', storeId: 'STR-004', clientId: 'CLT-002', status: 'online' },
+  { id: 'CAM-012', name: 'Corridor Camera L1', storeId: 'STR-004', clientId: 'CLT-002', status: 'online' },
+  { id: 'CAM-013', name: 'Pharmacy Entrance', storeId: 'STR-004', clientId: 'CLT-002', status: 'online' },
+  { id: 'CAM-014', name: 'Visitor Lobby Cam', storeId: 'STR-004', clientId: 'CLT-002', status: 'online' },
+  { id: 'CAM-015', name: 'Emergency Entrance', storeId: 'STR-005', clientId: 'CLT-002', status: 'online' },
+  { id: 'CAM-016', name: 'ICU Corridor Camera', storeId: 'STR-005', clientId: 'CLT-002', status: 'offline' },
+  { id: 'CAM-017', name: 'Server Room Main', storeId: 'STR-007', clientId: 'CLT-003', status: 'online' },
+  { id: 'CAM-018', name: 'Server Room Backup', storeId: 'STR-007', clientId: 'CLT-003', status: 'online' },
+  { id: 'CAM-019', name: 'Office Entrance Cam', storeId: 'STR-008', clientId: 'CLT-003', status: 'online' },
+  { id: 'CAM-020', name: 'Conference Room Cam', storeId: 'STR-008', clientId: 'CLT-003', status: 'online' },
+  { id: 'CAM-021', name: 'Main Gate Camera', storeId: 'STR-009', clientId: 'CLT-004', status: 'online' },
+  { id: 'CAM-022', name: 'Playground Camera', storeId: 'STR-009', clientId: 'CLT-004', status: 'online' },
+  { id: 'CAM-023', name: 'Corridor Cam Block A', storeId: 'STR-009', clientId: 'CLT-004', status: 'online' },
+  { id: 'CAM-024', name: 'Warehouse Entry', storeId: 'STR-012', clientId: 'CLT-006', status: 'online' },
+  { id: 'CAM-025', name: 'Aisle 1 Camera', storeId: 'STR-012', clientId: 'CLT-006', status: 'offline' },
+  { id: 'CAM-026', name: 'Aisle 2 Camera', storeId: 'STR-012', clientId: 'CLT-006', status: 'online' },
+]
+
+// ==========================================
+// REGULATIONS — Do's and Don'ts per client
+// ==========================================
+export const regulations = [
+  { id: 'REG-001', clientId: 'CLT-001', type: 'dont', title: 'No Tailgating', description: 'Employees must not allow unauthorized persons to follow them through secured doors' },
+  { id: 'REG-002', clientId: 'CLT-001', type: 'dont', title: 'No Unattended Cash Register', description: 'Cash registers must never be left unattended during operational hours' },
+  { id: 'REG-003', clientId: 'CLT-001', type: 'do', title: 'Verify ID at Restricted Areas', description: 'Always verify ID badges before granting access to restricted zones' },
+  { id: 'REG-004', clientId: 'CLT-001', type: 'dont', title: 'No After-Hours Unauthorized Access', description: 'No staff should access the premises after business hours without prior authorization' },
+  { id: 'REG-005', clientId: 'CLT-001', type: 'do', title: 'Report Suspicious Activity', description: 'All suspicious activity must be reported to security within 5 minutes' },
+  { id: 'REG-006', clientId: 'CLT-001', type: 'dont', title: 'No Sweethearting', description: 'Cashiers must not pass items without scanning for friends or family' },
+  { id: 'REG-007', clientId: 'CLT-002', type: 'do', title: 'Wear ID Badge at All Times', description: 'All staff and visitors must visibly display their ID badge' },
+  { id: 'REG-008', clientId: 'CLT-002', type: 'dont', title: 'No Unauthorized Pharmacy Access', description: 'Only authorized personnel may enter the pharmacy storage area' },
+  { id: 'REG-009', clientId: 'CLT-002', type: 'do', title: 'Log All Visitor Entries', description: 'Reception must log all visitor entries including purpose and host' },
+  { id: 'REG-010', clientId: 'CLT-002', type: 'dont', title: 'No Unescorted Visitors in ICU', description: 'Visitors in ICU must be accompanied by authorized staff at all times' },
+  { id: 'REG-011', clientId: 'CLT-003', type: 'do', title: 'Use Biometric Access for Server Room', description: 'Server room entry requires biometric scan — no piggy-backing' },
+  { id: 'REG-012', clientId: 'CLT-003', type: 'dont', title: 'No Photography in Server Room', description: 'Photography or video recording is strictly prohibited in server areas' },
+  { id: 'REG-013', clientId: 'CLT-003', type: 'do', title: 'Lock Workstations When Away', description: 'All employees must lock workstations when leaving their desks' },
+  { id: 'REG-014', clientId: 'CLT-004', type: 'do', title: 'Verify Parent ID During Pickup', description: 'Gate security must verify parent/guardian identity during student pickup' },
+  { id: 'REG-015', clientId: 'CLT-004', type: 'dont', title: 'No Loitering Near School Premises', description: 'Unknown individuals loitering near school boundaries must be reported immediately' },
+  { id: 'REG-016', clientId: 'CLT-006', type: 'do', title: 'Wear Safety Helmet in Warehouse', description: 'All personnel must wear safety helmets in warehouse zones' },
+  { id: 'REG-017', clientId: 'CLT-006', type: 'dont', title: 'No Personal Bags Inside Warehouse', description: 'Personal bags and items are not allowed inside the warehouse floor' },
+  { id: 'REG-018', clientId: 'CLT-006', type: 'do', title: 'Follow Forklift Safety Protocol', description: 'Maintain 3-meter distance from active forklifts at all times' },
+]
+
+// ==========================================
+// EMPLOYEES — Monitoring staff
+// ==========================================
+export const employees = [
+  { id: 'EMP-001', name: 'Sarah Connor', email: 'sarah.c@eye360.com', role: 'Super Admin', assignedClientId: null, assignedStoreId: null, status: 'active', avatar: 'SC' },
+  { id: 'EMP-002', name: 'John Smith', email: 'jsmith@eye360.com', role: 'Store Manager', assignedClientId: 'CLT-001', assignedStoreId: 'STR-001', status: 'active', avatar: 'JS' },
+  { id: 'EMP-003', name: 'Emily Davis', email: 'edavis@eye360.com', role: 'Shift Lead', assignedClientId: 'CLT-001', assignedStoreId: 'STR-002', status: 'active', avatar: 'ED' },
+  { id: 'EMP-004', name: 'Michael Chang', email: 'mchang@eye360.com', role: 'Security Monitor', assignedClientId: 'CLT-002', assignedStoreId: 'STR-004', status: 'active', avatar: 'MC' },
+  { id: 'EMP-005', name: 'Jessica Alba', email: 'jalba@eye360.com', role: 'Store Manager', assignedClientId: 'CLT-003', assignedStoreId: 'STR-007', status: 'active', avatar: 'JA' },
+  { id: 'EMP-006', name: 'David Wilson', email: 'dwilson@eye360.com', role: 'Security Monitor', assignedClientId: 'CLT-001', assignedStoreId: 'STR-003', status: 'active', avatar: 'DW' },
+  { id: 'EMP-007', name: 'Priya Patel', email: 'ppatel@eye360.com', role: 'Shift Lead', assignedClientId: 'CLT-006', assignedStoreId: 'STR-012', status: 'offline', avatar: 'PP' },
+  { id: 'EMP-008', name: 'Rahul Sharma', email: 'rsharma@eye360.com', role: 'Security Monitor', assignedClientId: 'CLT-004', assignedStoreId: 'STR-009', status: 'active', avatar: 'RS' },
+]
+
+// ==========================================
+// INCIDENTS — Full incident lifecycle data
+// ==========================================
+export const initialIncidents = [
+  {
+    id: 'INC-001',
+    title: 'Sweethearting at Cash Counter #3',
+    story: 'During routine monitoring of Sunrise Mall Ground Floor cameras at approximately 2:15 PM, our operator observed the cashier at Counter #3 (Employee Badge: SM-4521) repeatedly passing items across the scanner without actually scanning them for a known individual. The individual appeared to be a friend or family member of the cashier. Over a 12-minute period, approximately 8-10 items were passed without being scanned, including electronics accessories and clothing items. The cashier looked around nervously before each unscanned pass, suggesting awareness of the violation. The estimated loss from this single incident is approximately $340 based on the items observed.',
+    reason: 'Employee was intentionally not scanning items for a personal acquaintance, resulting in direct inventory loss.',
+    severity: 'high',
+    category: 'Sweethearting',
+    clientId: 'CLT-001',
+    storeId: 'STR-001',
+    cameraId: 'CAM-004',
+    regulationId: 'REG-006',
+    assignedEmployeeId: 'EMP-002',
+    evidenceClips: [
+      { id: 'EV-001', type: 'video', name: 'Counter_3_sweethearting_clip1.mp4', url: '/1.mp4', thumbnail: '/street-horizon-security-camera.jpg', duration: '0:45' },
+      { id: 'EV-002', type: 'video', name: 'Counter_3_sweethearting_clip2.mp4', url: '/2.mp4', thumbnail: '/thief-into-house-captured-by-cctv-cameras.jpg', duration: '1:20' },
+    ],
+    evidenceImages: [
+      { id: 'EV-003', type: 'image', name: 'screenshot_counter3_1.jpg', url: '/street-horizon-security-camera.jpg' },
+      { id: 'EV-004', type: 'image', name: 'screenshot_counter3_2.jpg', url: '/thief-into-house-captured-by-cctv-cameras.jpg' },
+    ],
+    status: 'sent_to_customer',
+    internalReviewNotes: 'Verified by Sarah Connor. Clear evidence of sweethearting. Recommend immediate action.',
+    internalReviewBy: 'EMP-001',
+    internalReviewDate: '2026-08-11T14:30:00',
+    customerFeedback: [],
+    createdAt: '2026-08-11T14:22:00',
+    updatedAt: '2026-08-12T09:00:00',
+    timeline: [
+      { action: 'Incident Created', by: 'John Smith', date: '2026-08-11T14:22:00', note: 'Incident reported during live monitoring' },
+      { action: 'Submitted for Internal Review', by: 'John Smith', date: '2026-08-11T14:25:00', note: 'Submitted with 4 evidence files' },
+      { action: 'Internal Review Approved', by: 'Sarah Connor', date: '2026-08-11T14:30:00', note: 'Verified — clear sweethearting evidence' },
+      { action: 'Sent to Customer Portal', by: 'Sarah Connor', date: '2026-08-12T09:00:00', note: 'Customer notified via portal and email' },
+    ],
+  },
+  {
+    id: 'INC-002',
+    title: 'After-Hours Unauthorized Access — East Gate',
+    story: 'At 02:34 AM on August 11th, camera CAM-003 (East Gate) detected movement near the east gate perimeter. An individual was observed attempting to enter through the emergency exit door, which was not properly secured. The individual appeared to use a copied/cloned access card to bypass the magnetic lock. Once inside, the person spent approximately 15 minutes in the electronics section before leaving through the same door with what appeared to be two bags of merchandise.',
+    reason: 'Unauthorized after-hours access using cloned access credentials, potential theft of merchandise.',
+    severity: 'critical',
+    category: 'Theft / Shoplifting',
+    clientId: 'CLT-001',
+    storeId: 'STR-001',
+    cameraId: 'CAM-003',
+    regulationId: 'REG-004',
+    assignedEmployeeId: 'EMP-002',
+    evidenceClips: [
+      { id: 'EV-005', type: 'video', name: 'east_gate_breach_full.mp4', url: '/3.mp4', thumbnail: '/cctv-camera-city-night-with-ai-generated.jpg', duration: '2:10' },
+      { id: 'EV-006', type: 'video', name: 'east_gate_exit_clip.mp4', url: '/1.mp4', thumbnail: '/street-horizon-security-camera.jpg', duration: '0:55' },
+    ],
+    evidenceImages: [
+      { id: 'EV-007', type: 'image', name: 'east_gate_intruder_1.jpg', url: '/cctv-camera-city-night-with-ai-generated.jpg' },
+      { id: 'EV-008', type: 'image', name: 'east_gate_intruder_2.jpg', url: '/cyber-security.jpg' },
+      { id: 'EV-009', type: 'image', name: 'east_gate_exit_bags.jpg', url: '/thief-into-house-captured-by-cctv-cameras.jpg' },
+    ],
+    status: 'acknowledged',
+    internalReviewNotes: 'Critical breach. Cloned access card used. Recommend: 1) Change all access codes, 2) File police report, 3) Review access logs.',
+    internalReviewBy: 'EMP-001',
+    internalReviewDate: '2026-08-11T06:15:00',
+    customerFeedback: [
+      { by: 'Sunrise Mall Admin', date: '2026-08-12T10:30:00', message: 'We have reviewed the footage and confirmed the breach. Our internal security team has been notified. We are changing all access codes today.' },
+    ],
+    createdAt: '2026-08-11T03:00:00',
+    updatedAt: '2026-08-12T10:30:00',
+    timeline: [
+      { action: 'Incident Created', by: 'John Smith', date: '2026-08-11T03:00:00', note: 'Detected during night shift monitoring' },
+      { action: 'Submitted for Internal Review', by: 'John Smith', date: '2026-08-11T03:15:00', note: 'Marked as CRITICAL priority' },
+      { action: 'Internal Review Approved', by: 'Sarah Connor', date: '2026-08-11T06:15:00', note: 'Verified breach — immediate action recommended' },
+      { action: 'Sent to Customer Portal', by: 'Sarah Connor', date: '2026-08-11T07:00:00', note: 'Urgent notification sent' },
+      { action: 'Customer Acknowledged', by: 'Sunrise Mall Admin', date: '2026-08-12T10:30:00', note: 'Customer confirmed and responding' },
+    ],
+  },
+  {
+    id: 'INC-003',
+    title: 'Safety Helmet Violation — Warehouse Zone A',
+    story: 'During morning shift monitoring at 09:45 AM, three warehouse workers in Zone A were observed working without safety helmets near the forklift operations area. Camera CAM-024 captured all three individuals clearly. They were moving large cartons manually while a forklift was operating in the adjacent aisle.',
+    reason: 'Multiple workers violating mandatory safety helmet policy in an active forklift zone, creating serious injury risk.',
+    severity: 'high',
+    category: 'Safety Violation',
+    clientId: 'CLT-006',
+    storeId: 'STR-012',
+    cameraId: 'CAM-024',
+    regulationId: 'REG-016',
+    assignedEmployeeId: 'EMP-007',
+    evidenceClips: [
+      { id: 'EV-010', type: 'video', name: 'warehouse_helmet_violation.mp4', url: '/2.mp4', thumbnail: '/9.jpg', duration: '1:30' },
+    ],
+    evidenceImages: [
+      { id: 'EV-011', type: 'image', name: 'workers_no_helmet_1.jpg', url: '/9.jpg' },
+      { id: 'EV-012', type: 'image', name: 'workers_no_helmet_2.jpg', url: '/7.jpg' },
+    ],
+    status: 'resolved',
+    internalReviewNotes: 'Clear safety violation. Three workers identified. Recommend disciplinary action and safety retraining.',
+    internalReviewBy: 'EMP-001',
+    internalReviewDate: '2026-08-10T11:00:00',
+    customerFeedback: [
+      { by: 'Metro Warehouse Security', date: '2026-08-10T14:00:00', message: 'Thank you for flagging this. We have issued warnings to all three workers and scheduled mandatory safety training.' },
+      { by: 'Metro Warehouse Security', date: '2026-08-11T09:00:00', message: 'Safety training completed. New helmet dispensers installed at all zone entry points. Consider this incident resolved.' },
+    ],
+    createdAt: '2026-08-10T10:00:00',
+    updatedAt: '2026-08-11T09:30:00',
+    timeline: [
+      { action: 'Incident Created', by: 'Priya Patel', date: '2026-08-10T10:00:00', note: 'Observed during morning shift' },
+      { action: 'Submitted for Internal Review', by: 'Priya Patel', date: '2026-08-10T10:15:00', note: 'Safety violation with evidence' },
+      { action: 'Internal Review Approved', by: 'Sarah Connor', date: '2026-08-10T11:00:00', note: 'Approved — serious safety concern' },
+      { action: 'Sent to Customer Portal', by: 'Sarah Connor', date: '2026-08-10T11:30:00', note: 'Customer notified' },
+      { action: 'Customer Acknowledged', by: 'Metro Warehouse Security', date: '2026-08-10T14:00:00', note: 'Acknowledged and action initiated' },
+      { action: 'Customer Feedback Added', by: 'Metro Warehouse Security', date: '2026-08-11T09:00:00', note: 'Safety training completed' },
+      { action: 'Incident Resolved', by: 'Priya Patel', date: '2026-08-11T09:30:00', note: 'Closed after customer confirmation' },
+    ],
+  },
+  {
+    id: 'INC-004',
+    title: 'Unauthorized Pharmacy Access Attempt',
+    story: 'At 11:20 PM on August 9th, camera CAM-013 detected an unidentified individual attempting to access the pharmacy storage room. The person was wearing a staff uniform but their ID badge was not visible. They tried the door handle multiple times and appeared to attempt keypad combinations. After approximately 4 minutes of unsuccessful attempts, the person noticed the camera, covered their face, and quickly walked away.',
+    reason: 'Unauthorized individual attempted to access restricted pharmacy area, possible theft attempt of controlled substances.',
+    severity: 'critical',
+    category: 'Suspicious Activity',
+    clientId: 'CLT-002',
+    storeId: 'STR-004',
+    cameraId: 'CAM-013',
+    regulationId: 'REG-008',
+    assignedEmployeeId: 'EMP-004',
+    evidenceClips: [
+      { id: 'EV-013', type: 'video', name: 'pharmacy_access_attempt.mp4', url: '/1.mp4', thumbnail: '/cyber-security.jpg', duration: '4:15' },
+      { id: 'EV-014', type: 'video', name: 'suspect_exit_corridor.mp4', url: '/2.mp4', thumbnail: '/8.jpg', duration: '0:40' },
+    ],
+    evidenceImages: [
+      { id: 'EV-015', type: 'image', name: 'pharmacy_suspect_face.jpg', url: '/cyber-security.jpg' },
+    ],
+    status: 'internal_review',
+    internalReviewNotes: '',
+    internalReviewBy: null,
+    internalReviewDate: null,
+    customerFeedback: [],
+    createdAt: '2026-08-09T23:30:00',
+    updatedAt: '2026-08-09T23:30:00',
+    timeline: [
+      { action: 'Incident Created', by: 'Michael Chang', date: '2026-08-09T23:30:00', note: 'Detected during night shift — flagged as critical' },
+      { action: 'Submitted for Internal Review', by: 'Michael Chang', date: '2026-08-09T23:35:00', note: 'Awaiting admin review' },
+    ],
+  },
+  {
+    id: 'INC-005',
+    title: 'Tailgating at Main Entrance — Employee Door',
+    story: 'Morning monitoring at 8:52 AM caught a visitor following closely behind an employee through the main entrance badge-access door without swiping their own ID. The employee held the door open and the unauthorized individual entered without any credentials. The visitor was later seen wandering the first floor without a visitor badge for approximately 20 minutes.',
+    reason: 'Clear tailgating violation — visitor gained unauthorized access via employee holding secured door open.',
+    severity: 'medium',
+    category: 'Policy Violation',
+    clientId: 'CLT-001',
+    storeId: 'STR-001',
+    cameraId: 'CAM-001',
+    regulationId: 'REG-001',
+    assignedEmployeeId: 'EMP-003',
+    evidenceClips: [
+      { id: 'EV-016', type: 'video', name: 'tailgating_main_entrance.mp4', url: '/3.mp4', thumbnail: '/10.jpg', duration: '0:35' },
+    ],
+    evidenceImages: [
+      { id: 'EV-017', type: 'image', name: 'tailgating_screenshot.jpg', url: '/10.jpg' },
+    ],
+    status: 'approved',
+    internalReviewNotes: 'Confirmed tailgating. Employee badge SM-2203 identified. Recommend warning and policy reinforcement.',
+    internalReviewBy: 'EMP-001',
+    internalReviewDate: '2026-08-12T10:00:00',
+    customerFeedback: [],
+    createdAt: '2026-08-12T09:00:00',
+    updatedAt: '2026-08-12T10:00:00',
+    timeline: [
+      { action: 'Incident Created', by: 'Emily Davis', date: '2026-08-12T09:00:00', note: 'Captured during morning monitoring' },
+      { action: 'Submitted for Internal Review', by: 'Emily Davis', date: '2026-08-12T09:10:00', note: 'Submitted with video evidence' },
+      { action: 'Internal Review Approved', by: 'Sarah Connor', date: '2026-08-12T10:00:00', note: 'Approved — ready to send to client' },
+    ],
+  },
+]
+
+// ==========================================
+// NOTIFICATIONS — For customer portal
+// ==========================================
+export const initialNotifications = [
+  {
+    id: 'NTF-001',
+    incidentId: 'INC-001',
+    title: 'New Incident Report: Sweethearting at Cash Counter #3',
+    message: 'A new incident has been reported at your Sunrise Mall location. Please review and acknowledge.',
+    type: 'incident',
+    clientId: 'CLT-001',
+    read: false,
+    createdAt: '2026-08-12T09:00:00',
+  },
+  {
+    id: 'NTF-002',
+    incidentId: 'INC-002',
+    title: 'URGENT: After-Hours Unauthorized Access — East Gate',
+    message: 'Critical security breach detected at East Gate. Immediate review and action required.',
+    type: 'incident',
+    clientId: 'CLT-001',
+    read: true,
+    createdAt: '2026-08-11T07:00:00',
+  },
+  {
+    id: 'NTF-003',
+    incidentId: 'INC-005',
+    title: 'New Incident: Tailgating at Main Entrance',
+    message: 'A tailgating incident has been approved and is ready for your review.',
+    type: 'incident',
+    clientId: 'CLT-001',
+    read: false,
+    createdAt: '2026-08-12T10:05:00',
+  },
+]
+
+// ==========================================
+// EXISTING DATA (unchanged)
+// ==========================================
 export const securityUpdates = [
   {
     id: 'UPD-001',
