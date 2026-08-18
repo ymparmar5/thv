@@ -1,5 +1,7 @@
 import { ShoppingBag, Coffee, Fuel, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { motionVariants } from '../lib/motion'
 
 const Industries = () => {
   const industries = [
@@ -28,7 +30,13 @@ const Industries = () => {
 
   return (
     <section className="bg-gray-50 dark:bg-secondary-900 section-padding">
-      <div className="container-max">
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={motionVariants.staggerContainer}
+        className="container-max"
+      >
         <div className="text-center mb-16">
           <div className="flex justify-center mb-4">
             <div className="border py-1 px-4 rounded-lg text-sm font-semibold tracking-wider uppercase">Who We Serve</div>
@@ -43,7 +51,7 @@ const Industries = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {industries.map((industry, index) => (
-            <div key={index} className="group rounded-3xl overflow-hidden bg-white dark:bg-secondary-800 shadow-lg shadow-primary-900/10 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-primary-900 flex flex-col">
+            <motion.div key={index} variants={motionVariants.fadeInUp} className="group rounded-3xl overflow-hidden bg-white dark:bg-secondary-800 shadow-lg shadow-primary-900/10 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-primary-900 flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-secondary-900/40 group-hover:bg-secondary-900/20 transition-colors duration-300 z-10"></div>
                 <img 
@@ -74,10 +82,10 @@ const Industries = () => {
                   <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

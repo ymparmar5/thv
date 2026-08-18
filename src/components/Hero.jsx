@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause, Shield } from "lucide-react";
+import { motion } from "framer-motion";
+import { motionVariants } from "../lib/motion";
 
 const SLIDE_INTERVAL = 5000;
 
@@ -140,35 +142,32 @@ const Hero = () => {
                   isActive ? "translate-x-0 opacity-100" : "-translate-x-12 opacity-0"
                 }`}>
                   <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-2xl">
+                    <motion.div 
+                      variants={motionVariants.staggerContainer}
+                      initial="hidden"
+                      animate={isActive ? "visible" : "hidden"}
+                      className="max-w-2xl"
+                    >
                       {/* Shield Icon */}
-                      <div className={`mb-4 sm:mb-6 transition-all duration-700 delay-200 ${
-                        isActive ? "scale-100 opacity-100" : "scale-50 opacity-0"
-                      }`}>
+                      <motion.div variants={motionVariants.fadeInUp} className="mb-4 sm:mb-6">
                         <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                           <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                         </div>
-                      </div>
+                      </motion.div>
 
                       {/* Main Title */}
-                      <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight transition-all duration-700 delay-300 ${
-                        isActive ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}>
+                      <motion.h1 variants={motionVariants.fadeInUp} className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight">
                         {slide.title}
-                      </h1>
+                      </motion.h1>
 
                       {/* Tagline */}
-                      <p className={`text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light leading-relaxed mb-6 sm:mb-8 transition-all duration-700 delay-500 ${
-                        isActive ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}>
+                      <motion.p variants={motionVariants.fadeInUp} className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light leading-relaxed mb-6 sm:mb-8">
                         {slide.tagline}
-                      </p>
+                      </motion.p>
 
                       {/* Decorative Line */}
-                      <div className={`w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-white to-transparent transition-all duration-700 delay-700 ${
-                        isActive ? "scale-x-100 opacity-100" : "scale-x-0 opacity-0"
-                      }`} style={{ transformOrigin: "left" }}></div>
-                    </div>
+                      <motion.div variants={motionVariants.scaleIn} className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-white to-transparent" style={{ transformOrigin: "left" }}></motion.div>
+                    </motion.div>
                   </div>
                 </div>
               </div>

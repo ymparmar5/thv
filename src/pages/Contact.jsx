@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageSquare } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { motionVariants } from '../lib/motion'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -82,15 +84,47 @@ const Contact = () => {
   ]
 
   return (
-    <div className="bg-gray-50 dark:bg-secondary-900">
+    <div className="bg-gray-50 dark:bg-secondary-900 transition-colors duration-300">
       {/* Hero Section */}
-      <section className="bg-secondary-900 text-white relative py-20 lg:py-32 overflow-hidden" style={{ backgroundImage: 'url(/18.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} >
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative z-10 container-max section-padding text-center">
-          <h1 className="mb-4">Contact Us</h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            Get in touch with our security experts today for a customized solution that fits your organization's needs.
-          </p>
+      <section className="relative overflow-hidden pt-20 pb-16 lg:pt-32 lg:pb-24">
+        {/* Background Image with Theme-Aware Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="/18.jpg" 
+            alt="Contact Eye360" 
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.onerror = null; 
+              e.target.src = "/12.jpg";
+            }}
+          />
+          <div className="absolute inset-0 bg-secondary-900/70 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50 dark:to-secondary-900"></div>
+        </div>
+        
+        <div className="relative z-10 container-max px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div 
+            variants={motionVariants.staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="max-w-4xl mx-auto"
+          >
+            <motion.div variants={motionVariants.fadeInUp} className="inline-flex items-center bg-white/10 text-white rounded-full px-6 py-3 mb-8 border border-white/20 backdrop-blur-sm">
+              <MessageSquare className="h-5 w-5 mr-2" />
+              <span className="font-semibold tracking-wide uppercase text-sm">Get In Touch</span>
+            </motion.div>
+            
+            <motion.h1 variants={motionVariants.fadeInUp} className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white leading-tight">
+              Contact{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-200">
+                Us
+              </span>
+            </motion.h1>
+            
+            <motion.p variants={motionVariants.fadeInUp} className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+              Get in touch with our security experts today for a customized solution that fits your organization's needs.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 

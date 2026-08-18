@@ -1,5 +1,7 @@
 import { Phone, Camera, AlertTriangle, Clock, Check, Star, Shield, Zap, TrendingUp, Award } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { motionVariants } from '../lib/motion'
 
 const plans = [
   {
@@ -73,54 +75,59 @@ const addOnServices = [
 ]
 
 const Plans = () => (
-  <div className=" min-h-screen">
+  <div className="min-h-screen bg-gray-50 dark:bg-secondary-900 transition-colors duration-300">
     {/* Hero Section */}
-    <section className="relative overflow-hidden" style={{backgroundImage: 'url(/smart-home.jpg)'}}   >
-      {/* Background Pattern */}
-      <div >
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0)`,
-            backgroundSize: '20px 20px'
-          }}></div>
-        </div>
+    <section className="relative overflow-hidden pt-20 pb-16 lg:pt-32 lg:pb-24">
+      {/* Background Image with Theme-Aware Overlay */}
+      <div className="absolute inset-0">
+        <img 
+          src="/12.jpg" 
+          alt="Eye360 Pricing Plans" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-secondary-900/70 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50 dark:to-secondary-900"></div>
       </div>
       
-      {/* Floating Elements */}
-   
-      
-      <div className="relative z-10 container-max section-padding text-center">
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/20">
-            <Shield className="h-5 w-5 mr-2 text-primary-900" />
-            <span className="text-white/90 font-medium">Professional Security Solutions</span>
-          </div>
+      <div className="relative z-10 container-max px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div 
+          variants={motionVariants.staggerContainer}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl mx-auto"
+        >
+          <motion.div variants={motionVariants.fadeInUp} className="inline-flex items-center bg-white/10 text-white rounded-full px-6 py-3 mb-8 border border-white/20 backdrop-blur-sm">
+            <Shield className="h-5 w-5 mr-2" />
+            <span className="font-semibold tracking-wide uppercase text-sm">Professional Security Solutions</span>
+          </motion.div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-8 leading-tight">
-            <span className="text-white">Security</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-900 to-primary-900 block">Plans</span>
-          </h1>
+          <motion.h1 variants={motionVariants.fadeInUp} className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white leading-tight">
+            Security{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-200">
+              Plans
+            </span>
+          </motion.h1>
           
-          <p className="text-xl md:text-2xl  max-w-3xl  mx-auto leading-relaxed mb-10">
+          <motion.p variants={motionVariants.fadeInUp} className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed mb-10">
             Choose the perfect monitoring plan for your organization. 
             Professional security solutions tailored to your needs and budget.
-          </p>
+          </motion.p>
           
-          <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Check className="h-4 w-4 mr-3 text-primary-900" />
-              <span className="text-white/90 font-medium">24/7 Professional Monitoring</span>
+          <motion.div variants={motionVariants.fadeInUp} className="flex flex-wrap justify-center gap-4 text-sm">
+            <div className="flex items-center bg-white dark:bg-secondary-800 rounded-full px-5 py-2.5 border border-gray-200 dark:border-secondary-700 shadow-sm">
+              <Check className="h-4 w-4 mr-2 text-primary-900" />
+              <span className="text-gray-700 dark:text-gray-200 font-medium">24/7 Professional Monitoring</span>
             </div>
-            <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Check className="h-4 w-4 mr-3 text-primary-900" />
-              <span className="text-white/90 font-medium">Instant Alerts</span>
+            <div className="flex items-center bg-white dark:bg-secondary-800 rounded-full px-5 py-2.5 border border-gray-200 dark:border-secondary-700 shadow-sm">
+              <Check className="h-4 w-4 mr-2 text-primary-900" />
+              <span className="text-gray-700 dark:text-gray-200 font-medium">Instant Alerts</span>
             </div>
-            <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <Check className="h-4 w-4 mr-3 text-primary-900" />
-              <span className="text-white/90 font-medium">Mobile App Access</span>
+            <div className="flex items-center bg-white dark:bg-secondary-800 rounded-full px-5 py-2.5 border border-gray-200 dark:border-secondary-700 shadow-sm">
+              <Check className="h-4 w-4 mr-2 text-primary-900" />
+              <span className="text-gray-700 dark:text-gray-200 font-medium">Mobile App Access</span>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
 
@@ -142,9 +149,16 @@ const Plans = () => (
         </div>
         
         {/* Mobile Plans */}
-        <div className="block lg:hidden space-y-8">
+        <motion.div 
+          variants={motionVariants.staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="block lg:hidden space-y-8"
+        >
           {plans.map((plan, idx) => (
-            <div
+            <motion.div
+              variants={motionVariants.fadeInUp}
               key={plan.name}
               className={`relative group cursor-pointer ${
                 plan.highlight ? 'scale-105' : ''
@@ -205,26 +219,36 @@ const Plans = () => (
                     </ul>
                   </div>
 
-                  <button
-                    className={`w-full py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 active:scale-95 ${
+                  <motion.button
+                    whileHover="hover"
+                    whileTap="tap"
+                    variants={motionVariants.interactive}
+                    className={`w-full py-4 px-6 rounded-2xl font-bold text-lg transition-colors ${
                       plan.highlight
-                        ? 'bg-primary-900 text-white shadow-lg hover:shadow-xl hover:bg-primary-900 transform hover:scale-105'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary-900 hover:text-white shadow-md hover:shadow-lg transform hover:scale-105'
+                        ? 'bg-primary-900 text-white shadow-lg hover:shadow-xl hover:bg-primary-800'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary-900 hover:text-white shadow-md hover:shadow-lg'
                     }`}
                   >
                     Select {plan.name}
-                  </button>
+                  </motion.button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-                {/* Desktop Plans */}
+        {/* Desktop Plans */}
         <div className="hidden lg:block">
-          <div className="flex gap-6 justify-center items-stretch max-w-7xl mx-auto">
+          <motion.div 
+            variants={motionVariants.staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex gap-6 justify-center items-stretch max-w-7xl mx-auto"
+          >
             {plans.map((plan, idx) => (
-              <div
+              <motion.div
+                variants={motionVariants.fadeInUp}
                 key={plan.name}
                 className={`relative group cursor-pointer flex-1 max-w-sm ${
                   plan.highlight ? 'scale-105' : ''
@@ -285,20 +309,23 @@ const Plans = () => (
                       </ul>
                     </div>
 
-                    <button
-                      className={`w-full py-3 px-4 rounded-xl font-semibold text-sm transition-all duration-300 active:scale-95 mt-auto ${
+                    <motion.button
+                      whileHover="hover"
+                      whileTap="tap"
+                      variants={motionVariants.interactive}
+                      className={`w-full py-3 px-4 rounded-xl font-semibold text-sm transition-colors mt-auto ${
                         plan.highlight
-                          ? 'bg-primary-900 text-white shadow-lg hover:shadow-xl hover:bg-primary-900 transform hover:scale-105'
-                          : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary-900 hover:text-white shadow-md hover:shadow-lg transform hover:scale-105'
+                          ? 'bg-primary-900 text-white shadow-lg hover:shadow-xl hover:bg-primary-800'
+                          : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary-900 hover:text-white shadow-md hover:shadow-lg'
                       }`}
                     >
                       Select {plan.name}
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

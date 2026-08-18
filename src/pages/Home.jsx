@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Shield, Eye, Camera, Users, ArrowRight, Phone, Mail, MapPin, Bot, UserCheck, PhoneCall, AlertTriangle, TrendingDown, ClipboardCheck } from 'lucide-react'
+import { motionVariants } from '../lib/motion'
 import Hero from '../components/Hero'
 import Intro from '../components/Intro'
 import ClientsSection from '../components/ClientsSection'
@@ -7,6 +10,42 @@ import TestimonialSection from '../components/TestimonialSection'
 import HowItWorks from '../components/HowItWorks'
 import Industries from '../components/Industries'
 import Integrations from '../components/Integrations'
+
+const FAQItem = ({ faq, idx }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <motion.div variants={motionVariants.fadeInUp} className="card-secondary group cursor-pointer overflow-hidden">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full text-left font-semibold text-primary-900 flex items-center justify-between text-lg select-none focus:outline-none"
+      >
+        {faq.q}
+        <motion.span 
+          animate={{ rotate: isOpen ? 90 : 0 }}
+          transition={motionVariants.interactive.hover.transition}
+          className="ml-2 text-primary-900"
+        >
+          ▶
+        </motion.span>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="mt-4 text-gray-700 dark:text-gray-200 text-base pb-2">
+              {faq.a}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  )
+}
 
 const Home = () => {
   const whyAiNotEnough = [
@@ -239,7 +278,13 @@ const Home = () => {
               Everything you need to know about our AI + Human monitoring solution.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div 
+            variants={motionVariants.staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             {[
               {
                 q: 'How does AI + Human Verification work?',
@@ -258,17 +303,9 @@ const Home = () => {
                 a: 'In most cases, we can integrate with your existing camera system. If your current setup needs upgrading, we\'ll provide recommendations and assist with installation.'
               }
             ].map((faq, idx) => (
-              <details key={idx} className="card-secondary group cursor-pointer">
-                <summary className="font-semibold text-primary-900 flex items-center justify-between text-lg select-none">
-                  {faq.q}
-                  <span className="ml-2 text-primary-900 group-open:rotate-90 transition-transform">▶</span>
-                </summary>
-                <div className="mt-4 text-gray-700 dark:text-gray-200 text-base">
-                  {faq.a}
-                </div>
-              </details>
+              <FAQItem key={idx} faq={faq} idx={idx} />
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>

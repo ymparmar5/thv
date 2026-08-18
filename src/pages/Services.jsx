@@ -1,5 +1,7 @@
-import { Shield, Eye, Camera, Users, CheckCircle, ArrowRight, Phone, Clock, AlertTriangle, TrendingDown, ClipboardCheck, BarChart3 } from 'lucide-react'
+import { Shield, Eye, Camera, Users, CheckCircle, ArrowRight, Phone, Clock, AlertTriangle, TrendingDown, ClipboardCheck, BarChart3, Briefcase } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { motionVariants } from '../lib/motion'
 
 const services = [
   {
@@ -87,18 +89,47 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="bg-gray-50 dark:bg-secondary-900 min-h-screen">
+    <div className="bg-gray-50 dark:bg-secondary-900 min-h-screen transition-colors duration-300">
       {/* Hero Section */}
-      <section className="bg-white dark:bg-secondary-900 text-gray-900 dark:text-white py-20 lg:py-32 relative overflow-hidden border-b border-gray-100 dark:border-secondary-800">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-900/5 dark:bg-white/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+      <section className="relative overflow-hidden pt-20 pb-16 lg:pt-32 lg:pb-24">
+        {/* Background Image with Theme-Aware Overlay */}
+        <div className="absolute inset-0">
+          <img 
+            src="/smart-home.jpg" 
+            alt="Eye360 Services" 
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.target.onerror = null; 
+              e.target.src = "/12.jpg";
+            }}
+          />
+          <div className="absolute inset-0 bg-secondary-900/70 backdrop-blur-[2px]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50 dark:to-secondary-900"></div>
+        </div>
         
-        <div className="container-max relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in">
-            Our <span className="text-primary-900">Services</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed animate-slide-up">
-            Our AI + Human Verification solution helps reduce losses, improve operations, and protect profits before problems become costly.
-          </p>
+        <div className="relative z-10 container-max px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div 
+            variants={motionVariants.staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="max-w-4xl mx-auto"
+          >
+            <motion.div variants={motionVariants.fadeInUp} className="inline-flex items-center bg-white/10 text-white rounded-full px-6 py-3 mb-8 border border-white/20 backdrop-blur-sm">
+              <Briefcase className="h-5 w-5 mr-2" />
+              <span className="font-semibold tracking-wide uppercase text-sm">Our Services</span>
+            </motion.div>
+            
+            <motion.h1 variants={motionVariants.fadeInUp} className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-white leading-tight">
+              Our{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-200">
+                Services
+              </span>
+            </motion.h1>
+            
+            <motion.p variants={motionVariants.fadeInUp} className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+              Our AI + Human Verification solution helps reduce losses, improve operations, and protect profits before problems become costly.
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 

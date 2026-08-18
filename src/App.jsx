@@ -24,6 +24,8 @@ import ScrollToTop from './components/utils/ScrollToTop.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
 import { useEffect, useState, useRef } from 'react'
 import Loader from './components/utils/Loader.jsx'
+import { AnimatePresence } from 'framer-motion'
+import PageWrapper from './components/layout/PageWrapper.jsx'
 
 function App() {
 
@@ -54,45 +56,99 @@ function App() {
   return (
     <ThemeProvider>
       <ScrollToTop />
-      <Routes>
-        {/* Admin Panel — own layout, no public header/footer */}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="clients" element={<AdminClients />} />
-          <Route path="updates" element={<AdminUpdates />} />
-          <Route path="footage" element={<AdminFootage />} />
-          <Route path="roles" element={<AdminRoles />} />
-          <Route path="report-incident" element={<AdminReportIncident />} />
-          <Route path="settings" element={<AdminDashboard />} />
-        </Route>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          {/* Public Routes with public header/footer */}
+          <Route path="/" element={
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                <PageWrapper><Home /></PageWrapper>
+              </main>
+              <Footer />
+            </div>
+          } />
+          
+          <Route path="/about" element={
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                <PageWrapper><About /></PageWrapper>
+              </main>
+              <Footer />
+            </div>
+          } />
 
-        {/* Customer Panel — own layout, no public header/footer */}
-        <Route path="/customer" element={<CustomerLayout />}>
-          <Route index element={<CustomerDashboard />} />
-          <Route path="updates" element={<CustomerUpdates />} />
-          <Route path="footage" element={<CustomerFootage />} />
-          <Route path="plan" element={<CustomerPlan />} />
-        </Route>
+          <Route path="/services" element={
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                <PageWrapper><Services /></PageWrapper>
+              </main>
+              <Footer />
+            </div>
+          } />
 
-        {/* Public Website — with header and footer */}
-        <Route path="*" element={
-          <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-secondary-900 transition-colors duration-300">
-            <Header />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/plans" element={<Plans />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="/privacy" element={<Privacy />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        } />
-      </Routes>
+          <Route path="/plans" element={
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                <PageWrapper><Plans /></PageWrapper>
+              </main>
+              <Footer />
+            </div>
+          } />
+
+          <Route path="/contact" element={
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                <PageWrapper><Contact /></PageWrapper>
+              </main>
+              <Footer />
+            </div>
+          } />
+
+          <Route path="/terms" element={
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                <PageWrapper><Terms /></PageWrapper>
+              </main>
+              <Footer />
+            </div>
+          } />
+
+          <Route path="/privacy" element={
+            <div className="flex flex-col min-h-screen">
+              <Header />
+              <main className="flex-grow">
+                <PageWrapper><Privacy /></PageWrapper>
+              </main>
+              <Footer />
+            </div>
+          } />
+
+          {/* Admin Panel — own layout, no public header/footer */}
+          <Route path="/admin" element={<PageWrapper><AdminLayout /></PageWrapper>}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="clients" element={<AdminClients />} />
+            <Route path="updates" element={<AdminUpdates />} />
+            <Route path="footage" element={<AdminFootage />} />
+            <Route path="roles" element={<AdminRoles />} />
+            <Route path="report-incident" element={<AdminReportIncident />} />
+            <Route path="settings" element={<AdminDashboard />} />
+          </Route>
+
+          {/* Customer Panel — own layout, no public header/footer */}
+          <Route path="/customer" element={<CustomerLayout />}>
+            <Route index element={<CustomerDashboard />} />
+            <Route path="updates" element={<CustomerUpdates />} />
+            <Route path="footage" element={<CustomerFootage />} />
+            <Route path="plan" element={<CustomerPlan />} />
+          </Route>
+        </Routes>
+      </AnimatePresence>
     </ThemeProvider>
   )
 }

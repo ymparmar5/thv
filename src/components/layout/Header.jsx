@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Phone, Sun, Moon } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useTheme } from '../../context/ThemeContext.jsx'
+import { motionVariants } from '../../lib/motion'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -43,7 +45,7 @@ const Header = () => {
                 <img 
                   src="/images/logo.png" 
                   alt="Eye360" 
-                  className="h-12  rounded-xl shadow-medium group-hover:shadow-large transition-all duration-300"
+                  className="h-12 object-contain transition-all duration-300"
                   onError={() => setLogoError(true)}
                 />
               ) : (
@@ -71,7 +73,11 @@ const Header = () => {
               >
                 {item.name}
                 {isActive(item.href) && (
-                  <div className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary-900 dark:bg-primary-900 rounded-full"></div>
+                  <motion.div 
+                    layoutId="nav-indicator"
+                    className="absolute -bottom-2 left-0 right-0 h-0.5 bg-primary-900 dark:bg-primary-900 rounded-full"
+                    transition={motionVariants.interactive.hover.transition}
+                  />
                 )}
               </Link>
             ))}
@@ -80,7 +86,10 @@ const Header = () => {
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
             {/* Theme Toggle */}
-            <button
+            <motion.button
+              whileHover="hover"
+              whileTap="tap"
+              variants={motionVariants.interactive}
               onClick={toggleTheme}
               className={`p-2 rounded-lg transition-all duration-200 ${
                 isScrolled
@@ -90,10 +99,13 @@ const Header = () => {
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </button>
+            </motion.button>
 
             {/* Contact Button */}
-            <a
+            <motion.a
+              whileHover="hover"
+              whileTap="tap"
+              variants={motionVariants.interactive}
               href="tel:+919558499515"
               className={`flex items-center space-x-2 transition-colors group ${
                 isScrolled ? 'text-primary-900 dark:text-primary-400' : 'text-white hover:text-primary-300'
@@ -105,14 +117,16 @@ const Header = () => {
                 <Phone className="h-4 w-4" />
               </div>
               <span className="font-medium text-sm">+91 95584 99515</span>
-            </a>
+            </motion.a>
 
-            <Link 
-              to="/contact" 
-              className="btn-primary text-sm"
-            >
-              Get Quote
-            </Link>
+            <motion.div whileHover="hover" whileTap="tap" variants={motionVariants.interactive}>
+              <Link 
+                to="/contact" 
+                className="btn-primary text-sm"
+              >
+                Get Quote
+              </Link>
+            </motion.div>
           </div>
 
           {/* Mobile menu button */}
@@ -141,45 +155,46 @@ const Header = () => {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
+      {/* Mobile Navigation Menu */}
+      <AnimatePresence>
         {isMenuOpen && (
-          <div className="md:hidden border-t border-gray-100 dark:border-secondary-700 bg-white/95 dark:bg-secondary-800/95 backdrop-blur-md">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-20 left-0 w-full bg-white dark:bg-secondary-800 border-b border-gray-100 dark:border-secondary-700 shadow-lg"
+          >
+            <div className="px-4 pt-2 pb-6 space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block px-3 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                  className={`block px-3 py-3 rounded-xl text-base font-medium transition-colors ${
                     isActive(item.href)
-                      ? 'text-primary-900 dark:text-primary-900 bg-primary-50 dark:bg-primary-900/20 border-l-4 border-primary-900 dark:border-primary-900'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-900 dark:hover:text-primary-900 hover:bg-gray-50 dark:hover:bg-secondary-700'
+                      ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-900 dark:text-primary-400'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-secondary-700 hover:text-primary-900 dark:hover:text-primary-400'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-gray-100 dark:border-secondary-700">
-                <a
-                  href="tel:+919558499515"
-                  className="flex items-center space-x-2 px-3 py-3 text-primary-900 dark:text-primary-900 hover:text-primary-900 dark:hover:text-primary-900"
-                >
-                  <Phone className="h-4 w-4" />
-                  <span className="font-medium">+91 95584 99515</span>
-                </a>
+              <div className="pt-4 mt-4 border-t border-gray-100 dark:border-secondary-700">
                 <Link
                   to="/contact"
                   onClick={() => setIsMenuOpen(false)}
-                  className="block mt-2 mx-3 btn-primary text-center"
+                  className="w-full btn-primary justify-center"
                 >
                   Get Quote
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </header>
   )
 }
