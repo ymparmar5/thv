@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { 
   LayoutDashboard, Users, FileText, Video, Settings, LogOut, 
-  Menu, X, Bell, Shield, ChevronDown, Sun, Moon, UserCog
+  Menu, X, Bell, Shield, ChevronDown, Sun, Moon, UserCog, AlertOctagon
 } from 'lucide-react'
 import { useTheme } from '../../context/ThemeContext.jsx'
 
@@ -11,6 +11,7 @@ const navItems = [
   { name: 'Clients', href: '/admin/clients', icon: Users },
   { name: 'Security Updates', href: '/admin/updates', icon: FileText },
   { name: 'Footage', href: '/admin/footage', icon: Video },
+  { name: 'Report Incident', href: '/admin/report-incident', icon: AlertOctagon },
   { name: 'Roles & Staff', href: '/admin/roles', icon: UserCog },
   { name: 'Settings', href: '/admin/settings', icon: Settings },
 ]

@@ -38,7 +38,7 @@ const Footer = () => {
               <div className="relative">
                 {!logoError ? (
                   <img
-                    src="/images/logo.jpeg"
+                    src="/images/logo.png"
                     alt="Eye360"
                     className="h-12 w-12 rounded-xl shadow-medium"
                     onError={() => setLogoError(true)}

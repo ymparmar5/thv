@@ -28,7 +28,7 @@ const Header = () => {
             <div className="relative">
               {!logoError ? (
                 <img 
-                  src="/images/logo.jpeg" 
+                  src="/images/logo.png" 
                   alt="Eye360" 
                   className="h-12  rounded-xl shadow-medium group-hover:shadow-large transition-all duration-300"
                   onError={() => setLogoError(true)}

@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/layout/Header.jsx'
 import Footer from './components/layout/Footer.jsx'
 import AdminLayout from './components/layout/AdminLayout.jsx'
@@ -15,23 +15,37 @@ import AdminClients from './pages/admin/AdminClients.jsx'
 import AdminUpdates from './pages/admin/AdminUpdates.jsx'
 import AdminFootage from './pages/admin/AdminFootage.jsx'
 import AdminRoles from './pages/admin/AdminRoles.jsx'
+import AdminReportIncident from './pages/admin/AdminReportIncident.jsx'
 import CustomerDashboard from './pages/customer/CustomerDashboard.jsx'
 import CustomerUpdates from './pages/customer/CustomerUpdates.jsx'
 import CustomerFootage from './pages/customer/CustomerFootage.jsx'
 import CustomerPlan from './pages/customer/CustomerPlan.jsx'
 import ScrollToTop from './components/utils/ScrollToTop.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Loader from './components/utils/Loader.jsx'
 
 function App() {
 
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const isInitialLoad = useRef(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2500); // 2.5s
-    return () => clearTimeout(timer);
-  }, []);
+    if (isInitialLoad.current) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+        isInitialLoad.current = false;
+      }, 2500); // 2.5s for initial load
+      return () => clearTimeout(timer);
+    } else {
+      setLoading(true);
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 500); // 0.5s for route change
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname]);
 
   if (loading) {
     return <Loader />;
@@ -48,6 +62,7 @@ function App() {
           <Route path="updates" element={<AdminUpdates />} />
           <Route path="footage" element={<AdminFootage />} />
           <Route path="roles" element={<AdminRoles />} />
+          <Route path="report-incident" element={<AdminReportIncident />} />
           <Route path="settings" element={<AdminDashboard />} />
         </Route>
 
