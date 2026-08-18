@@ -99,28 +99,28 @@ const CustomerDashboard = () => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="card p-6">
+        <div className="card">
           <div className="bg-primary-50 dark:bg-primary-900/20 p-3 rounded-xl w-fit mb-4">
             <Camera className="w-6 h-6 text-primary-900 dark:text-primary-400" />
           </div>
           <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">{currentCustomer.activeCameras}</p>
           <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Cameras Active</p>
         </div>
-        <div className="card p-6">
+        <div className="card">
           <div className="bg-amber-50 dark:bg-amber-900/20 p-3 rounded-xl w-fit mb-4">
             <AlertTriangle className="w-6 h-6 text-amber-500 dark:text-amber-400" />
           </div>
           <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">{currentCustomer.alertsThisMonth}</p>
           <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Verified Alerts This Month</p>
         </div>
-        <div className="card p-6">
+        <div className="card">
           <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-xl w-fit mb-4">
             <Activity className="w-6 h-6 text-green-500 dark:text-green-400" />
           </div>
           <p className="text-3xl font-bold text-gray-900 dark:text-white mb-1">99.9%</p>
           <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">System Uptime</p>
         </div>
-        <div className="card p-6">
+        <div className="card">
           <div className="bg-secondary-50 dark:bg-secondary-900/20 p-3 rounded-xl w-fit mb-4">
             <Clock className="w-6 h-6 text-secondary-600 dark:text-secondary-400" />
           </div>

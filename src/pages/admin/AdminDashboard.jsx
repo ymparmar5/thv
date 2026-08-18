@@ -87,7 +87,7 @@ const AdminDashboard = () => {
         {statCards.map((stat, index) => (
           <div
             key={index}
-            className="card p-6"
+            className="card"
           >
             <div className="flex items-start justify-between mb-4">
               <div className={`${stat.color} p-3 rounded-xl`}>
@@ -113,7 +113,7 @@ const AdminDashboard = () => {
       {/* Charts Row 1 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Revenue & Alerts Trend */}
-        <div className="lg:col-span-2 card p-6">
+        <div className="lg:col-span-2 card">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
               <TrendingUp className="w-5 h-5 mr-2 text-primary-900" />
@@ -140,7 +140,7 @@ const AdminDashboard = () => {
         </div>
 
         {/* Camera Status Donut */}
-        <div className="card p-6 flex flex-col">
+        <div className="card flex flex-col">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
               <Camera className="w-5 h-5 mr-2 text-primary-900" />
@@ -180,7 +180,7 @@ const AdminDashboard = () => {
       {/* Charts Row 2 & Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Incidents by Type Bar Chart */}
-        <div className="card p-6">
+        <div className="card">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
               <AlertTriangle className="w-5 h-5 mr-2 text-primary-900" />

@@ -138,7 +138,7 @@ const CustomerIncidentDetail = () => {
         {/* Left Column — Main Content */}
         <div className="lg:col-span-2 space-y-6">
           {/* Context Info */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Location Details</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <div className="space-y-1">
@@ -167,7 +167,7 @@ const CustomerIncidentDetail = () => {
           </div>
 
           {/* Story */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 flex items-center">
               <FileText className="w-4 h-4 mr-2" /> Incident Report
             </h3>
@@ -181,7 +181,7 @@ const CustomerIncidentDetail = () => {
           </div>
 
           {/* Evidence */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Evidence</h3>
 
             {incident.evidenceClips?.length > 0 && (
@@ -228,7 +228,7 @@ const CustomerIncidentDetail = () => {
           </div>
 
           {/* Feedback Section */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4 flex items-center">
               <MessageSquare className="w-4 h-4 mr-2" /> Your Feedback
             </h3>
@@ -287,7 +287,7 @@ const CustomerIncidentDetail = () => {
         {/* Right Column — Timeline */}
         <div className="space-y-6">
           {/* Quick Summary */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Summary</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
@@ -314,7 +314,7 @@ const CustomerIncidentDetail = () => {
           </div>
 
           {/* Timeline */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4 flex items-center">
               <Clock className="w-4 h-4 mr-2" /> Activity Timeline
             </h3>
@@ -341,7 +341,7 @@ const CustomerIncidentDetail = () => {
 
           {/* Quick Actions */}
           {incident.status !== 'resolved' && (
-            <div className="card p-6">
+            <div className="card">
               <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Quick Actions</h3>
               <div className="space-y-2">
                 {incident.status === 'sent_to_customer' && (

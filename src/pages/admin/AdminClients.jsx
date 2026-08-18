@@ -275,7 +275,7 @@ const AdminClients = () => {
         {filteredClients.map((client) => (
           <div
             key={client.id}
-            className="bg-white dark:bg-secondary-800 rounded-2xl border border-gray-100 dark:border-secondary-700 p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+            className="bg-white dark:bg-secondary-800 rounded-2xl border border-gray-100 dark:border-secondary-700 p-5 sm:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
           >
             {/* Top Row */}
             <div className="flex items-start justify-between mb-4">
@@ -390,7 +390,7 @@ const AdminClients = () => {
             </div>
 
             {/* Tab Content */}
-            <div className="flex-1 overflow-y-auto p-6">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
               {/* Overview Tab */}
               {modalTab === 'overview' && (
                 <div className="space-y-5 animate-fade-in">
@@ -679,7 +679,7 @@ const AdminClients = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsAddingClient(false)} />
           <div className="relative w-full max-w-2xl bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl overflow-hidden animate-slide-up flex flex-col max-h-[90vh]">
-            <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-secondary-700 bg-gray-50 dark:bg-secondary-900/50">
+            <div className="flex items-center justify-between p-5 sm:p-6 lg:p-8 border-b border-gray-100 dark:border-secondary-700 bg-gray-50 dark:bg-secondary-900/50">
               <div>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white">Onboard New Client</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Step {addClientStep} of 4</p>
@@ -700,7 +700,7 @@ const AdminClients = () => {
               ></div>
             </div>
 
-            <form onSubmit={handleAddClient} className="p-6 space-y-4 overflow-y-auto">
+            <form onSubmit={handleAddClient} className="p-5 sm:p-6 lg:p-8 space-y-4 overflow-y-auto">
               
               {renderAddClientStep()}
               
@@ -739,7 +739,7 @@ const AdminClients = () => {
       {storeModal.isOpen && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setStoreModal({ isOpen: false, data: null })} />
-          <div className="relative w-full max-w-md bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl p-6">
+          <div className="relative w-full max-w-md bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl p-5 sm:p-6 lg:p-8">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
               {storeModal.data ? 'Edit Store' : 'Add Store'}
             </h3>
@@ -765,7 +765,7 @@ const AdminClients = () => {
       {cameraModal.isOpen && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setCameraModal({ isOpen: false, data: null })} />
-          <div className="relative w-full max-w-md bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl p-6">
+          <div className="relative w-full max-w-md bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl p-5 sm:p-6 lg:p-8">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
               {cameraModal.data ? 'Edit Camera' : 'Add Camera'}
             </h3>
@@ -803,7 +803,7 @@ const AdminClients = () => {
       {employeeModal.isOpen && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setEmployeeModal({ isOpen: false, data: null })} />
-          <div className="relative w-full max-w-lg bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl p-6">
+          <div className="relative w-full max-w-lg bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl p-5 sm:p-6 lg:p-8">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
               {employeeModal.data ? 'Edit Employee Assignment' : 'Assign New Employee'}
             </h3>

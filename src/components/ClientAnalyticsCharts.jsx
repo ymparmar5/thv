@@ -58,14 +58,14 @@ const ClientAnalyticsCharts = ({ clientId, role }) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
       {/* Incidents by Store Bar Chart */}
-      <div className="card p-6 flex flex-col">
+      <div className="card flex flex-col">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
             <Activity className="w-5 h-5 mr-2 text-primary-900" />
             {role === 'admin' && !clientId ? 'Global Incidents by Store' : 'Incidents by Store'}
           </h2>
         </div>
-        <div className="h-72">
+        <div className="h-64 sm:h-72 lg:h-80">
           {storeData.length > 0 ? (
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={storeData} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
@@ -91,7 +91,7 @@ const ClientAnalyticsCharts = ({ clientId, role }) => {
       </div>
 
       {/* Severity Risk Pie Chart */}
-      <div className="card p-6 flex flex-col">
+      <div className="card flex flex-col">
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
             <Shield className="w-5 h-5 mr-2 text-primary-900" />

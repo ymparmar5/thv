@@ -198,7 +198,7 @@ const AdminReportIncident = () => {
       </div>
 
       {/* Step Progress Bar */}
-      <div className="card p-4 sm:p-6">
+      <div className="card">
         <div className="flex items-center justify-between">
           {steps.map((step, idx) => (
             <div key={step.id} className="flex items-center flex-1">
@@ -233,7 +233,7 @@ const AdminReportIncident = () => {
       </div>
 
       {/* Step Content */}
-      <div className="card p-6 sm:p-8 space-y-6 relative overflow-hidden">
+      <div className="card space-y-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-900/5 to-transparent rounded-bl-full -mr-10 -mt-10 pointer-events-none"></div>
 
         {/* Step 1: Select Context */}

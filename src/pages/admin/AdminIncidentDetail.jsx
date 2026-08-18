@@ -115,7 +115,7 @@ const AdminIncidentDetail = () => {
         {/* Left Column — Main Content */}
         <div className="lg:col-span-2 space-y-6">
           {/* Context Info */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Incident Context</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div className="space-y-1">
@@ -149,7 +149,7 @@ const AdminIncidentDetail = () => {
           </div>
 
           {/* Story */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 flex items-center">
               <FileText className="w-4 h-4 mr-2" /> Incident Story
             </h3>
@@ -163,7 +163,7 @@ const AdminIncidentDetail = () => {
           </div>
 
           {/* Evidence */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Evidence</h3>
             
             {/* Video Clips */}
@@ -217,7 +217,7 @@ const AdminIncidentDetail = () => {
 
           {/* Internal Review */}
           {incident.status === 'internal_review' && (
-            <div className="card p-6">
+            <div className="card">
               <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Internal Review</h3>
               <textarea
                 rows="3"
@@ -236,7 +236,7 @@ const AdminIncidentDetail = () => {
 
           {/* Existing Review Notes */}
           {incident.internalReviewNotes && incident.status !== 'internal_review' && (
-            <div className="card p-6 bg-blue-50/50 dark:bg-blue-900/10 border-blue-200 dark:border-blue-900/30">
+            <div className="card bg-blue-50/50 dark:bg-blue-900/10 border-blue-200 dark:border-blue-900/30">
               <h3 className="text-sm font-bold text-blue-700 dark:text-blue-400 mb-2">Internal Review Notes</h3>
               <p className="text-sm text-gray-700 dark:text-gray-300">{incident.internalReviewNotes}</p>
               {incident.internalReviewBy && (
@@ -249,7 +249,7 @@ const AdminIncidentDetail = () => {
 
           {/* Customer Feedback */}
           {incident.customerFeedback?.length > 0 && (
-            <div className="card p-6">
+            <div className="card">
               <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4 flex items-center">
                 <MessageSquare className="w-4 h-4 mr-2" /> Customer Feedback ({incident.customerFeedback.length})
               </h3>
@@ -272,7 +272,7 @@ const AdminIncidentDetail = () => {
         <div className="space-y-6">
           {/* Assigned Employee */}
           {employee && (
-            <div className="card p-6">
+            <div className="card">
               <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Assigned To</h3>
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-primary-900 rounded-full flex items-center justify-center">
@@ -287,7 +287,7 @@ const AdminIncidentDetail = () => {
           )}
 
           {/* Timeline */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4 flex items-center">
               <Clock className="w-4 h-4 mr-2" /> Timeline
             </h3>
@@ -314,7 +314,7 @@ const AdminIncidentDetail = () => {
           </div>
 
           {/* Quick Info */}
-          <div className="card p-6">
+          <div className="card">
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Details</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
