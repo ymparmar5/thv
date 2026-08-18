@@ -22,7 +22,7 @@ const CustomerLayout = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 dark:bg-secondary-900 flex">
       {/* Mobile Overlay */}
       {sidebarOpen && (
         <div 
@@ -139,7 +139,7 @@ const CustomerLayout = () => {
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto text-gray-900 dark:text-white">
           <Outlet />
         </main>
       </div>

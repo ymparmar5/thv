@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Intro = () => {
   return (
-    <section className="py-20 lg:py-32 bg-gradient-primary text-white relative overflow-hidden">
+    <section className="py-20 lg:py-32 bg-white dark:bg-secondary-900 text-gray-900 dark:text-white relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -15,7 +15,7 @@ const Intro = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium border border-white/20 backdrop-blur-sm"
+              className="inline-flex items-center px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-900 dark:text-primary-100 rounded-full text-sm font-medium border border-primary-200 dark:border-primary-900/50 backdrop-blur-sm"
             >
               AI + Human Verification
             </motion.div>
@@ -25,7 +25,7 @@ const Intro = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl lg:text-6xl font-display font-bold leading-tight text-white"
+                className="text-4xl lg:text-6xl font-display font-bold leading-tight text-gray-900 dark:text-white"
               >
                 Eye360 –{" "}
                 <span className="bg-primary-900 bg-clip-text text-transparent">
@@ -37,7 +37,7 @@ const Intro = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg text-gray-200 leading-relaxed max-w-lg"
+                className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg"
               >
                 Our AI + Human Verification solution helps store owners reduce losses, improve operations, and protect profits before problems become costly. 
               </motion.p>
@@ -57,7 +57,7 @@ const Intro = () => {
                 <Button
                   variant="hero"
                   size="lg"
-                  className="px-8 py-6 text-base bg-white text-primary-900 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="px-8 py-6 text-base bg-primary-900 text-white hover:bg-primary-800 dark:bg-white dark:text-primary-900 dark:hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Schedule a Demo Today
                   <motion.div
@@ -78,7 +78,7 @@ const Intro = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="px-8 py-6 text-base border-white text-white hover:bg-white hover:text-primary-900 transition-all duration-300"
+                  className="px-8 py-6 text-base border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-primary-900 transition-all duration-300"
                 >
                   <Play className="mr-2 h-5 w-5" />
                   Learn More

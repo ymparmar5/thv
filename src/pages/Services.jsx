@@ -89,15 +89,14 @@ const Services = () => {
   return (
     <div className="bg-gray-50 dark:bg-secondary-900 min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-primary text-white py-20 lg:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+      <section className="bg-white dark:bg-secondary-900 text-gray-900 dark:text-white py-20 lg:py-32 relative overflow-hidden border-b border-gray-100 dark:border-secondary-800">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-900/5 dark:bg-white/5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         
         <div className="container-max relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 animate-fade-in">
             Our <span className="text-primary-900">Services</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed animate-slide-up">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed animate-slide-up">
             Our AI + Human Verification solution helps reduce losses, improve operations, and protect profits before problems become costly.
           </p>
         </div>
@@ -216,25 +215,25 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-accent py-20 relative overflow-hidden">
+      <section className="bg-white dark:bg-secondary-800 py-20 relative overflow-hidden border-t border-gray-100 dark:border-secondary-700">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
         <div className="container-max relative z-10 text-center px-4">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-gray-900 dark:text-white">
             Protect your profits, improve operations, and increase visibility.
           </h2>
-          <p className="text-xl mb-10 max-w-2xl mx-auto text-white/80 font-medium">
+          <p className="text-xl mb-10 max-w-2xl mx-auto text-gray-600 dark:text-gray-300 font-medium">
             Schedule a Demo Today and see how Eye360 can transform your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               to="/contact" 
-              className="btn-outline border-white text-white hover:bg-white hover:text-black"
+              className="btn-outline border-primary-900 text-primary-900 hover:bg-primary-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-primary-900"
             >
               Schedule a Demo Today
             </Link>
             <a 
               href="tel:+919558499515" 
-              className="bg-white text-black hover:bg-gray-100 font-semibold py-3.5 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-large flex items-center justify-center"
+              className="bg-primary-900 text-white hover:bg-primary-800 dark:bg-white dark:text-primary-900 dark:hover:bg-gray-100 font-semibold py-3.5 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-large flex items-center justify-center"
             >
               <Phone className="h-5 w-5 mr-2" />
               Call Us Now

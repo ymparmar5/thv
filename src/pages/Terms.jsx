@@ -26,7 +26,7 @@ const Terms = () => (
         </p>
         <h2 className="mt-8 mb-2 text-lg font-semibold text-primary-900">5. Contact</h2>
         <p className="mb-4 text-gray-700 dark:text-gray-200">
-          If you have any questions about these terms, please contact us at <a href="mailto:info@eye360.digital" className="text-primary-900 underline">info@eye360.digital</a>.
+          If you have any questions about these terms, please contact us at <a href="mailto:info@eye360.net" className="text-primary-900 underline">info@eye360.net</a>.
         </p>
       </div>
     </div>

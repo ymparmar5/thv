@@ -1,6 +1,6 @@
 export default function Loader() {
     return (
-        <div className="bg-secondary-900 min-h-screen flex items-center justify-center p-4">
+        <div className="bg-gray-50 dark:bg-secondary-900 min-h-screen flex items-center justify-center p-4">
             <style>{`
         @keyframes scan {
             0% { top: 0; }
@@ -30,8 +30,8 @@ export default function Loader() {
                 <div className="relative w-40 h-40 mx-auto mb-8">
 
                     {/* Outer rotating ring */}
-                    <div className="absolute inset-0 rounded-full border-2 border-secondary-800"></div>
-                    <div className="absolute inset-2 rounded-full border-2 border-secondary-700/50 pulse-ring"></div>
+                    <div className="absolute inset-0 rounded-full border-2 border-gray-200 dark:border-secondary-800"></div>
+                    <div className="absolute inset-2 rounded-full border-2 border-gray-300/50 dark:border-secondary-700/50 pulse-ring"></div>
 
                     {/* Rotating corner brackets */}
                     <div className="absolute inset-0 rotate-lens">
@@ -59,7 +59,7 @@ export default function Loader() {
 
                     {/* Center Logo */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="relative w-20 h-20 bg-gradient-to-br from-secondary-800 to-secondary-800 rounded-lg border border-secondary-700 shadow-2xl">
+                        <div className="relative w-20 h-20 bg-white dark:bg-gradient-to-br dark:from-secondary-800 dark:to-secondary-800 rounded-lg border border-gray-200 dark:border-secondary-700 shadow-2xl">
 
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <div className="text-center">
@@ -97,7 +97,7 @@ export default function Loader() {
 
                 {/* Loading Text */}
                 <div className="space-y-3">
-                    <h2 className="text-xl font-semibold tracking-tight text-secondary-50">
+                    <h2 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-secondary-50">
                         We about to protect you ...
                     </h2>
                     {/* <p className="text-sm text-secondary-400 font-normal">
@@ -113,9 +113,9 @@ export default function Loader() {
                 </div>
 
                 {/* Status indicator */}
-                <div className="mt-8 inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-secondary-800 border border-secondary-700">
+                <div className="mt-8 inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white dark:bg-secondary-800 border border-gray-200 dark:border-secondary-700 shadow-sm">
                     <div className="w-2 h-2 rounded-full bg-primary-500 blink-rec"></div>
-                    <span className="text-xs font-medium text-secondary-300 tracking-wide">
+                    <span className="text-xs font-medium text-gray-600 dark:text-secondary-300 tracking-wide">
                         SYSTEM ONLINE
                     </span>
                 </div>

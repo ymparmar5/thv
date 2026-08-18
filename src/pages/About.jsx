@@ -53,7 +53,7 @@ const About = () => {
   return (
     <div className="bg-gray-50 dark:bg-secondary-900">
       {/* Hero Section */}
-      <section className="bg-secondary-900 text-white relative overflow-hidden" style={{ backgroundImage: 'url(/public/team.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="bg-secondary-900 text-white relative overflow-hidden" style={{ backgroundImage: 'url(/team.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 max-w-7xl mx-auto py-20 lg:py-32 px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
@@ -123,7 +123,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 to-secondary-900/20 rounded-3xl transform rotate-3"></div>
               <img 
-                src="/public/company.jpg" 
+                src="/team2.jpg" 
                 alt="Eye360 monitoring center" 
                 className="relative rounded-3xl shadow-large w-full object-cover h-[600px]"
               />

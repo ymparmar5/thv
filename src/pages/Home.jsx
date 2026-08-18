@@ -68,18 +68,17 @@ const Home = () => {
       {/* Hero Section */}
       <Hero />
       <Intro />
-      <section className="bg-gradient-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative z-10 container-max section-padding">
+      <section className="bg-white dark:bg-secondary-900 text-gray-900 dark:text-white relative overflow-hidden py-20">
+        <div className="relative z-10 container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-fade-in">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold mb-6 leading-tight">
                 Why AI Alone
                 <span className="text-primary-900 block">Is Not Enough</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed">
-                Most solutions rely purely on AI, generating endless false alarms. 
-                Our unique approach combines AI detection with trained human verification 
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                Most solutions rely purely on AI, generating endless false alarms.
+                Our unique approach combines AI detection with trained human verification
                 to give you actionable intelligence — not just raw alerts.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -92,17 +91,17 @@ const Home = () => {
               </div>
             </div>
             <div className="animate-slide-up">
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-large">
+              <div className="bg-gray-50 dark:bg-secondary-800 rounded-3xl p-8 border border-gray-200 dark:border-secondary-700 shadow-large">
                 <h3 className="text-2xl font-display font-semibold mb-8">How We Are Different</h3>
                 <div className="space-y-6">
                   {whyAiNotEnough.map((feature, index) => (
                     <div key={index} className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-primary-900/20 rounded-xl flex items-center justify-center">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary-50 dark:bg-primary-900/20 rounded-xl flex items-center justify-center">
                         <feature.icon className="h-6 w-6 text-primary-900" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white mb-2">{feature.title}</h4>
-                        <p className="text-gray-300 text-sm leading-relaxed">{feature.description}</p>
+                        <h4 className="font-semibold text-gray-900 dark:text-white mb-2">{feature.title}</h4>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">{feature.description}</p>
                       </div>
                     </div>
                   ))}
@@ -138,7 +137,7 @@ const Home = () => {
               End-to-end monitoring that covers every aspect of your store operations — from the register to the front door.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whatWeMonitor.map((service, index) => (
               <div key={index} className="card p-8 group transform hover:-translate-y-2">
@@ -147,11 +146,11 @@ const Home = () => {
                 </div>
                 <h3 className="text-xl font-display font-semibold mb-4 text-gray-900 dark:text-white">{service.title}</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{service.description}</p>
-                <Link 
-                  to="/services" 
+                <Link
+                  to="/services"
                   className="inline-flex items-center text-primary-900 dark:text-primary-900 hover:text-primary-900 dark:hover:text-primary-900 font-medium transition-colors group"
                 >
-                  Learn More 
+                  Learn More
                   <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -161,24 +160,24 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-accent py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-white dark:bg-secondary-800 py-20 px-4 sm:px-6 lg:px-8">
         <div className="container-max text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4 text-gray-900 dark:text-white">
             Protect your profits, improve operations, and increase visibility.
           </h2>
-          <p className="text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
             See how Eye360 can reduce losses and give you complete visibility into your store operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:+919558499515" 
-              className="bg-white text-primary-900 hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-large hover:shadow-xl inline-flex items-center justify-center"
+            <a
+              href="tel:+919558499515"
+              className="bg-primary-900 text-white hover:bg-primary-800 dark:bg-white dark:text-primary-900 dark:hover:bg-gray-100 font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-large hover:shadow-xl inline-flex items-center justify-center"
             >
               <Phone className="h-5 w-5 mr-2" />
               Call Now
             </a>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="btn-outline"
             >
               Schedule a Demo Today
@@ -188,29 +187,29 @@ const Home = () => {
       </section>
 
       {/* Contact Info */}
-      <section className="bg-secondary-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-white dark:bg-secondary-900 text-gray-900 dark:text-white py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-100 dark:border-secondary-800">
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="bg-primary-900/20 p-4 rounded-2xl w-fit mx-auto mb-4">
+              <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-2xl w-fit mx-auto mb-4">
                 <Phone className="h-8 w-8 text-primary-900" />
               </div>
               <h3 className="text-xl font-display font-semibold mb-2">Phone</h3>
-              <p className="text-gray-300">+91 95584 99515</p>
+              <p className="text-gray-600 dark:text-gray-300">+91 95584 99515</p>
             </div>
             <div className="text-center">
-              <div className="bg-primary-900/20 p-4 rounded-2xl w-fit mx-auto mb-4">
+              <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-2xl w-fit mx-auto mb-4">
                 <Mail className="h-8 w-8 text-primary-900" />
               </div>
               <h3 className="text-xl font-display font-semibold mb-2">Email</h3>
-              <p className="text-gray-300">info@eye360.digital</p>
+              <p className="text-gray-600 dark:text-gray-300">info@eye360.net</p>
             </div>
             <div className="text-center">
-              <div className="bg-primary-900/20 p-4 rounded-2xl w-fit mx-auto mb-4">
+              <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-2xl w-fit mx-auto mb-4">
                 <MapPin className="h-8 w-8 text-primary-900" />
               </div>
               <h3 className="text-xl font-display font-semibold mb-2">Address</h3>
-              <p className="text-gray-300">Karamsad, Anand, Gujarat</p>
+              <p className="text-gray-600 dark:text-gray-300">Karamsad, Anand, Gujarat</p>
             </div>
           </div>
         </div>

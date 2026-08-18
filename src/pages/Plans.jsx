@@ -75,7 +75,7 @@ const addOnServices = [
 const Plans = () => (
   <div className=" min-h-screen">
     {/* Hero Section */}
-    <section className="relative overflow-hidden" style={{backgroundImage: 'url(/public/smart-home.jpg)'}}   >
+    <section className="relative overflow-hidden" style={{backgroundImage: 'url(/smart-home.jpg)'}}   >
       {/* Background Pattern */}
       <div >
         <div className="absolute inset-0 opacity-20">

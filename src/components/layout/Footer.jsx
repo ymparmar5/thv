@@ -29,7 +29,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-secondary-900 text-white">
+    <footer className="bg-white dark:bg-secondary-900 text-gray-900 dark:text-white border-t border-gray-100 dark:border-secondary-800">
       <div className="container-max py-16 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
@@ -50,11 +50,11 @@ const Footer = () => {
                 )}
               </div>
               <div>
-                <span className="text-xl font-display font-semibold">eye360.digital</span>
+                <span className="text-xl font-display font-semibold">eye360.net</span>
                 <div className="text-sm text-gray-400 font-medium">Security Services</div>
               </div>
             </div>
-            <p className="text-gray-300 mb-8 leading-relaxed text-sm">
+            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
               Professional security services providing surveillance, monitoring, and vigilance solutions
               to organizations worldwide with cutting-edge technology and expert personnel.
             </p>
@@ -63,7 +63,7 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="text-gray-400 hover:text-primary-900 transition-colors p-2 bg-secondary-800 rounded-lg hover:bg-secondary-700"
+                  className="text-gray-400 hover:text-primary-900 transition-colors p-2 bg-secondary-100 dark:bg-secondary-800 rounded-lg hover:bg-secondary-200 dark:hover:bg-secondary-700"
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />
@@ -74,13 +74,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-display font-semibold mb-6 text-white">Quick Links</h3>
-            <ul className="space-y-3">
+            <h3 className="font-display font-semibold text-lg mb-6 text-gray-900 dark:text-white">Company</h3>
+            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-300 hover:text-primary-900 transition-colors duration-200 flex items-center group text-sm"
+                    className="text-gray-600 dark:text-gray-300 hover:text-primary-900 transition-colors duration-200 flex items-center group text-sm"
                   >
                     <div className="w-1 h-1 bg-primary-900 rounded-full mr-3 group-hover:w-2 transition-all duration-200"></div>
                     {link.name}
@@ -92,13 +92,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-display font-semibold mb-6 text-white">Our Services</h3>
-            <ul className="space-y-3">
+            <h3 className="font-display font-semibold text-lg mb-6 text-gray-900 dark:text-white">Services</h3>
+            <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
               {services.map((service) => (
                 <li key={service.name}>
                   <Link
                     to={service.href}
-                    className="text-gray-300 hover:text-primary-900 transition-colors duration-200 flex items-center group text-sm"
+                    className="text-gray-600 dark:text-gray-300 hover:text-primary-900 transition-colors duration-200 flex items-center group text-sm"
                   >
                     <div className="w-1 h-1 bg-primary-900 rounded-full mr-3 group-hover:w-2 transition-all duration-200"></div>
                     {service.name}
@@ -110,52 +110,49 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-display font-semibold mb-6 text-white">Contact Info</h3>
-            <div className="space-y-4">
+            <h3 className="font-display font-semibold text-lg mb-6 text-gray-900 dark:text-white">Contact Us</h3>
+            <ul className="space-y-4 text-sm text-gray-600 dark:text-gray-300">
               <div className="flex items-start space-x-3">
                 <div className="p-2 bg-primary-900/20 rounded-lg">
                   <Phone className="h-5 w-5 text-primary-900" />
                 </div>
                 <div>
-                  <div className="text-gray-300 font-medium text-sm">+91 95584 99515</div>
-                  <div className="text-gray-400 text-xs">+91 81404 07272</div>
+                  <div className="font-medium text-sm">+91 95584 99515</div>
+                  <div className="text-xs">+91 81404 07272</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <div className="p-2 bg-primary-900/20 rounded-lg">
                   <Mail className="h-5 w-5 text-primary-900" />
                 </div>
-                <span className="text-gray-300 text-sm">info@eye360.digital</span>
+                <span className="text-sm">info@eye360.net</span>
               </div>
               <div className="flex items-start space-x-3">
                 <div className="p-2 bg-primary-900/20 rounded-lg mt-1">
                   <MapPin className="h-5 w-5 text-primary-900" />
                 </div>
-                <div className="text-gray-300 text-xs">
+                <div className="text-xs leading-relaxed">
                   <div>103, Vashisth Nakshatra,</div>
                   <div>Gana Rd, Karamsad, Anand,</div>
                   <div>Gujarat 388325</div>
-
                 </div>
               </div>
-            </div>
+            </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-secondary-700 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} eye360.digital. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-gray-400 hover:text-primary-900 text-sm transition-colors">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-gray-400 hover:text-primary-900 text-sm transition-colors">
-                Terms of Service
-              </Link>
-            </div>
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-12 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+          <p>
+            © {currentYear} eye360.net. All rights reserved.
+          </p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link to="/privacy" className="hover:text-primary-900 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms" className="hover:text-primary-900 transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
       </div>

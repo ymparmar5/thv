@@ -50,8 +50,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@eye360.digital'],
-      action: 'mailto:info@eye360.digital'
+      details: ['info@eye360.net'],
+      action: 'mailto:info@eye360.net'
     },
     {
       icon: MapPin,
@@ -84,7 +84,7 @@ const Contact = () => {
   return (
     <div className="bg-gray-50 dark:bg-secondary-900">
       {/* Hero Section */}
-      <section className="bg-secondary-900 text-white relative py-20 lg:py-32 overflow-hidden" style={{ backgroundImage: 'url(/public/18.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} >
+      <section className="bg-secondary-900 text-white relative py-20 lg:py-32 overflow-hidden" style={{ backgroundImage: 'url(/18.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }} >
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 container-max section-padding text-center">
           <h1 className="mb-4">Contact Us</h1>
