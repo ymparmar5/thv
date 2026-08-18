@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { 
   LayoutDashboard, FileText, Video, Settings, LogOut, CreditCard,
-  Menu, X, Bell, Shield, ChevronDown, Camera, AlertTriangle, Sun, Moon, ClipboardList
+  Menu, X, Bell, Shield, ChevronDown, Camera, AlertTriangle, Sun, Moon, ClipboardList, Store
 } from 'lucide-react'
 import { useTheme } from '../../context/ThemeContext.jsx'
 import { useIncidents } from '../../context/IncidentContext.jsx'
@@ -10,6 +10,7 @@ import { currentCustomer } from '../../data/mockData'
 
 const navItems = [
   { name: 'Dashboard', href: '/customer', icon: LayoutDashboard },
+  { name: 'Stores', href: '/customer/stores', icon: Store },
   { name: 'Incidents', href: '/customer/incidents', icon: ClipboardList, badge: true },
   { name: 'Security Updates', href: '/customer/updates', icon: FileText },
   { name: 'Footage', href: '/customer/footage', icon: Video },

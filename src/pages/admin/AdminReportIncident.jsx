@@ -36,7 +36,7 @@ const steps = [
 
 const AdminReportIncident = () => {
   const navigate = useNavigate()
-  const { getStoresByClient, getCamerasByStore, getRegulationsByClient, getEmployeesByClient, getClientById, getStoreById, getCameraById, getRegulationById, getEmployeeById, dispatch } = useIncidents()
+  const { getStoresByClient, getCamerasByStore, getRegulationsByStore, getEmployeesByClient, getClientById, getStoreById, getCameraById, getRegulationById, getEmployeeById, dispatch } = useIncidents()
 
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -57,7 +57,7 @@ const AdminReportIncident = () => {
 
   const clientStores = selectedClientId ? getStoresByClient(selectedClientId) : []
   const storeCameras = selectedStoreId ? getCamerasByStore(selectedStoreId) : []
-  const clientRegulations = selectedClientId ? getRegulationsByClient(selectedClientId) : []
+  const storeRegulations = selectedStoreId ? getRegulationsByStore(selectedStoreId) : []
   const clientEmployees = selectedClientId ? getEmployeesByClient(selectedClientId) : []
 
   const canNext = () => {
@@ -314,11 +314,11 @@ const AdminReportIncident = () => {
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Violation & Severity Details</h2>
 
             {/* Applicable Regulations */}
-            {clientRegulations.length > 0 && (
-              <div className="space-y-3">
-                <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Violated Regulation (Optional)</label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-48 overflow-y-auto">
-                  {clientRegulations.map((reg) => (
+            {storeRegulations.length > 0 && (
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Select Violated Regulation (Optional)</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {storeRegulations.map((reg) => (
                     <button
                       key={reg.id}
                       type="button"
@@ -328,7 +328,7 @@ const AdminReportIncident = () => {
                           ? reg.type === 'do'
                             ? 'border-green-500 bg-green-50 dark:bg-green-900/20 ring-2 ring-green-500/20'
                             : 'border-red-500 bg-red-50 dark:bg-red-900/20 ring-2 ring-red-500/20'
-                          : 'border-gray-200 dark:border-secondary-700 hover:border-gray-300'
+                          : 'border-gray-200 dark:border-secondary-700 hover:border-gray-300 dark:hover:border-gray-500'
                       }`}
                     >
                       {reg.type === 'do' ? (
@@ -460,14 +460,14 @@ const AdminReportIncident = () => {
               <button
                 type="button"
                 onClick={() => addMockEvidence('video')}
-                className="flex items-center px-4 py-2 border border-gray-200 dark:border-secondary-700 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-primary-900 hover:text-primary-900 transition-colors"
+                className="flex items-center px-4 py-2 border border-gray-200 dark:border-secondary-700 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-primary-900 dark:hover:border-primary-400 hover:text-primary-900 dark:hover:text-primary-400 transition-colors"
               >
                 <Video className="w-4 h-4 mr-2" /> Add Video Clip
               </button>
               <button
                 type="button"
                 onClick={() => addMockEvidence('image')}
-                className="flex items-center px-4 py-2 border border-gray-200 dark:border-secondary-700 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-primary-900 hover:text-primary-900 transition-colors"
+                className="flex items-center px-4 py-2 border border-gray-200 dark:border-secondary-700 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-primary-900 dark:hover:border-primary-400 hover:text-primary-900 dark:hover:text-primary-400 transition-colors"
               >
                 <ImageIcon className="w-4 h-4 mr-2" /> Add Screenshot
               </button>
@@ -491,7 +491,7 @@ const AdminReportIncident = () => {
                       <p className="text-xs text-gray-500">{file.size}</p>
                     </div>
                     <div className="flex gap-1 ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <label htmlFor={`update-file-${idx}`} className="p-1.5 rounded-lg text-gray-400 hover:bg-white dark:hover:bg-secondary-800 hover:text-primary-900 cursor-pointer transition-colors shadow-sm">
+                      <label htmlFor={`update-file-${idx}`} className="p-1.5 rounded-lg text-gray-400 hover:bg-white dark:hover:bg-secondary-800 hover:text-primary-900 dark:hover:text-primary-400 cursor-pointer transition-colors shadow-sm">
                         <Edit2 className="w-4 h-4" />
                         <input id={`update-file-${idx}`} type="file" accept="image/*,video/*" className="hidden" onChange={(e) => handleUpdateFile(e, idx)} />
                       </label>

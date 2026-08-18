@@ -215,7 +215,7 @@ export const IncidentProvider = ({ children }) => {
 
   const getCamerasByClient = (clientId) => cameras.filter((c) => c.clientId === clientId)
 
-  const getRegulationsByClient = (clientId) => regulations.filter((r) => r.clientId === clientId)
+  const getRegulationsByStore = (storeId) => regulations.filter((r) => r.storeId === storeId)
 
   const getEmployeesByClient = (clientId) =>
     employees.filter((e) => e.assignedClientId === clientId || e.assignedClientId === null)
@@ -242,7 +242,7 @@ export const IncidentProvider = ({ children }) => {
     getStoresByClient,
     getCamerasByStore,
     getCamerasByClient,
-    getRegulationsByClient,
+    getRegulationsByStore,
     getEmployeesByClient,
     getClientById,
     getStoreById,

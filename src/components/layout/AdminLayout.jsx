@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { 
   LayoutDashboard, Users, FileText, Video, Settings, LogOut, 
-  Menu, X, Bell, Shield, ChevronDown, Sun, Moon, UserCog, AlertOctagon, ClipboardList
+  Menu, X, Bell, Shield, ChevronDown, Sun, Moon, UserCog, AlertOctagon, ClipboardList, Store
 } from 'lucide-react'
 import { useTheme } from '../../context/ThemeContext.jsx'
 import { useIncidents } from '../../context/IncidentContext.jsx'
@@ -10,6 +10,7 @@ import { useIncidents } from '../../context/IncidentContext.jsx'
 const navItems = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
   { name: 'Clients', href: '/admin/clients', icon: Users },
+  { name: 'Stores', href: '/admin/stores', icon: Store },
   { name: 'Security Updates', href: '/admin/updates', icon: FileText },
   { name: 'Footage', href: '/admin/footage', icon: Video },
   { name: 'Report Incident', href: '/admin/report-incident', icon: AlertOctagon },

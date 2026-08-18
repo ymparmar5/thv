@@ -24,6 +24,8 @@ import CustomerFootage from './pages/customer/CustomerFootage.jsx'
 import CustomerPlan from './pages/customer/CustomerPlan.jsx'
 import CustomerIncidents from './pages/customer/CustomerIncidents.jsx'
 import CustomerIncidentDetail from './pages/customer/CustomerIncidentDetail.jsx'
+import AdminStores from './pages/admin/AdminStores.jsx'
+import CustomerStores from './pages/customer/CustomerStores.jsx'
 import ScrollToTop from './components/utils/ScrollToTop.jsx'
 import { ThemeProvider } from './context/ThemeContext.jsx'
 import { IncidentProvider } from './context/IncidentContext.jsx'
@@ -139,6 +141,7 @@ function App() {
             <Route path="/admin" element={<PageWrapper><AdminLayout /></PageWrapper>}>
               <Route index element={<AdminDashboard />} />
               <Route path="clients" element={<AdminClients />} />
+              <Route path="stores" element={<AdminStores />} />
               <Route path="updates" element={<AdminUpdates />} />
               <Route path="footage" element={<AdminFootage />} />
               <Route path="roles" element={<AdminRoles />} />
@@ -151,6 +154,7 @@ function App() {
             {/* Customer Panel — own layout, no public header/footer */}
             <Route path="/customer" element={<CustomerLayout />}>
               <Route index element={<CustomerDashboard />} />
+              <Route path="stores" element={<CustomerStores />} />
               <Route path="updates" element={<CustomerUpdates />} />
               <Route path="footage" element={<CustomerFootage />} />
               <Route path="plan" element={<CustomerPlan />} />
