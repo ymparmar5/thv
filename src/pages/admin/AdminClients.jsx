@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { 
   Search, Filter, Plus, Eye, Camera, Store,
   MapPin, Phone, Mail, ChevronDown, X, Users, ShieldCheck, ShieldAlert,
-  Wifi, WifiOff, CheckCircle, FileText, UploadCloud, ChevronRight, ChevronLeft, Trash2, Edit2, File as FileIcon, Image as ImageIcon
+  Wifi, WifiOff, CheckCircle, FileText, UploadCloud, ChevronRight, ChevronLeft, Trash2, Edit2, File as FileIcon, Image as ImageIcon, Activity
 } from 'lucide-react'
 import { clients } from '../../data/mockData'
 import { useIncidents } from '../../context/IncidentContext.jsx'
+import ClientAnalyticsCharts from '../../components/ClientAnalyticsCharts.jsx'
 
 const AdminClients = () => {
   const [searchTerm, setSearchTerm] = useState('')
@@ -15,6 +16,11 @@ const AdminClients = () => {
   const [isAddingClient, setIsAddingClient] = useState(false)
   const [addClientStep, setAddClientStep] = useState(1)
   
+  // Modals state for stores, cameras, and employees
+  const [storeModal, setStoreModal] = useState({ isOpen: false, data: null })
+  const [cameraModal, setCameraModal] = useState({ isOpen: false, data: null })
+  const [employeeModal, setEmployeeModal] = useState({ isOpen: false, data: null })
+
   // File upload state for mock onboarding
   const [idImage, setIdImage] = useState(null)
   const [logoImage, setLogoImage] = useState(null)
@@ -36,6 +42,7 @@ const AdminClients = () => {
     { id: 'cameras', label: 'Cameras', icon: Camera },
     { id: 'regulations', label: 'Regulations', icon: FileText },
     { id: 'employees', label: 'Employees', icon: Users },
+    { id: 'analytics', label: 'Analytics', icon: Activity },
   ]
 
   const handleAddClient = (e) => {
@@ -430,7 +437,10 @@ const AdminClients = () => {
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       {getStoresByClient(selectedClient.id).length} stores
                     </p>
-                    <button className="text-xs font-bold text-primary-900 dark:text-primary-400 flex items-center hover:underline">
+                    <button 
+                      onClick={() => setStoreModal({ isOpen: true, data: null })}
+                      className="text-xs font-bold text-primary-900 dark:text-primary-400 flex items-center hover:underline"
+                    >
                       <Plus className="w-3 h-3 mr-1" /> Add Store
                     </button>
                   </div>
@@ -449,9 +459,17 @@ const AdminClients = () => {
                               <p className="text-xs text-gray-500 dark:text-gray-400">{store.id}</p>
                             </div>
                           </div>
-                          <span className="text-xs font-bold text-primary-900 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-2 py-1 rounded-lg">
-                            {onlineCams}/{storeCameras.length} cams
-                          </span>
+                          <div className="flex items-center gap-3">
+                            <button 
+                              onClick={() => setStoreModal({ isOpen: true, data: store })}
+                              className="p-1.5 text-gray-400 hover:text-primary-900 transition-colors"
+                            >
+                              <Edit2 className="w-4 h-4" />
+                            </button>
+                            <span className="text-xs font-bold text-primary-900 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-2 py-1 rounded-lg">
+                              {onlineCams}/{storeCameras.length} cams
+                            </span>
+                          </div>
                         </div>
                         <p className="text-xs text-gray-500 dark:text-gray-400 ml-13">
                           <MapPin className="w-3 h-3 inline mr-1" />{store.address}
@@ -495,7 +513,10 @@ const AdminClients = () => {
                             <span className="text-xs font-bold text-green-600 bg-green-50 dark:bg-green-900/20 dark:text-green-400 px-2 py-0.5 rounded-full">{online} online</span>
                             <span className="text-xs font-bold text-red-600 bg-red-50 dark:bg-red-900/20 dark:text-red-400 px-2 py-0.5 rounded-full">{allCams.length - online} offline</span>
                           </div>
-                          <button className="text-xs font-bold text-primary-900 dark:text-primary-400 flex items-center hover:underline">
+                          <button 
+                            onClick={() => setCameraModal({ isOpen: true, data: null })}
+                            className="text-xs font-bold text-primary-900 dark:text-primary-400 flex items-center hover:underline"
+                          >
                             <Plus className="w-3 h-3 mr-1" /> Add Camera
                           </button>
                         </div>
@@ -511,13 +532,21 @@ const AdminClients = () => {
                                   <Camera className={`w-4 h-4 ${cam.status === 'online' ? 'text-green-500' : 'text-red-500'}`} />
                                   <span className="font-semibold text-sm text-gray-900 dark:text-white">{cam.name}</span>
                                 </div>
-                                <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                                  cam.status === 'online'
-                                    ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
-                                    : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
-                                }`}>
-                                  {cam.status}
-                                </span>
+                                <div className="flex items-center gap-2">
+                                  <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                                    cam.status === 'online'
+                                      ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400'
+                                      : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'
+                                  }`}>
+                                    {cam.status}
+                                  </span>
+                                  <button 
+                                    onClick={() => setCameraModal({ isOpen: true, data: cam })}
+                                    className="p-1 text-gray-400 hover:text-primary-900 transition-colors"
+                                  >
+                                    <Edit2 className="w-3.5 h-3.5" />
+                                  </button>
+                                </div>
                               </div>
                               <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{cam.id} · Store: {cam.storeId}</p>
                             </div>
@@ -584,7 +613,10 @@ const AdminClients = () => {
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       {getEmployeesByClient(selectedClient.id).length} employees assigned
                     </p>
-                    <button className="text-xs font-bold text-primary-900 dark:text-primary-400 flex items-center hover:underline">
+                    <button 
+                      onClick={() => setEmployeeModal({ isOpen: true, data: null })}
+                      className="text-xs font-bold text-primary-900 dark:text-primary-400 flex items-center hover:underline"
+                    >
                       <Plus className="w-3 h-3 mr-1" /> Assign Employee
                     </button>
                   </div>
@@ -600,27 +632,43 @@ const AdminClients = () => {
                             <p className="text-xs text-gray-500 dark:text-gray-400">{emp.email}</p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold bg-primary-50 text-primary-900 dark:bg-primary-900/20 dark:text-primary-300">
-                            {emp.role}
-                          </span>
-                          <div className="flex items-center justify-end mt-1">
-                            {emp.status === 'active' ? (
-                              <span className="flex items-center text-xs text-green-600 dark:text-green-400 font-medium">
-                                <CheckCircle className="w-3 h-3 mr-1" /> Active
-                              </span>
-                            ) : (
-                              <span className="flex items-center text-xs text-gray-400 font-medium">
-                                <WifiOff className="w-3 h-3 mr-1" /> Offline
-                              </span>
-                            )}
+                        <div className="text-right flex items-center gap-3">
+                          <div>
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-bold bg-primary-50 text-primary-900 dark:bg-primary-900/20 dark:text-primary-300">
+                              {emp.role}
+                            </span>
+                            <div className="flex items-center justify-end mt-1">
+                              {emp.status === 'active' ? (
+                                <span className="flex items-center text-xs text-green-600 dark:text-green-400 font-medium">
+                                  <CheckCircle className="w-3 h-3 mr-1" /> Active
+                                </span>
+                              ) : (
+                                <span className="flex items-center text-xs text-gray-400 font-medium">
+                                  <WifiOff className="w-3 h-3 mr-1" /> Offline
+                                </span>
+                              )}
+                            </div>
                           </div>
+                          <button 
+                            onClick={() => setEmployeeModal({ isOpen: true, data: emp })}
+                            className="p-1.5 text-gray-400 hover:text-primary-900 transition-colors ml-2 border-l border-gray-200 dark:border-secondary-700 pl-4"
+                          >
+                            <Edit2 className="w-4 h-4" />
+                          </button>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
+
+              {/* Analytics Tab */}
+              {modalTab === 'analytics' && (
+                <div className="space-y-4 animate-fade-in">
+                  <ClientAnalyticsCharts clientId={selectedClient.id} role="admin" />
+                </div>
+              )}
+
             </div>
           </div>
         </div>
@@ -684,6 +732,129 @@ const AdminClients = () => {
           </div>
         </div>
       )}
+
+      {/* Dynamic Modals for Store, Camera, and Employee */}
+      
+      {/* Store Modal */}
+      {storeModal.isOpen && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setStoreModal({ isOpen: false, data: null })} />
+          <div className="relative w-full max-w-md bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl p-6">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+              {storeModal.data ? 'Edit Store' : 'Add Store'}
+            </h3>
+            <form onSubmit={(e) => { e.preventDefault(); setStoreModal({ isOpen: false, data: null }); alert('Store saved! (Simulated)'); }} className="space-y-4">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Store Name <span className="text-red-500">*</span></label>
+                <input required defaultValue={storeModal.data?.name} type="text" className="w-full px-4 py-2 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Store Address</label>
+                <input defaultValue={storeModal.data?.address} type="text" className="w-full px-4 py-2 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl" />
+              </div>
+              <div className="flex justify-end gap-3 pt-4">
+                <button type="button" onClick={() => setStoreModal({ isOpen: false, data: null })} className="px-4 py-2 text-sm font-bold text-gray-600 dark:text-gray-300">Cancel</button>
+                <button type="submit" className="btn-primary">Save Store</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Camera Modal */}
+      {cameraModal.isOpen && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setCameraModal({ isOpen: false, data: null })} />
+          <div className="relative w-full max-w-md bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl p-6">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+              {cameraModal.data ? 'Edit Camera' : 'Add Camera'}
+            </h3>
+            <form onSubmit={(e) => { e.preventDefault(); setCameraModal({ isOpen: false, data: null }); alert('Camera saved! (Simulated)'); }} className="space-y-4">
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Camera Name <span className="text-red-500">*</span></label>
+                <input required defaultValue={cameraModal.data?.name} type="text" className="w-full px-4 py-2 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Select Store <span className="text-red-500">*</span></label>
+                <select required defaultValue={cameraModal.data?.storeId} className="w-full px-4 py-2 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl text-gray-900 dark:text-white">
+                  <option value="">Select a Store...</option>
+                  {selectedClient && getStoresByClient(selectedClient.id).map(s => (
+                    <option key={s.id} value={s.id}>{s.name} ({s.id})</option>
+                  ))}
+                </select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Status</label>
+                <select defaultValue={cameraModal.data?.status || 'online'} className="w-full px-4 py-2 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl text-gray-900 dark:text-white">
+                  <option value="online">Online</option>
+                  <option value="offline">Offline</option>
+                </select>
+              </div>
+              <div className="flex justify-end gap-3 pt-4">
+                <button type="button" onClick={() => setCameraModal({ isOpen: false, data: null })} className="px-4 py-2 text-sm font-bold text-gray-600 dark:text-gray-300">Cancel</button>
+                <button type="submit" className="btn-primary">Save Camera</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Employee Modal */}
+      {employeeModal.isOpen && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setEmployeeModal({ isOpen: false, data: null })} />
+          <div className="relative w-full max-w-lg bg-white dark:bg-secondary-800 rounded-3xl shadow-2xl p-6">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+              {employeeModal.data ? 'Edit Employee Assignment' : 'Assign New Employee'}
+            </h3>
+            <form onSubmit={(e) => { e.preventDefault(); setEmployeeModal({ isOpen: false, data: null }); alert('Employee assigned! (Simulated)'); }} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Employee Name <span className="text-red-500">*</span></label>
+                  <input required defaultValue={employeeModal.data?.name} type="text" className="w-full px-4 py-2 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Email <span className="text-red-500">*</span></label>
+                  <input required defaultValue={employeeModal.data?.email} type="email" className="w-full px-4 py-2 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl" />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Role <span className="text-red-500">*</span></label>
+                <select required defaultValue={employeeModal.data?.role} className="w-full px-4 py-2 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl text-gray-900 dark:text-white">
+                  <option value="">Select Role...</option>
+                  <option value="Store Manager">Store Manager</option>
+                  <option value="Security Monitor">Security Monitor</option>
+                  <option value="Shift Lead">Shift Lead</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200">Assign to Stores <span className="text-red-500">*</span></label>
+                <div className="p-3 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl max-h-40 overflow-y-auto space-y-2">
+                  <label className="flex items-center space-x-3 p-2 hover:bg-gray-100 dark:hover:bg-secondary-800 rounded-lg cursor-pointer">
+                    <input type="checkbox" defaultChecked className="w-4 h-4 text-primary-900 rounded border-gray-300 focus:ring-primary-900" />
+                    <span className="text-sm font-bold text-gray-900 dark:text-white">All Stores</span>
+                  </label>
+                  <div className="border-t border-gray-200 dark:border-secondary-700 my-1"></div>
+                  {selectedClient && getStoresByClient(selectedClient.id).map(s => (
+                    <label key={s.id} className="flex items-center space-x-3 p-2 hover:bg-gray-100 dark:hover:bg-secondary-800 rounded-lg cursor-pointer">
+                      <input type="checkbox" defaultChecked={employeeModal.data?.assignedStoreId === s.id} className="w-4 h-4 text-primary-900 rounded border-gray-300 focus:ring-primary-900" />
+                      <span className="text-sm text-gray-700 dark:text-gray-300">{s.name}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex justify-end gap-3 pt-4 border-t border-gray-100 dark:border-secondary-700">
+                <button type="button" onClick={() => setEmployeeModal({ isOpen: false, data: null })} className="px-4 py-2 text-sm font-bold text-gray-600 dark:text-gray-300">Cancel</button>
+                <button type="submit" className="btn-primary">Save Assignment</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
     </div>
   )
 }

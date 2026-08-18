@@ -7,7 +7,10 @@ import {
   LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, 
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
 } from 'recharts'
-import { dashboardStats, clients, recentActivity } from '../../data/mockData'
+import { 
+  dashboardStats, recentActivity, clients 
+} from '../../data/mockData'
+import ClientAnalyticsCharts from '../../components/ClientAnalyticsCharts.jsx'
 
 const statCards = [
   {
@@ -171,6 +174,8 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
+      {/* Dynamic Global Analytics Charts */}
+      <ClientAnalyticsCharts role="admin" />
 
       {/* Charts Row 2 & Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

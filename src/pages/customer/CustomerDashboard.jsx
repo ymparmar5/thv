@@ -9,6 +9,7 @@ import {
 } from 'recharts'
 import { currentCustomer, securityUpdates, footageClips } from '../../data/mockData'
 import { useIncidents } from '../../context/IncidentContext.jsx'
+import ClientAnalyticsCharts from '../../components/ClientAnalyticsCharts.jsx'
 
 const alertTrends = [
   { name: 'Week 1', alerts: 12 },
@@ -129,66 +130,7 @@ const CustomerDashboard = () => {
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Alert Trends Line Chart */}
-        <div className="card p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-              <Activity className="w-5 h-5 mr-2 text-primary-900" />
-              Verified Alert Trends
-            </h2>
-          </div>
-          <div className="h-72">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={alertTrends} margin={{ top: 5, right: 20, left: -20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#374151" opacity={0.1} />
-                <XAxis dataKey="name" stroke="#6b7280" fontSize={12} tickLine={false} axisLine={false} />
-                <YAxis stroke="#6b7280" fontSize={12} tickLine={false} axisLine={false} />
-                <Tooltip 
-                  contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#fff', borderRadius: '0.5rem' }}
-                  itemStyle={{ color: '#fff' }}
-                />
-                <Line type="monotone" dataKey="alerts" name="Alerts" stroke="#228DAB" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 6 }} />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
-        {/* Loss Prevention Pie Chart */}
-        <div className="card p-6 flex flex-col">
-          <div className="flex items-center justify-between mb-2">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-              <Shield className="w-5 h-5 mr-2 text-primary-900" />
-              Loss Prevention Breakdown
-            </h2>
-          </div>
-          <div className="flex-1 min-h-[250px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={lossPreventionData}
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={100}
-                  dataKey="value"
-                  stroke="none"
-                  label={({ name, percent }) => `${(percent * 100).toFixed(0)}%`}
-                  labelLine={false}
-                >
-                  {lossPreventionData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip 
-                  contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#fff', borderRadius: '0.5rem' }}
-                  itemStyle={{ color: '#fff' }}
-                />
-                <Legend verticalAlign="bottom" height={36} />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </div>
+      <ClientAnalyticsCharts clientId={currentCustomer.id} role="customer" />
 
       {/* Incident Data Table */}
       <div className="card p-0 overflow-hidden">
