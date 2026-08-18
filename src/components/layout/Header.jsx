@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Phone, Sun, Moon } from 'lucide-react'
 import { useTheme } from '../../context/ThemeContext.jsx'
@@ -6,8 +6,17 @@ import { useTheme } from '../../context/ThemeContext.jsx'
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [logoError, setLogoError] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
   const { isDark, toggleTheme } = useTheme()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -20,7 +29,11 @@ const Header = () => {
   const isActive = (path) => location.pathname === path
 
   return (
-    <header className="bg-white/95 dark:bg-secondary-800/95 backdrop-blur-md shadow-soft sticky top-0 z-50 border-b border-gray-100 dark:border-secondary-700 transition-all duration-300">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/95 dark:bg-secondary-800/95 backdrop-blur-md shadow-soft border-b border-gray-100 dark:border-secondary-700 py-0' 
+        : 'bg-transparent border-transparent py-2'
+    }`}>
       <div className="container-max px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -50,8 +63,10 @@ const Header = () => {
                 to={item.href}
                 className={`relative font-medium text-sm transition-all duration-300 ${
                   isActive(item.href)
-                    ? 'text-primary-900 dark:text-primary-900'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-900 dark:hover:text-primary-900'
+                    ? (isScrolled ? 'text-primary-900 dark:text-primary-400' : 'text-primary-400')
+                    : (isScrolled 
+                        ? 'text-gray-700 dark:text-gray-300 hover:text-primary-900 dark:hover:text-primary-400' 
+                        : 'text-gray-200 hover:text-white')
                 }`}
               >
                 {item.name}
@@ -67,7 +82,11 @@ const Header = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary-900 dark:hover:text-primary-900 hover:bg-gray-100 dark:hover:bg-secondary-700 transition-all duration-200"
+              className={`p-2 rounded-lg transition-all duration-200 ${
+                isScrolled
+                  ? 'text-gray-600 dark:text-gray-400 hover:text-primary-900 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-secondary-700'
+                  : 'text-gray-200 hover:text-white hover:bg-white/10'
+              }`}
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
@@ -76,9 +95,13 @@ const Header = () => {
             {/* Contact Button */}
             <a
               href="tel:+919558499515"
-              className="flex items-center space-x-2 text-primary-900 dark:text-primary-900 hover:text-primary-900 dark:hover:text-primary-900 transition-colors group"
+              className={`flex items-center space-x-2 transition-colors group ${
+                isScrolled ? 'text-primary-900 dark:text-primary-400' : 'text-white hover:text-primary-300'
+              }`}
             >
-              <div className="p-2 bg-primary-50 dark:bg-primary-900/20 rounded-lg  transition-colors">
+              <div className={`p-2 rounded-lg transition-colors ${
+                isScrolled ? 'bg-primary-50 dark:bg-primary-900/20' : 'bg-white/10'
+              }`}>
                 <Phone className="h-4 w-4" />
               </div>
               <span className="font-medium text-sm">+91 95584 99515</span>
@@ -97,16 +120,22 @@ const Header = () => {
             {/* Theme Toggle Mobile */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary-900 dark:hover:text-primary-900 hover:bg-gray-100 dark:hover:bg-secondary-700 transition-all duration-200"
+              className={`p-2 rounded-lg transition-all duration-200 ${
+                isScrolled
+                  ? 'text-gray-600 dark:text-gray-400 hover:text-primary-900 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-secondary-700'
+                  : 'text-gray-200 hover:text-white hover:bg-white/10'
+              }`}
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
-
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-primary-900 dark:hover:text-primary-900 hover:bg-gray-100 dark:hover:bg-secondary-700 transition-all duration-200"
-              aria-label="Toggle menu"
+              className={`p-2 rounded-lg transition-all duration-200 ${
+                isScrolled
+                  ? 'text-gray-600 dark:text-gray-400 hover:text-primary-900 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-secondary-700'
+                  : 'text-gray-200 hover:text-white hover:bg-white/10'
+              }`}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

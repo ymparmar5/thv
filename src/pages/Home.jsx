@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Shield, Eye, Camera, Users, ArrowRight, Phone, Mail, MapPin, Bot, UserCheck, PhoneCall, AlertTriangle, TrendingDown, ClipboardCheck } from 'lucide-react'
 import Hero from '../components/Hero'
 import Intro from '../components/Intro'
+import ClientsSection from '../components/ClientsSection'
 import TestimonialSection from '../components/TestimonialSection'
 import HowItWorks from '../components/HowItWorks'
 import Industries from '../components/Industries'
@@ -226,6 +227,7 @@ const Home = () => {
         </div>
       </section>
 
+      <ClientsSection />
       <TestimonialSection />
 
       {/* FAQ Section */}
