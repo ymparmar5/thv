@@ -123,7 +123,7 @@ const About = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary-900/20 to-secondary-900/20 rounded-3xl transform rotate-3"></div>
               <img 
-                src="/team2.jpg" 
+                src="/20.jpg" 
                 alt="Eye360 monitoring center" 
                 className="relative rounded-3xl shadow-large w-full object-cover h-[600px]"
               />
