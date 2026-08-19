@@ -128,7 +128,11 @@ const AdminIncidentDetail = () => {
               </div>
               <div className="space-y-1">
                 <p className="text-xs text-gray-400 flex items-center"><Camera className="w-3 h-3 mr-1" /> Camera</p>
-                <p className="text-sm font-bold text-gray-900 dark:text-white">{camera?.name || '—'}</p>
+                <p className="text-sm font-bold text-gray-900 dark:text-white">
+                  {Array.isArray(incident.story) 
+                    ? ([...new Set(incident.story.map(clip => clip.camera))].length > 1 ? 'Multiple Cameras' : (camera?.name || getCameraById(incident.story[0]?.camera)?.name || '—'))
+                    : (camera?.name || '—')}
+                </p>
               </div>
               <div className="space-y-1">
                 <p className="text-xs text-gray-400">Category</p>
@@ -153,7 +157,20 @@ const AdminIncidentDetail = () => {
             <h3 className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 flex items-center">
               <FileText className="w-4 h-4 mr-2" /> Incident Story
             </h3>
-            <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">{incident.story}</p>
+            {Array.isArray(incident.story) ? (
+              <div className="space-y-4">
+                {incident.story.map((clip, idx) => (
+                  <div key={idx} className="border-l-2 border-primary-900 pl-4">
+                    <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
+                      Camera: {clip.camera} | Time: {clip.start} - {clip.end}
+                    </p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{clip.description}</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap leading-relaxed">{incident.story}</p>
+            )}
             {incident.reason && (
               <div className="mt-4 pt-4 border-t border-gray-100 dark:border-secondary-700">
                 <p className="text-xs text-gray-500 dark:text-gray-400 font-bold mb-1">Reason / Root Cause</p>

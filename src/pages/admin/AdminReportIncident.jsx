@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { 
   AlertOctagon, UploadCloud, Image as ImageIcon, Video, 
   Send, CheckCircle, MapPin, FileText, AlertTriangle,
-  ChevronRight, ChevronLeft, Store, Camera, ShieldAlert, ShieldCheck, Eye, Trash2, Edit2
+  ChevronRight, ChevronLeft, Store, Camera, ShieldAlert, ShieldCheck, Eye, Trash2, Edit2, Plus
 } from 'lucide-react'
 import { clients } from '../../data/mockData'
 import { useIncidents } from '../../context/IncidentContext.jsx'
@@ -30,8 +30,7 @@ const steps = [
   { id: 1, label: 'Select Context', icon: MapPin },
   { id: 2, label: 'Violation Details', icon: ShieldAlert },
   { id: 3, label: 'Write Story', icon: FileText },
-  { id: 4, label: 'Attach Evidence', icon: UploadCloud },
-  { id: 5, label: 'Review & Submit', icon: Eye },
+  { id: 4, label: 'Review & Submit', icon: Eye },
 ]
 
 const AdminReportIncident = () => {
@@ -51,6 +50,11 @@ const AdminReportIncident = () => {
   const [selectedPriority, setSelectedPriority] = useState('medium')
   const [incidentTitle, setIncidentTitle] = useState('')
   const [incidentStory, setIncidentStory] = useState('')
+  const [storyClips, setStoryClips] = useState([])
+  const [clipStart, setClipStart] = useState('')
+  const [clipEnd, setClipEnd] = useState('')
+  const [clipCamera, setClipCamera] = useState('')
+  const [clipDescription, setClipDescription] = useState('')
   const [incidentReason, setIncidentReason] = useState('')
   const [assignedEmployeeId, setAssignedEmployeeId] = useState('')
   const [files, setFiles] = useState([])
@@ -62,10 +66,9 @@ const AdminReportIncident = () => {
 
   const canNext = () => {
     switch (currentStep) {
-      case 1: return selectedClientId && selectedStoreId && selectedCameraId
+      case 1: return selectedClientId && selectedStoreId
       case 2: return selectedCategory && selectedPriority
       case 3: return incidentTitle.trim() && incidentStory.trim()
-      case 4: return true // Evidence is optional
       default: return true
     }
   }
@@ -74,18 +77,28 @@ const AdminReportIncident = () => {
     setIsSubmitting(true)
     const employee = assignedEmployeeId ? getEmployeeById(assignedEmployeeId) : null
 
+    // Merge incidentStory and storyClips into a single formatted string
+    let mergedStory = incidentStory.trim()
+    if (storyClips.length > 0) {
+      mergedStory += '\n\n--- Camera Timeline ---\n'
+      storyClips.forEach(clip => {
+        const camName = getCameraById(clip.camera)?.name || clip.camera
+        mergedStory += `\n[${camName} | ${clip.start} - ${clip.end}]\n${clip.description}\n`
+      })
+    }
+
     setTimeout(() => {
       dispatch({
         type: 'CREATE_INCIDENT',
         payload: {
           title: incidentTitle,
-          story: incidentStory,
+          story: mergedStory,
           reason: incidentReason,
           severity: selectedPriority,
           category: selectedCategory,
           clientId: selectedClientId,
           storeId: selectedStoreId,
-          cameraId: selectedCameraId,
+          cameraId: storyClips[0]?.camera || null, // fallback for legacy views that expect a single cameraId
           regulationId: selectedRegulationId || null,
           assignedEmployeeId: assignedEmployeeId || null,
           createdByName: employee?.name || 'Admin',
@@ -164,12 +177,16 @@ const AdminReportIncident = () => {
                 setCurrentStep(1)
                 setSelectedClientId('')
                 setSelectedStoreId('')
-                setSelectedCameraId('')
                 setSelectedRegulationId('')
                 setSelectedCategory('')
                 setSelectedPriority('medium')
                 setIncidentTitle('')
                 setIncidentStory('')
+                setStoryClips([])
+                setClipStart('')
+                setClipEnd('')
+                setClipCamera('')
+                setClipDescription('')
                 setIncidentReason('')
                 setAssignedEmployeeId('')
                 setFiles([])
@@ -262,30 +279,13 @@ const AdminReportIncident = () => {
                 </label>
                 <select
                   value={selectedStoreId}
-                  onChange={(e) => { setSelectedStoreId(e.target.value); setSelectedCameraId(''); }}
+                  onChange={(e) => { setSelectedStoreId(e.target.value); }}
                   disabled={!selectedClientId}
                   className="w-full px-4 py-2.5 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-900/20 focus:border-primary-900 transition-all disabled:opacity-50"
                 >
                   <option value="">Select a store...</option>
                   {clientStores.map((s) => (
                     <option key={s.id} value={s.id}>{s.name} ({s.id})</option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-900 dark:text-gray-200 flex items-center">
-                  <Camera className="w-4 h-4 mr-1.5 text-gray-400" /> Camera <span className="text-red-500 ml-1">*</span>
-                </label>
-                <select
-                  value={selectedCameraId}
-                  onChange={(e) => setSelectedCameraId(e.target.value)}
-                  disabled={!selectedStoreId}
-                  className="w-full px-4 py-2.5 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-900/20 focus:border-primary-900 transition-all disabled:opacity-50"
-                >
-                  <option value="">Select a camera...</option>
-                  {storeCameras.map((c) => (
-                    <option key={c.id} value={c.id}>{c.name} ({c.id}) — {c.status}</option>
                   ))}
                 </select>
               </div>
@@ -415,12 +415,187 @@ const AdminReportIncident = () => {
                 The Story (What Happened?) <span className="text-red-500">*</span>
               </label>
               <textarea
-                rows="6"
+                rows="4"
                 value={incidentStory}
                 onChange={(e) => setIncidentStory(e.target.value)}
-                placeholder="Describe the incident in detail from start to finish. Mention any individuals involved, specific behaviors, timestamps, and the immediate outcome..."
-                className="w-full px-4 py-3 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-900/20 focus:border-primary-900 transition-all resize-y"
+                placeholder="Describe the incident in detail..."
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-900/20 focus:border-primary-900 transition-all resize-y mb-4"
               />
+
+              <div className="mt-6 mb-8 border-t border-gray-200 dark:border-secondary-700 pt-6">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200 mb-4 block">
+                  Attach Evidence (Images & Video)
+                </label>
+                
+                <div
+                  className="border-2 border-dashed border-gray-300 dark:border-secondary-600 rounded-2xl p-8 text-center hover:bg-gray-50 dark:hover:bg-secondary-800/50 transition-colors cursor-pointer group"
+                  onClick={() => document.getElementById('file-upload').click()}
+                >
+                  <input type="file" id="file-upload" className="hidden" multiple accept="image/*,video/*" onChange={handleFileUpload} />
+                  <div className="w-16 h-16 bg-primary-50 dark:bg-primary-900/20 text-primary-900 dark:text-primary-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <UploadCloud className="w-8 h-8" />
+                  </div>
+                  <p className="text-sm font-bold text-gray-900 dark:text-white mb-1">Click to upload or drag and drop</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or MP4 (max. 1080p)</p>
+                </div>
+
+                <div className="flex gap-3 mt-4">
+                  <button
+                    type="button"
+                    onClick={() => addMockEvidence('video')}
+                    className="flex items-center px-4 py-2 border border-gray-200 dark:border-secondary-700 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-primary-900 dark:hover:border-primary-400 hover:text-primary-900 dark:hover:text-primary-400 transition-colors"
+                  >
+                    <Video className="w-4 h-4 mr-2" /> Add Video Clip
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => addMockEvidence('image')}
+                    className="flex items-center px-4 py-2 border border-gray-200 dark:border-secondary-700 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-primary-900 dark:hover:border-primary-400 hover:text-primary-900 dark:hover:text-primary-400 transition-colors"
+                  >
+                    <ImageIcon className="w-4 h-4 mr-2" /> Add Screenshot
+                  </button>
+                </div>
+
+                {files.length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                    {files.map((file, idx) => (
+                      <div key={idx} className="flex items-center p-3 bg-gray-50 dark:bg-secondary-900 border border-gray-100 dark:border-secondary-700 rounded-xl group transition-all hover:shadow-sm">
+                        <div className="w-12 h-12 bg-white dark:bg-secondary-800 border border-gray-200 dark:border-secondary-700 rounded-lg flex items-center justify-center mr-3 shrink-0 overflow-hidden shadow-sm">
+                          {file.type === 'image' && file.fileObj ? (
+                            <img src={URL.createObjectURL(file.fileObj)} alt="preview" className="w-full h-full object-cover" />
+                          ) : file.type === 'video' ? (
+                            <Video className="w-5 h-5 text-primary-900 dark:text-primary-400" />
+                          ) : (
+                            <ImageIcon className="w-5 h-5 text-primary-900 dark:text-primary-400" />
+                          )}
+                        </div>
+                        <div className="overflow-hidden flex-1">
+                          <p className="text-sm font-bold text-gray-900 dark:text-white truncate" title={file.name}>{file.name}</p>
+                          <p className="text-xs text-gray-500">{file.size}</p>
+                        </div>
+                        <div className="flex gap-1 ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                          <label htmlFor={`update-file-${idx}`} className="p-1.5 rounded-lg text-gray-400 hover:bg-white dark:hover:bg-secondary-800 hover:text-primary-900 dark:hover:text-primary-400 cursor-pointer transition-colors shadow-sm">
+                            <Edit2 className="w-4 h-4" />
+                            <input id={`update-file-${idx}`} type="file" accept="image/*,video/*" className="hidden" onChange={(e) => handleUpdateFile(e, idx)} />
+                          </label>
+                          <button
+                            type="button"
+                            onClick={() => setFiles(files.filter((_, i) => i !== idx))}
+                            className="p-1.5 rounded-lg text-gray-400 hover:bg-white dark:hover:bg-secondary-800 hover:text-red-500 transition-colors shadow-sm"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
+              <div className="border-t border-gray-200 dark:border-secondary-700 pt-6 mt-6">
+                <label className="text-sm font-bold text-gray-900 dark:text-gray-200 block">
+                  Additional Camera Timeline (Optional)
+                </label>
+              </div>
+              {storyClips.length > 0 && (
+                <div className="space-y-3 mb-4">
+                  {storyClips.map((clip, index) => (
+                    <div key={index} className="bg-white dark:bg-secondary-800 p-4 rounded-xl border border-gray-200 dark:border-secondary-700 relative group">
+                      <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setClipStart(clip.start)
+                            setClipEnd(clip.end)
+                            setClipCamera(clip.camera)
+                            setClipDescription(clip.description)
+                            setStoryClips(storyClips.filter((_, i) => i !== index))
+                          }}
+                          className="p-1.5 text-gray-400 hover:text-primary-900 dark:hover:text-primary-400 rounded-lg hover:bg-gray-100 dark:hover:bg-secondary-700 transition-colors"
+                          title="Edit clip"
+                        >
+                          <Edit2 className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setStoryClips(storyClips.filter((_, i) => i !== index))}
+                          className="p-1.5 text-gray-400 hover:text-red-500 rounded-lg hover:bg-gray-100 dark:hover:bg-secondary-700 transition-colors"
+                          title="Remove clip"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                      <div className="flex flex-wrap gap-2 text-xs font-semibold text-gray-500 dark:text-gray-400 mb-2">
+                        <span className="bg-gray-100 dark:bg-secondary-900 px-2 py-1 rounded-md">Camera: {clip.camera}</span>
+                        <span className="bg-gray-100 dark:bg-secondary-900 px-2 py-1 rounded-md">Time: {clip.start} - {clip.end}</span>
+                      </div>
+                      <p className="text-sm text-gray-700 dark:text-gray-300">{clip.description}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className="bg-gray-50 dark:bg-secondary-900 border border-gray-200 dark:border-secondary-700 rounded-xl p-4 space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div>
+                    <label className="text-xs font-bold text-gray-700 dark:text-gray-300 mb-1 block">Start Time</label>
+                    <input
+                      type="time"
+                      value={clipStart}
+                      onChange={(e) => setClipStart(e.target.value)}
+                      className="w-full px-3 py-2 bg-white dark:bg-secondary-800 border border-gray-200 dark:border-secondary-700 rounded-lg text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-900/20 focus:border-primary-900"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-bold text-gray-700 dark:text-gray-300 mb-1 block">End Time</label>
+                    <input
+                      type="time"
+                      value={clipEnd}
+                      onChange={(e) => setClipEnd(e.target.value)}
+                      className="w-full px-3 py-2 bg-white dark:bg-secondary-800 border border-gray-200 dark:border-secondary-700 rounded-lg text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-900/20 focus:border-primary-900"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-bold text-gray-700 dark:text-gray-300 mb-1 block">Camera No.</label>
+                    <select
+                      value={clipCamera}
+                      onChange={(e) => setClipCamera(e.target.value)}
+                      className="w-full px-3 py-2 bg-white dark:bg-secondary-800 border border-gray-200 dark:border-secondary-700 rounded-lg text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-900/20 focus:border-primary-900"
+                    >
+                      <option value="">Select camera...</option>
+                      {storeCameras.map(c => (
+                        <option key={c.id} value={c.id}>{c.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="text-xs font-bold text-gray-700 dark:text-gray-300 mb-1 block">Explain Suspicious Activity</label>
+                  <textarea
+                    rows="3"
+                    value={clipDescription}
+                    onChange={(e) => setClipDescription(e.target.value)}
+                    placeholder="Describe what happened in this clip..."
+                    className="w-full px-3 py-2 bg-white dark:bg-secondary-800 border border-gray-200 dark:border-secondary-700 rounded-lg text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-900/20 focus:border-primary-900 resize-y"
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (clipStart && clipEnd && clipCamera && clipDescription) {
+                      setStoryClips([...storyClips, { start: clipStart, end: clipEnd, camera: clipCamera, description: clipDescription }])
+                      setClipStart('')
+                      setClipEnd('')
+                      setClipCamera('')
+                      setClipDescription('')
+                    }
+                  }}
+                  disabled={!clipStart || !clipEnd || !clipCamera || !clipDescription}
+                  className="flex items-center justify-center w-full py-2.5 bg-white dark:bg-secondary-800 border border-gray-200 dark:border-secondary-700 rounded-lg text-sm font-bold text-primary-900 dark:text-primary-400 hover:bg-gray-100 dark:hover:bg-secondary-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  <Plus className="w-4 h-4 mr-2" /> Add Camera Details
+                </button>
+              </div>
             </div>
 
             <div className="space-y-2">
@@ -438,80 +613,8 @@ const AdminReportIncident = () => {
           </div>
         )}
 
-        {/* Step 4: Attach Evidence */}
+        {/* Step 4: Review & Submit */}
         {currentStep === 4 && (
-          <div className="space-y-6 animate-fade-in">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-white">Attach Evidence (Images & Video)</h2>
-
-            <div
-              className="border-2 border-dashed border-gray-300 dark:border-secondary-600 rounded-2xl p-8 text-center hover:bg-gray-50 dark:hover:bg-secondary-800/50 transition-colors cursor-pointer group"
-              onClick={() => document.getElementById('file-upload').click()}
-            >
-              <input type="file" id="file-upload" className="hidden" multiple accept="image/*,video/*" onChange={handleFileUpload} />
-              <div className="w-16 h-16 bg-primary-50 dark:bg-primary-900/20 text-primary-900 dark:text-primary-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <UploadCloud className="w-8 h-8" />
-              </div>
-              <p className="text-sm font-bold text-gray-900 dark:text-white mb-1">Click to upload or drag and drop</p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or MP4 (max. 1080p)</p>
-            </div>
-
-            {/* Quick add mock evidence buttons */}
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={() => addMockEvidence('video')}
-                className="flex items-center px-4 py-2 border border-gray-200 dark:border-secondary-700 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-primary-900 dark:hover:border-primary-400 hover:text-primary-900 dark:hover:text-primary-400 transition-colors"
-              >
-                <Video className="w-4 h-4 mr-2" /> Add Video Clip
-              </button>
-              <button
-                type="button"
-                onClick={() => addMockEvidence('image')}
-                className="flex items-center px-4 py-2 border border-gray-200 dark:border-secondary-700 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:border-primary-900 dark:hover:border-primary-400 hover:text-primary-900 dark:hover:text-primary-400 transition-colors"
-              >
-                <ImageIcon className="w-4 h-4 mr-2" /> Add Screenshot
-              </button>
-            </div>
-
-            {files.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {files.map((file, idx) => (
-                  <div key={idx} className="flex items-center p-3 bg-gray-50 dark:bg-secondary-900 border border-gray-100 dark:border-secondary-700 rounded-xl group transition-all hover:shadow-sm">
-                    <div className="w-12 h-12 bg-white dark:bg-secondary-800 border border-gray-200 dark:border-secondary-700 rounded-lg flex items-center justify-center mr-3 shrink-0 overflow-hidden shadow-sm">
-                      {file.type === 'image' && file.fileObj ? (
-                        <img src={URL.createObjectURL(file.fileObj)} alt="preview" className="w-full h-full object-cover" />
-                      ) : file.type === 'video' ? (
-                        <Video className="w-5 h-5 text-primary-900 dark:text-primary-400" />
-                      ) : (
-                        <ImageIcon className="w-5 h-5 text-primary-900 dark:text-primary-400" />
-                      )}
-                    </div>
-                    <div className="overflow-hidden flex-1">
-                      <p className="text-sm font-bold text-gray-900 dark:text-white truncate" title={file.name}>{file.name}</p>
-                      <p className="text-xs text-gray-500">{file.size}</p>
-                    </div>
-                    <div className="flex gap-1 ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <label htmlFor={`update-file-${idx}`} className="p-1.5 rounded-lg text-gray-400 hover:bg-white dark:hover:bg-secondary-800 hover:text-primary-900 dark:hover:text-primary-400 cursor-pointer transition-colors shadow-sm">
-                        <Edit2 className="w-4 h-4" />
-                        <input id={`update-file-${idx}`} type="file" accept="image/*,video/*" className="hidden" onChange={(e) => handleUpdateFile(e, idx)} />
-                      </label>
-                      <button
-                        type="button"
-                        onClick={() => setFiles(files.filter((_, i) => i !== idx))}
-                        className="p-1.5 rounded-lg text-gray-400 hover:bg-white dark:hover:bg-secondary-800 hover:text-red-500 transition-colors shadow-sm"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Step 5: Review & Submit */}
-        {currentStep === 5 && (
           <div className="space-y-6 animate-fade-in">
             <h2 className="text-lg font-bold text-gray-900 dark:text-white">Review Incident Report</h2>
 
@@ -526,7 +629,9 @@ const AdminReportIncident = () => {
               </div>
               <div className="bg-gray-50 dark:bg-secondary-900 rounded-xl p-4">
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Camera</p>
-                <p className="font-semibold text-gray-900 dark:text-white text-sm">{getCameraById(selectedCameraId)?.name || '—'}</p>
+                <p className="font-semibold text-gray-900 dark:text-white text-sm">
+                  {[...new Set(storyClips.map(clip => clip.camera))].length > 1 ? 'Multiple Cameras' : (getCameraById(storyClips[0]?.camera)?.name || '—')}
+                </p>
               </div>
               <div className="bg-gray-50 dark:bg-secondary-900 rounded-xl p-4">
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Severity</p>
@@ -559,6 +664,20 @@ const AdminReportIncident = () => {
             <div className="bg-gray-50 dark:bg-secondary-900 rounded-xl p-4 space-y-2">
               <p className="text-xs text-gray-500 dark:text-gray-400">Story</p>
               <p className="text-sm text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{incidentStory}</p>
+              
+              {storyClips.length > 0 && (
+                <div className="space-y-3 mt-4 pt-4 border-t border-gray-200 dark:border-secondary-700">
+                  <p className="text-xs text-gray-500 dark:text-gray-400 font-bold mb-2">Camera Timeline</p>
+                  {storyClips.map((clip, idx) => (
+                    <div key={idx} className="border-l-2 border-primary-900 pl-3">
+                      <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
+                        Camera: {clip.camera} | Time: {clip.start} - {clip.end}
+                      </p>
+                      <p className="text-sm text-gray-700 dark:text-gray-300">{clip.description}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {incidentReason && (
@@ -595,9 +714,9 @@ const AdminReportIncident = () => {
           <ChevronLeft className="w-4 h-4 mr-2" /> Previous
         </button>
 
-        {currentStep < 5 ? (
+        {currentStep < 4 ? (
           <button
-            onClick={() => setCurrentStep(Math.min(5, currentStep + 1))}
+            onClick={() => setCurrentStep(Math.min(4, currentStep + 1))}
             disabled={!canNext()}
             className="btn-primary disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none"
           >

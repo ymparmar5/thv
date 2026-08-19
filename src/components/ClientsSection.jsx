@@ -43,7 +43,7 @@ const ClientsSection = () => {
               <img
                 src={`/images/clients/${num}`}
                 alt={`Client ${num}`}
-                className="max-w-full max-h-full object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300 dark:invert dark:opacity-60 dark:hover:invert-0 dark:hover:opacity-100"
+                className="max-w-full max-h-full object-contain transition-all duration-300 dark:invert dark:opacity-60 dark:hover:invert-0 dark:hover:opacity-100"
                 loading="lazy"
               />
             </motion.div>

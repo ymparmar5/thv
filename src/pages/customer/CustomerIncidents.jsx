@@ -131,7 +131,7 @@ const CustomerIncidents = () => {
                     <span className="text-xs text-gray-400">{inc.id}</span>
                   </div>
                   <h3 className="font-bold text-gray-900 dark:text-white group-hover:text-primary-900 dark:group-hover:text-primary-400 transition-colors text-lg mb-1">{inc.title}</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">{inc.story.substring(0, 150)}...</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">{Array.isArray(inc.story) ? `${inc.story.length} clips attached` : inc.story.substring(0, 150)}...</p>
                   <div className="flex items-center gap-4 mt-3 text-xs text-gray-500 dark:text-gray-400">
                     <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {new Date(inc.createdAt).toLocaleDateString()}</span>
                     <span>{store?.name || '—'}</span>
